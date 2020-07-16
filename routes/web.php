@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
  */
-
+// fhvhfhfgh
 
 Route::get('/','PageController@home');
 Route::get('/dang-nhap','LoginController@login')->name('get.login');
