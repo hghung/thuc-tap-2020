@@ -6,7 +6,6 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Schema;
 
-use Cart;
 
 
 
@@ -37,9 +36,7 @@ class AppServiceProvider extends ServiceProvider
        // thong ke
        
 
-        View::composer('*', function ($view){
-            view()->share(['data2' => Cart::content(), 'data3' => Cart::total(0,',','.')]);
-        });
+       
 
         /// để không bị lỗi S4201 trong migrate
         Schema::defaultStringLength(191);
