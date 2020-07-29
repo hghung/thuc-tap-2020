@@ -21,15 +21,12 @@ class DbUser extends Migration
             $table->string('sdt');
             $table->string('cmnd');
             $table->string('email');
-            $table->string('dia_chi');
             $table->date('nam_sinh');
+            $table->string('avatar')->nullable();
 
 
-            $table->integer('id_taikhoan')->unsigned();
-            $table->foreign('id_taikhoan')
-                    ->references('id')
-                    ->on('db_taikhoan')
-                    ->onDelete('cascade');
+
+            
         });
     }
 

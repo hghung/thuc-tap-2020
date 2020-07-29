@@ -1,4 +1,5 @@
 @extends('admin.master')
+@section('tieude','Dashboard')
 @section('admin_content')
     <section class="ls with_bottom_border">
         <div class="container-fluid">

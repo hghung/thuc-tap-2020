@@ -25,7 +25,7 @@ class User extends Authenticatable
 
     public function user() // phải viêt liền ko được cách ra hoặc _
     {
-        return $this->hasOne('App\Models\db_user','id_taikhoan','id'); 
+        return $this->belongsTo('App\Models\db_user','id_user','id'); 
         // từ sản phẩm cha ra con xài hasone
         // (tên đường dẫn, 'khoa ngoại', khóa chính)
     }

@@ -2,7 +2,7 @@
 <html class="no-js">
 
 <head>
-	<title>FixIt</title>
+	<title>Admin || @yield('tieude')</title>
 	<meta charset="utf-8">
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -94,8 +94,14 @@
 
 						<div class="col-sm-12 text-center">
 							<div class="contact-form-submit">
-								<button type="submit" id="contact_form_submit" name="contact_submit" class="theme_button wide_button color1">Send Message</button>
-								<button type="reset" id="contact_form_reset" name="contact_reset" class="theme_button wide_button">Clear Form</button>
+								<div class="row">
+									<div class="col-md-6">
+										<button type="submit" id="contact_form_submit" name="contact_submit" class="theme_button wide_button color1">Gửi</button>
+									</div>
+									<div class="col-md-6">
+										<button type="reset" id="contact_form_reset" name="contact_reset" class="theme_button wide_button">Làm mới</button>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

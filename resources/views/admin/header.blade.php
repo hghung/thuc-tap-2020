@@ -11,7 +11,7 @@
 	<div class="pull-right big-header-buttons">
 		<ul class="inline-dropdown inline-block">
 			<li class="dropdown header-notes-dropdown">
-				<a class="header-button" data-target="#" href="index.htm" tppabs="http://webdesign-finder.com/html/fixit/" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+				<a class="header-button" data-target="#" href="index.htm"  data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
 					<i class="fa fa-bell-o grey"></i>
 					<span class="header-button-text">Messages</span>
 					<span class="header-dropdown-number">
@@ -130,7 +130,7 @@
 			</li>
 
 			<li class="dropdown header-notes-dropdown">
-				<a class="header-button" data-target="#" href="index.htm" tppabs="http://webdesign-finder.com/html/fixit/" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+				<a class="header-button" data-target="#" href="index.htm"  data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
 					<i class="fa fa-envelope-o grey"></i>
 					<span class="header-button-text">Inbox</span>
 					<span class="header-dropdown-number">
@@ -152,7 +152,7 @@
 						<li>
 							<div class="media">
 								<div class="media-left">
-									<img src="01-2.jpg" tppabs="http://webdesign-finder.com/html/fixit/images/team_square/01.jpg" alt="...">
+									<img src="01-2.jpg"  alt="...">
 								</div>
 								<div class="media-body">
 									<h5 class="media-heading">
@@ -169,7 +169,7 @@
 						<li>
 							<div class="media">
 								<div class="media-left">
-									<img src="02-2.jpg" tppabs="http://webdesign-finder.com/html/fixit/images/team_square/02.jpg" alt="...">
+									<img src="02-2.jpg" alt="...">
 								</div>
 								<div class="media-body">
 									<h5 class="media-heading">
