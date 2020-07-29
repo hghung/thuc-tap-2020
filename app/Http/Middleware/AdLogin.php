@@ -24,6 +24,8 @@ class AdLogin
                 return $next($request);
             elseif($user->id_vaitro == 2 )
                 return redirect()->route('taikhoan.dashboard');
+            elseif($user->id_vaitro == 3 )
+                return redirect()->route('get.logout');
             
         }       
         else

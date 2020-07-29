@@ -21,7 +21,6 @@ Route::get('/dang-xuat','LoginController@logout')->name('get.logout');
 
 
 
-
 // Taikhoan ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 Route::group(['prefix'=>'tai-khoan','middleware'=>'Page_login'],function(){
 
@@ -45,6 +44,11 @@ Route::group(['prefix'=>'admin', 'middleware'=>'Ad_login'],function(){
 	Route::group(['prefix'=>'users'],function(){
 		Route::get('/','UsersController@list')->name('users.list');
 		Route::get('/add','UsersController@get_add')->name('users.get.add');
+		// ajax
+		Route::get('/phuong-xa/{id_ward}','UsersController@ajax_ward')->name('phuongxa');
+
+		Route::post('/add','UsersController@post_add')->name('users.post.add');
+
 
 
 	});
@@ -76,31 +80,32 @@ Route::get('/thuctap',function(){
 	$vaitro->save();
 
 	$vaitro = new db_vaitro;
-	$vaitro->vt_ten = 'Nhan vien';
+	$vaitro->vt_ten = 'Nhân viên';
 	$vaitro->save();
 
 	$vaitro = new db_vaitro;
-	$vaitro->vt_ten = 'Khach hang';
+	$vaitro->vt_ten = 'Khách hàng';
 	$vaitro->save();
+	
+	// add thong tin
+	$user = new db_user;
+	$user->ho_ten='Gia Hung';
+	$user->email = 'admin@gmail.com';
+	$user->sdt = '0762999994';
+	$user->nam_sinh = '1998-01-01';
+	$user->cmnd = '331821579';
+	
+	$user->save();
+	$user->ma_user = "ADMIN-000".$user->id;
+	$user->save();
 	// add tai khoan
 	$taikhoan = new User;
 	$taikhoan->username='admin';
 	$taikhoan->password=bcrypt('admin');
 	$taikhoan->trang_thai='1';
 	$taikhoan->id_vaitro='1';
+	$taikhoan->id_user = $user->id;
 	$taikhoan->save();
-	// add thong tin
-	$user = new db_user;
-	$user->ho_ten='Admin';
-	$user->email = 'admin@gmail.com';
-	$user->sdt = '0762999994';
-	$user->nam_sinh = '1998-01-01';
-	$user->cmnd = '331821579';
-	$user->dia_chi = 'Vĩnh Long';
-	$user->id_taikhoan = $taikhoan->id;
-	$user->save();
-	$user->ma_user = "ADMIN-000".$user->id;
-	$user->save();
 
 
 

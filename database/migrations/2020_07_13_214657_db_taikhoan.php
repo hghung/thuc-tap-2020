@@ -15,9 +15,16 @@ class DbTaikhoan extends Migration
     {
         Schema::create('db_taikhoan', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('username');
+            $table->string('username')->nullable();
             $table->string('password');
             $table->integer('trang_thai');
+
+            $table->integer('id_user')->unsigned();
+            $table->foreign('id_user')
+                    ->references('id')
+                    ->on('db_user')
+                    ->onDelete('cascade');
+
             $table->integer('id_vaitro')->unsigned();
             $table->foreign('id_vaitro')
                     ->references('id')

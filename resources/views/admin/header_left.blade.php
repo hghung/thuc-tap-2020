@@ -21,7 +21,7 @@
 									<img src="{{asset('public/img/01-2.jpg')}}"  alt="">
 								</div>
 								<div class="media-body media-middle">
-									<h4>{{Auth::user()->user->ho_ten}}</h4>
+									<h4></h4>
 									{{Auth::user()->vaitro->vt_ten}}
 								</div>
 							</div>
@@ -46,7 +46,7 @@
 								</a>
 							</li>
 							<li>
-								<a href="admin_signin.html" tppabs="http://webdesign-finder.com/html/fixit/admin_signin.html">
+								<a href="route('get.logout')" >
 									<i class="fa fa-sign-out"></i>
 									Log Out
 								</a>
