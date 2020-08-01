@@ -85,53 +85,57 @@
 									<th  width="10%">Thao tác</th>
 
 								</tr>
-								@foreach($user as $user1)
-								{{--  start  --}}
-								<tr class="item-editable">
-									{{--  1  --}}
-									<td>
-										{{ $user1->user->ma_user }}
-									</td>
-									{{--  2  --}}
-									<td class="media-middle">
-										{{ $user1->username }}
+								<tbody>
+									@foreach($user as $user1)
+									{{--  start  --}}
+									<tr class="item-editable">
+										{{--  1  --}}
+										<td>
+											{{ $user1->user->ma_user }}
+										</td>
+										{{--  2  --}}
+										<td class="media-middle">
+											{{ $user1->username }}
 
-									</td>
-									{{--  3  --}}
-									<td class="media-middle">
-										{{ $user1->user->ho_ten }}
+										</td>
+										{{--  3  --}}
+										<td class="media-middle">
+											{{ $user1->user->ho_ten }}
 
-									</td>
-									{{--  4  --}}
-									<td class="media-middle">
-										@if($user1->id_vaitro == 1)
-											<span style="color:red">{{ $user1->vaitro->vt_ten }}</span>
-										@elseif($user1->id_vaitro == 2)
-											<span style="color:yellow">{{ $user1->vaitro->vt_ten }}</span>
-										@elseif($user1->id_vaitro == 3)
-											<span style="color:green">{{ $user1->vaitro->vt_ten }}</span>
-										@endif
-									</td>
-									{{--  5  --}}
-									<td class="media-middle" align="center">
-										@if($user1->trang_thai == 1)
-											<span style="color:green">
-												<i class="fa fa-unlock"></i>
-											</span>
-										@elseif($user1->trang_thai == 2)
-											<span style="color:red">
-												<i class="fa fa-lock"></i>
-											</span>
-										@endif
-									</td>
-									<td align="center">
-										<a href="#"> 
-											<i class="fa fa-cogs"></i>
-										</a>
-									</td>
-								</tr>
-								{{--  end  --}}
-								@endforeach
+										</td>
+										{{--  4  --}}
+										<td class="media-middle">
+											@if($user1->id_vaitro == 1)
+												<span style="color:red">{{ $user1->vaitro->vt_ten }}</span>
+											@elseif($user1->id_vaitro == 2)
+												<span style="color:orange">{{ $user1->vaitro->vt_ten }}</span>
+											@elseif($user1->id_vaitro == 3)
+												<span style="color:rgb(32, 46, 248)">{{ $user1->vaitro->vt_ten }}</span>
+											@elseif($user1->id_vaitro == 4)
+												<span style="color:green">{{ $user1->vaitro->vt_ten }}</span>
+											@endif
+										</td>
+										{{--  5  --}}
+										<td class="media-middle" align="center">
+											@if($user1->trang_thai == 1)
+												<span style="color:green">
+													<i class="fa fa-unlock"></i>
+												</span>
+											@elseif($user1->trang_thai == 2)
+												<span style="color:red">
+													<i class="fa fa-lock"></i>
+												</span>
+											@endif
+										</td>
+										<td align="center">
+											<a href="#"> 
+												<i class="fa fa-cogs"></i>
+											</a>
+										</td>
+									</tr>
+									{{--  end  --}}
+									@endforeach
+								</tbody>
 
 								
 

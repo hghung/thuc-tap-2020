@@ -30,7 +30,8 @@ Route::group(['prefix'=>'tai-khoan','middleware'=>'Page_login'],function(){
 // admin ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 Route::group(['prefix'=>'admin', 'middleware'=>'Ad_login'],function(){
 	Route::get('/','AdminController@home')->name('admin.dashboard');
-	Route::get('/ban-do','AdminController@map_baotri')->name('admin.map');
+
+
 	Route::get('/lich-bao-tri','AdminController@lich_baotri')->name('admin.lich');
 
 
@@ -39,6 +40,16 @@ Route::group(['prefix'=>'admin', 'middleware'=>'Ad_login'],function(){
 
 	Route::get('/thong-ke','ChartController@chart')->name('admin.chart');
 
+	Route::group(['prefix'=>'ban-do'],function(){
+		Route::get('/','AdminController@map_baotri')->name('admin.map');
+		Route::get('/map-bao-tri-{id}','AdminController@ct_map')->name('admin.ct.map');
+
+
+		
+
+
+
+	});
 
 
 	Route::group(['prefix'=>'users'],function(){
@@ -55,8 +66,9 @@ Route::group(['prefix'=>'admin', 'middleware'=>'Ad_login'],function(){
 
 	Route::group(['prefix'=>'bao-tri'],function(){
 		Route::get('/','BaotriController@list')->name('baotri.list');
-		// Route::post('/add','LoainhaController@post_add')->name('loainha.post.add');
 		Route::get('/add','BaotriController@get_add')->name('baotri.get.add');
+		Route::post('/add','BaotriController@post_add')->name('baotri.post.add');
+
 
 
 	});
@@ -71,6 +83,8 @@ Route::group(['prefix'=>'admin', 'middleware'=>'Ad_login'],function(){
 use App\User;
 use App\Models\db_user;
 use App\Models\db_vaitro;
+use App\Models\db_trangthai;
+
 use Carbon\Carbon; // lấy ngày hiên tại
 // /////////////////////////////////////////////////
 Route::get('/thuctap',function(){
@@ -84,8 +98,42 @@ Route::get('/thuctap',function(){
 	$vaitro->save();
 
 	$vaitro = new db_vaitro;
+	$vaitro->vt_ten = 'Nhân viên bảo trì';
+	$vaitro->save();
+
+	$vaitro = new db_vaitro;
 	$vaitro->vt_ten = 'Khách hàng';
 	$vaitro->save();
+
+	//trangthai
+	$trangthai = new db_trangthai;
+	$trangthai->trangthai = 'Chưa duyệt';
+	$trangthai->save();
+
+	$trangthai = new db_trangthai;
+	$trangthai->trangthai = 'Đã duyệt';
+	$trangthai->save();
+
+	$trangthai = new db_trangthai;
+	$trangthai->trangthai = 'Đang chuẩn bị';
+	$trangthai->save();
+
+	$trangthai = new db_trangthai;
+	$trangthai->trangthai = 'Đã sẵn sàn';
+	$trangthai->save();
+
+	$trangthai = new db_trangthai;
+	$trangthai->trangthai = 'Đang đến';
+	$trangthai->save();
+
+	$trangthai = new db_trangthai;
+	$trangthai->trangthai = 'Hoàn thành';
+	$trangthai->save();
+
+	$trangthai = new db_trangthai;
+	$trangthai->trangthai = 'Hoãn lại';
+	$trangthai->save();
+
 	
 	// add thong tin
 	$user = new db_user;
@@ -113,7 +161,7 @@ Route::get('/thuctap',function(){
 
 ////////////////////////s
 Route::get('foo', function () {
-    return view('admin.book.test');
+	
 });
 
 

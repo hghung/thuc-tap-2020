@@ -67,28 +67,28 @@
 				<form class="with_padding contact-form" method="post" action="http://webdesign-finder.com/html/fixit/">
 					<div class="row">
 						<div class="col-sm-12">
-							<h3>Contact Admin</h3>
+							<h3>Liên hệ Nhân viên</h3>
 							<div class="contact-form-name">
 								<label for="name">Full Name
 									<span class="required">*</span>
 								</label>
-								<input type="text" aria-required="true" size="30" value="" name="name" id="name" class="form-control" placeholder="Full Name">
+								<input type="text" aria-required="true" size="30" value="{{ Auth::user()->user->ho_ten }}" name="name" id="name" class="form-control" >
 							</div>
 						</div>
 						<div class="col-sm-12">
 							<div class="contact-form-subject">
-								<label for="subject">Subject
+								<label for="subject">Tiêu đề
 									<span class="required">*</span>
 								</label>
-								<input type="text" aria-required="true" size="30" value="" name="subject" id="subject" class="form-control" placeholder="Subject">
+								<input type="text" aria-required="true" size="30" value="" name="subject" id="subject" class="form-control" placeholder="Tiêu đề">
 							</div>
 						</div>
 
 						<div class="col-sm-12">
 
 							<div class="contact-form-message">
-								<label for="message">Message</label>
-								<textarea aria-required="true" rows="6" cols="45" name="message" id="message" class="form-control" placeholder="Message"></textarea>
+								<label for="message">Nội dung</label>
+								<textarea aria-required="true" rows="6" cols="45" name="message" id="message" class="form-control" placeholder="Nội dung"></textarea>
 							</div>
 						</div>
 
@@ -96,7 +96,7 @@
 							<div class="contact-form-submit">
 								<div class="row">
 									<div class="col-md-6">
-										<button type="submit" id="contact_form_submit" name="contact_submit" class="theme_button wide_button color1">Gửi</button>
+										<button type="submit" id="contact_form_submit" name="contact_submit" class="theme_button wide_button color1" style="padding-left: 30px; padding-right:30px;">Gửi</button>
 									</div>
 									<div class="col-md-6">
 										<button type="reset" id="contact_form_reset" name="contact_reset" class="theme_button wide_button">Làm mới</button>

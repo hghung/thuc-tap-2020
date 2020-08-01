@@ -1,5 +1,10 @@
 @extends('admin.master')
+@section('tieude','Thêm lịch bảo trì')
 @section('admin_content')
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+
+
     <section class="ls with_bottom_border">
         <div class="container-fluid">
             <div class="row">
@@ -8,7 +13,7 @@
                         <li>
                             <a href="#">Dashboard</a>
                         </li>
-                        <li class="active">Product</li>
+                        <li class="active">Bảo trì</li>
                     </ol>
                 </div>
                 <!-- .col-* -->
@@ -28,75 +33,49 @@
 
     <section class="ls section_padding_top_50 section_padding_bottom_50 columns_padding_10">
         <div class="container-fluid">
-
-            <div class="row">
-                <div class="col-sm-12">
-                    <h3>Single product
-                        <small class="pull-right">
-                            <a href="admin_comments.html" tppabs="http://webdesign-finder.com/html/fixit/admin_comments.html">
-                                <i class="fa fa-comments"></i> product discussion</a>
-                        </small>
-                    </h3>
-                </div>
-            </div>
-            <!-- .row -->
-
-
-            <form class="form-horizontal">
+            <form class="form-horizontal" action="{{ route('baotri.post.add') }}" method="POST"> {{ csrf_field() }}
 
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-7">
                         <div class="with_border with_padding">
 
                             <h4>
-                                Product text
-                                <span class="pull-right">
-                                    <button type="submit" class="theme_button small_button">Save product</button>
-                                </span>
-
+                                <b>Form bảo trì</b>
                             </h4>
 
                             <hr>
 
-
+                            
                             <div class="row form-group">
-                                <label class="col-lg-3 control-label">Product title: </label>
+                                <label class="col-lg-3 control-label">Khách hàng: </label>
                                 <div class="col-lg-9">
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="row form-group">
-                                <label class="col-lg-3 control-label">Product slug: </label>
-                                <div class="col-lg-9">
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="row form-group admin-product-price">
-                                <label class="col-lg-3 control-label">Product Price: </label>
-                                <div class="col-lg-9">
-                                    <input type="number" step="0.01" class="form-control">
+                                    <select class="selectpicker form-control" name="khachhang" data-show-subtext="true" data-live-search="true">
+                                        <option>-----Chọn khách hàng-----</option>
+                                        @foreach($khachhang as $khachhang1)
+                                        <option  value="{{ $khachhang1->id }}">{{ $khachhang1->username }} - {{ $khachhang1->user->ho_ten }}</option>
+                                       @endforeach
+                                   </select>
+                                    
                                 </div>
                             </div>
 
                             <div class="row form-group">
-                                <label class="col-lg-3 control-label">Short description: </label>
+                                <label class="col-lg-3 control-label">Tiêu đề: </label>
                                 <div class="col-lg-9">
-                                    <textarea rows="3" class="form-control"></textarea>
+                                    <input name="tieude" type="text" class="form-control">
                                 </div>
                             </div>
-
                             <div class="row form-group">
-                                <label class="col-lg-3 control-label">Product description: </label>
+                                <label class="col-lg-3 control-label">Nội dung: </label>
                                 <div class="col-lg-9">
-                                    <textarea rows="8" class="form-control"></textarea>
+                                    <textarea name="noidung" rows="8" class="form-control"></textarea>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-sm-12 text-right">
-                                    <button type="submit" class="theme_button wide_button">Save product</button>
-                                    <a href="admin_products.html" tppabs="http://webdesign-finder.com/html/fixit/admin_products.html" class="theme_button inverse wide_button">Cancel</a>
+                                    <button type="submit" class="theme_button " style="background-color: #2196F3; border: 0px !important">Lưu</button>
+                                    <a href="{{ route('baotri.list') }}"  class="theme_button inverse wide_button">Quay lại</a>
                                 </div>
                             </div>
                             <!-- .row  -->
@@ -107,99 +86,77 @@
                     </div>
                     <!-- .col-* -->
 
-
-                    <div class="col-md-4">
+                    <div class="col-md-5">
 
                         <div class="with_border with_padding bottommargin_10">
 
-                            <h4>Product Meta</h4>
+                            <h4>Nhân viên bảo trì</h4>
 
                             <hr>
 
                             <div class="row form-group">
-                                <label class="col-lg-3 control-label">Publish date: </label>
+                                <label class="col-lg-3 control-label" style="padding-left: 0px !important;">Nhân viên: </label>
                                 <div class="col-lg-9">
-                                    <input type="date" class="form-control">
+                                    <select name="nhanvien" class="selectpicker form-control" name="khachhang" data-show-subtext="true" data-live-search="true">
+                                        <option>-----Chọn nhân viên-----</option>
+                                        @foreach($nhanvien as $nhanvien2)
+                                       <option  value="{{ $nhanvien2->id }}">{{ $nhanvien2->username }} - {{ $nhanvien2->user->ho_ten }}</option>
+                                       @endforeach
+                                   </select>
+                                </div>
+                            </div>
+
+                            
+
+                            
+
+                        </div>
+                        
+
+                    </div>
+
+                    <div class="col-md-5">
+
+                        <div class="with_border with_padding bottommargin_10">
+
+                            <h4>Ngày bảo trì</h4>
+
+                            <hr>
+
+                            <div class="row form-group">
+                                <label class="col-lg-3 control-label">Ngày: </label>
+                                <div class="col-lg-9">
+                                    <input name="ngay" type="date" class="form-control">
                                 </div>
                             </div>
 
                             <div class="row form-group">
-                                <label class="col-lg-3 control-label">Publish time: </label>
+                                <label class="col-lg-3 control-label">Giờ: </label>
                                 <div class="col-lg-9">
-                                    <input type="time" class="form-control">
+                                    <input name="gio" type="time" class="form-control">
                                 </div>
                             </div>
 
                             <div class="row">
-                                <label class="col-lg-3 control-label">Status: </label>
+                                <label class="col-lg-3 control-label" style="padding-left: 0px !important;">Trạng thái: </label>
                                 <div class="col-lg-9">
-                                    <label class="radio-inline">
-                                        <input type="radio" name="product-published" id="product-bublished1" value="draft" checked="checked"> Draft
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="product-published" id="product-bublished2" value="published"> Published
-                                    </label>
+                                    <select name="trangthai" class="form-control">
+                                        <option>-----Chọn trạng thái-----</option>
+                                        @foreach($trangthai as $trangthai2)
+                                        <option value="{{ $trangthai2->id }}">
+                                            {{$trangthai2->trangthai }}
+                                        </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
 
                         </div>
-                        <!-- .with_border -->
-
-                        <div class="with_border with_padding bottommargin_10">
-
-                            <h4>
-                                Tags and Categories
-                            </h4>
-                            <hr>
-                            <div class="row form-group">
-                                <label class="col-lg-3 control-label">Categories: </label>
-                                <div class="col-lg-9">
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="row form-group">
-                                <label class="col-lg-3 control-label">Product Tags: </label>
-                                <div class="col-lg-9">
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-
-                        </div>
-                        <!-- .with_border -->
-
-                        <div class="with_border with_padding">
-
-                            <h4>Product Media</h4>
-
-                            <hr>
-
-                            <div class="item-editable bottommargin_20">
-
-
-                                <div class="item-media">
-                                    <img src="01.jpg" tppabs="http://webdesign-finder.com/html/fixit/images/gallery/01.jpg" alt="...">
-                                </div>
-
-                                <div class="item-edit-controls darklinks">
-                                    <a href="#">
-                                        <i class="fa fa-edit"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fa fa-trash-o"></i>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div>
-                                <label class="control-label">Product Video: </label>
-                                <input type="text" class="form-control">
-                            </div>
-
-                        </div>
-                        <!-- .with_border -->
+                        
 
                     </div>
+
+                    
                     <!-- .col-* -->
 
 
@@ -213,16 +170,9 @@
         <!-- .container -->
     </section>
 
-    <section class="page_copyright ds darkblue_bg_color">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-6">
-                    <p class="grey">&copy; Copyrights 2017</p>
-                </div>
-                <div class="col-sm-6 text-sm-right">
-                    <p class="grey">Last account activity <i class="fa fa-clock-o"></i> 52 mins ago</p>
-                </div>
-            </div>
-        </div>
-    </section>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
 @endsection

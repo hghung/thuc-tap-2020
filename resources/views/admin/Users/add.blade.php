@@ -31,14 +31,6 @@
         <div class="container-fluid">
 
             <div class="row">
-                <div class="col-sm-12">
-                    <h3 style="color: #2196F3">Thêm tài khoản</h3>
-                </div>
-            </div>
-            <!-- .row -->
-
-
-            <div class="row">
                 <div class="col-xs-12">
 
                     <form action="{{ route('users.post.add') }}" method="POST" class="form-horizontal"  enctype="multipart/form-data"> {{ csrf_field() }}
@@ -47,7 +39,10 @@
 
                                 <div class="with_border with_padding">
 
-                                    <h4>Thông tin khách hàng</h4>
+                                    <h4>
+                                        <b>Thông tin khách hàng</b>
+
+                                        </h4>
 
                                     <hr>
 
@@ -210,8 +205,8 @@
                             <div class="col-sm-12">
                                 <div>
 
-                                    <button type="submit" class="btn btn-success" style="border-radius:10px;">Submit</button>
-                                    <a href="admin_profile.html"  class="btn btn-danger" style="color: #fff; border-radius:10px;">Cancel</a>
+                                    <button type="submit" class="btn btn-success" style="border-radius:10px;">Lưu</button>
+                                    <a href="{{ route('users.list') }}"  class="btn btn-danger" style="color: #fff; border-radius:10px;">Cancel</a>
 
                                 </div>
 

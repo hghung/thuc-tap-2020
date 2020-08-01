@@ -118,7 +118,7 @@ class UsersController extends Controller
         $taikhoan = new User;
         $taikhoan->password =  bcrypt($users->password);
         $taikhoan->trang_thai = 1;
-        $taikhoan->id_vaitro = 3;
+        $taikhoan->id_vaitro = 4;
         $taikhoan->id_user  = $user->id;
         $taikhoan->save();
         $taikhoan->username = "db_user_0".$user->id;

@@ -91,7 +91,7 @@
 					<li>
 						<a href="{{route('baotri.list')}}">
 							<i class="rt-icon2-health"></i>
-							Danh sách bảo trì
+							Bảo trì
 						</a>
 					</li>
 					<!--  -->
