@@ -12,16 +12,16 @@
                                 <div class="slide_description_wrapper">
                                     <div class="slide_description">
                                         <div class="intro-layer" data-animation="fadeInUp">
-                                            <h3>
-                                                Bất kỳ vấn đề về máy tính?
-                                            </h3>
-                                            <br>
                                             <h2>
-                                                Chúng tôi sẽ giúp
+                                             COMPUTER REPAIR
                                             </h2>
+                                            <br>
+                                            <h3>
+                                               any brand, any problem, everywhere
+                                            </h3>
                                         </div>
                                         <div class="intro-layer" data-animation="fadeInUp">
-                                            <a href="about.html" tppabs="http://webdesign-finder.com/html/fixit/about.html" class="theme_button color1 inverse">Tất cả dịch vụ</a>
+                                            <a href="about.html" tppabs="http://webdesign-finder.com/html/fixit/about.html" class="theme_button color1 inverse"> Tất cả dịch vụ </a>
                                         </div>
                                     </div>
                                     <!-- eof .slide_description -->
@@ -108,7 +108,7 @@
                         Liên hệ 24 / 7
                     </h5>
                     <p class="fontsize_30 thin grey">
-            +84 76299-9994
+            (0292) 3 690 888
         </p>
                 </div>
                 <div class="col-md-4 col-sm-6 text-center">
@@ -116,15 +116,15 @@
                         Email Address
                     </h5>
                     <p class="fontsize_30 thin grey">
-            admin@gmail.com
+                        ctict@cantho.gov.vn
         </p>
                 </div>
                 <div class="col-md-4 col-sm-6 col-sm-offset-3 col-md-offset-0 text-center">
                     <h5 class="text-uppercase bottommargin_5">
-                        Giờ làm việc
+                        Fax
                     </h5>
                     <p class="fontsize_30 thin grey">
-            8:00 - 19:00
+                        080 72123
         </p>
                 </div>
             </div>

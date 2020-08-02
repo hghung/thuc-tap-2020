@@ -44,7 +44,7 @@
 				</div>
 
 				<div class="header_right_buttons display_table_cell text-right hidden-xs">
-					<a href="index.htm#appointment" tppabs="http://webdesign-finder.com/html/fixit/#appointment" class="theme_button color1 two_lines bottommargin_0">Schedule free<br> device drop in</a>
+					<a href="index.htm#appointment" tppabs="http://webdesign-finder.com/html/fixit/#appointment" class="theme_button color1 two_lines bottommargin_0">Bản đồ khu vực</a>
 				</div>
 			</div>
 		</div>
