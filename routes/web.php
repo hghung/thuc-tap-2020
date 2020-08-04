@@ -13,6 +13,8 @@
 // fhvhfhfgh
 
 Route::get('/','PageController@home');
+Route::get('/test-{id}','AdminController@test_map');
+
 Route::get('/dang-nhap','LoginController@login')->name('get.login');
 Route::post('/dang-nhap','LoginController@post_login')->name('post.login');
 Route::get('/dang-xuat','LoginController@logout')->name('get.logout');
