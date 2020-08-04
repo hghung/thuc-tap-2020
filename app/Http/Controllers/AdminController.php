@@ -29,7 +29,14 @@ class AdminController extends Controller
         return view('admin.map.detail_map',['chitiet' => $chitiet]);
         
     }
-
+    // test /////////////////////////////////
+    public function test_map($id)
+    {
+        $chitiet = db_baotri::find($id);
+        return view('admin.map.test',['chitiet' => $chitiet]);
+        
+    }
+    // test ///////////////////////////////
 
     // end bản đồ
     public function lich_baotri()
