@@ -132,34 +132,17 @@
     </section>
                 <!-- gioi thieu -->
     <section id="about" class="ls section_padding_top_150 section_padding_bottom_150 columns_margin_bottom_30 table_section table_section_md">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="inline-block">
-                        <div class="row columns_padding_25">
-                            <div class="col-lg-6 col-md-7">
-                                <!-- <div class="inline-block"> -->
-                                <div id="container1" class="twentytwenty-container">
-                                    <!-- The after image is first -->
-                                    <img src="{{asset('public/img/after.jpg')}}"  alt="" />
-                                    <!-- The before image is last -->
-                                    <img src="{{asset('public/img/before.jpg')}}"  alt="" />
-                                </div>
-                                <!-- </div> -->
-                            </div>
+                      
                             <div class="col-lg-5 col-md-5">
-                                <h4 class="fontsize_30 thin bottommargin_0">
-                                    Xin Chào!
-                                </h4>
-                                <h3 >
-                                   Về chúng tôi
-                                </h3>
-                                <p>
-                                    The highly-trained technicians have many years of experience with all laptop, notebook, macbook and desktop computer repairs. We pride our company on honesty and the good relationships forged through customer satisfaction. We service all makes and models of MAC laptops, Imac, PC laptops, notebooks and most desktops: Dell, Sony, IBM, HP, Acer, Apple, etc.
-                                </p>
-                                <p class="topmargin_30">
-                        <a href="about.html" tppabs="http://webdesign-finder.com/html/fixit/about.html" class="theme_button color1 wide_button">About page</a>
-                    </p>
+                                <span style="color: blue"> TRUNG TÂM CÔNG NGHỆ THÔNG TIN VÀ TRUYỀN THÔNG THÀNH PHỐ CẦN THƠ</span>
+                               
+                                <h3 style="font-size: 15px">ĐIỆN THOẠI TỪNG BỘ PHẬN</h3>
+                                <p> 1. Ban Giám đốc: 02923 690 699</p>
+                                <p> 2. Phòng Hành chính - Tổng hợp: 02923 690 888</p>
+                                <p> 3. Phòng Hạ tầng kỹ thuật: 08 07 12 14</p>
+                                <p> 4. Phòng Ứng dụng CNTT: 02923 690 887</p>
+                                <p> 5. Phòng Biên tập Cổng thông tin: 02923 690 090</p>
+                                <p> 6. Phòng Đào tạo và dịch vụ: 02923 690 888</p>
                             </div>
                         </div>
                     </div>
