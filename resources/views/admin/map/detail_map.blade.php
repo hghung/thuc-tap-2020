@@ -120,22 +120,27 @@
         var lat = {{ $chitiet->baotrikh->diachi->lat }};
         var lng = {{ $chitiet->baotrikh->diachi->lng }};
     
-        x = navigator.geolocation;
+        x = navigator.geolocation; // khai bao để lấy ra vị trí
         x.getCurrentPosition(success, failure);
+         // lấy ra vị trí hiện tại
         function success(position)
         {
             var myLat = position.coords.latitude;
-            console.log(myLat);
+            console.log(myLat); // lấy ra vị trí lat
             var myLong = position.coords.longitude;
-            console.log(myLong);
-    
+            console.log(myLong); // lấy ra vị trí long
+            
+            // gôm lat va long lại
             var coords = new google.maps.LatLng(myLat,myLong);
-    
+            
+            //khai báo
             var directionsDisplay = new google.maps.DirectionsRenderer(); 
             var directionsService = new google.maps.DirectionsService(); 
             var map;
             
+            // lấy ra vị trí hiện tại
             var a = new google.maps.LatLng(myLat, myLong);
+            // lấy vị trí của địa điểm trên csdl
             var b = new google.maps.LatLng(lat, lng);
     
             var mapOptions = {
@@ -146,6 +151,7 @@
                 zoomControlOptions: {
                       style:google.maps.ZoomControlStyle.DEFAULT
                 },
+                // hiện thị ở giưa vị trí hiện tại
                 center: coords,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
                 scrollwheel: false,
@@ -156,9 +162,11 @@
                 rotateControl:false
     
             };
+            // hiện bản đồ
             map = new google.maps.Map(document.getElementById('map'),mapOptions);
+            // hiện thị đường đi tới 2 điểm trong bản đồ
             directionsDisplay.setMap(map);
-    
+            // khai báo đường đi từ a -> b phương tiện xe
             function calculateRoute(){
                 var request = {
                     origin: a,
@@ -169,13 +177,15 @@
                 directionsService.route(request, function(result, status){
                     // console.log(result, status);
                     if(status == "OK"){
+                        // lấy ra khoảng cách và thời gian
                         $("#khoangcach").html("<div class='result-table'>" + result.routes[0].legs[0].distance.text + "</div>");
                         $("#thoigian").html("<div class='result-table'>" + result.routes[0].legs[0].duration.text + "</div>");
-                        
+                        // hiện thị kết quả trên bảng đồ 2 điểm và khoang cách & time
                         directionsDisplay.setDirections(result);
                     }
                 });
             }
+            // click vào nút button để chạy
             document.getElementById('get').onclick= function(){
                 calculateRoute();
             }
