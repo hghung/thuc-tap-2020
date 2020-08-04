@@ -69,72 +69,41 @@
     <script async defer 
     src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&libraries=places&callback=initialize">
 </script>
-
 <script defer>
-        function initialize() {
-            var mapOptions = {
-                zoom: 14,
-                minZoom: 6,
-                maxZoom: 17,
-                zoomControl:true,
-                zoomControlOptions: {
-                      style:google.maps.ZoomControlStyle.DEFAULT
-                },
-                center: new google.maps.LatLng(10.039904, 105.776280),
-                mapTypeId: google.maps.MapTypeId.ROADMAP,
-                scrollwheel: false,
-                panControl:false,
-                mapTypeControl:false,
-                scaleControl:false,
-                overviewMapControl:false,
-                rotateControl:false
-              }
-
-            var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-            //addMarker({banhbao: {lat: 10.0266048,lng: 105.7767294}});
-            //addMarker({banhbao: {lat: 10.0453833,lng: 105.7796137}});
-            var y = $('#img').attr('data');
-           
-            @php 
-            
-                $user = $chitiet->baotrikh; // khach hang
-                $nhanvien = $chitiet->baotrinv; // khach hang
-
-                $diachi = $user->diachi; // đia chi khach hang
-                
-               
-               
-               echo'addMarker({banhbao: {lat: '.$diachi->lat.',lng: '.$diachi->lng.'},';
-               echo "content: '<div style=width:200px><div class=row><div class=col-md-4 ><img style=width:80px;height:80px;border-radius:50%; src=/public/upload/avatar/$user->avatar ></div><div class=col-md-8 ><div style=margin-left:15px;>Khách hàng: <a style=color:green;margin-left:16px;><b>$user->ho_ten</b></a></div></br><div style=margin-left:15px;>Số điện thoại: <a style=margin-left:16px;><b>$user->sdt</b></a></div></div></div><div style=margin-top:5px;margin-bottom:5px;>Tiêu đề: <a href=# style=color:red> $chitiet->tieude </a></div><div>Địa chỉ: $diachi->dia_chi</div> </div> '});";
-               //muốn viêt dc model trong day phải khai bảng ở ngoài trước không nó sẽ lỗi
-               // style phải viet xác nhau mới nhận được
-                // viet lòng php không cần mở dây nhây kep nó tự hiệu
-                // muốn nhận đươc dấu nhây đơn '' tài phải echo dấu nhây kép ""
-         
-            
-            @endphp
-            
-            function addMarker(props)
-            {
-                var marker = new google.maps.Marker({
-                    position: props.banhbao,
-                    map:map,
-                    icon: '{{ asset('public/map.png') }}'
-                });
-                if(props.content){
-                    var infoWindow = new google.maps.InfoWindow({
-                        content:props.content
-                    });
-                    marker.addListener('click',function(){
-                        infoWindow.open(map, marker);
-                    });
-                }
-            }
-            
-                
+    x = navigator.geolocation; 
+    x.getCurrentPosition(success, failure); 
+    function success(position) 
+    {
+        var myLat = position.coords.latitude;
+        var myLong = position.coords.longitude;
+        var coords = new google.maps.LatLng(myLat,myLong);
+        var mapOptions = {
+            zoom: 13.7,
+            minZoom: 6,
+            maxZoom: 17,
+            zoomControl:true,
+            zoomControlOptions: {
+                  style:google.maps.ZoomControlStyle.DEFAULT
+            },
+            center: coords,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            scrollwheel: false,
+            panControl:false,
+            mapTypeControl:false,
+            scaleControl:false,
+            overviewMapControl:false,
+            rotateControl:false
         }
-        google.maps.event.addDomListener(window, 'load', initialize);
-        
-    </script>
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        var marker = new google.maps.Marker({
+            position: coords,
+            map:map,
+            icon: '{{ asset('public/user.png') }}'
+        });
+    }
+    function failure()
+    {
+
+    }
+</script>
 @endsection
