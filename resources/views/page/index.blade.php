@@ -13,12 +13,9 @@
                                     <div class="slide_description">
                                         <div class="intro-layer" data-animation="fadeInUp">
                                             <h2>
-                                             COMPUTER REPAIR
+                                             Bảo Hành Máy Tính
                                             </h2>
-                                            <br>
-                                            <h3>
-                                               any brand, any problem, everywhere
-                                            </h3>
+                                           
                                         </div>
                                         <div class="intro-layer" data-animation="fadeInUp">
                                             <a href="about.html" tppabs="http://webdesign-finder.com/html/fixit/about.html" class="theme_button color1 inverse"> Tất cả dịch vụ </a>
@@ -38,20 +35,19 @@
                 <li>
                     <img src="{{asset('public/img/slide02.jpg')}}" " alt="">
                     <div class="container">
+                       
                         <div class="row">
                             <div class="col-sm-12 text-center">
                                 <div class="slide_description_wrapper">
                                     <div class="slide_description">
                                         <div class="intro-layer" data-animation="fadeInUp">
-                                            <h3>
-                                                The Same Day
-                                            </h3>
                                             <h2>
-                                                Phone Repair
+                                                CHO THUÊ HOSTING
                                             </h2>
+                                            
                                         </div>
                                         <div class="intro-layer" data-animation="fadeInUp">
-                                            <a href="about.html" tppabs="http://webdesign-finder.com/html/fixit/about.html" class="theme_button color1 inverse">Advantages</a>
+                                            <a href="about.html" tppabs="http://webdesign-finder.com/html/fixit/about.html" class="theme_button color1 inverse">DỊCH VỤ</a>
                                         </div>
                                     </div>
                                     <!-- eof .slide_description -->
@@ -73,15 +69,12 @@
                                 <div class="slide_description_wrapper">
                                     <div class="slide_description">
                                         <div class="intro-layer" data-animation="fadeInUp">
-                                            <h3>
-                                                Multi-Brand
-                                            </h3>
                                             <h2>
-                                                Device Service
+                                               THIẾT KẾ, QUẢN TRỊ WEBSITE
                                             </h2>
                                         </div>
                                         <div class="intro-layer" data-animation="fadeInUp">
-                                            <a href="about.html" class="theme_button color1 inverse">About us</a>
+                                            <a href="about.html" class="theme_button color1 inverse">DỊCH VỤ</a>
                                         </div>
                                     </div>
                                     <!-- eof .slide_description -->
@@ -151,7 +144,7 @@
         </div>
     </section>
                                         <!-- dich vu -->
-    <section id="services" class="ds parallax page_services section_padding_top_150 section_padding_bottom_100 columns_padding_25">
+   <!-- <section id="services" class="ds parallax page_services section_padding_top_150 section_padding_bottom_100 columns_padding_25">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 text-center">
@@ -227,14 +220,14 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
                                         <!-- blog -->
     <section id="blog" class="ls section_padding_top_150 section_padding_bottom_130">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 text-center bottommargin_0">
                     <h2 class="section_header">Tin tức</h2>
-                    <p class="fontsize_20 grey">Read our recent blogs to always be updated with our news</p>
+                    <p class="fontsize_20 grey">Đăng ký nhận tin của chúng tôi để luôn cập nhật thông tin mới nhất</p>
                 </div>
             </div>
             <div class="row columns_margin_bottom_20">
@@ -363,7 +356,7 @@
         </div>
     </section>
                                         <!-- gioi thieu thanh vien -->
-    <section id="reviews" class="ls parallax page_testimonials section_padding_top_150 section_padding_bottom_130">
+ <!--   <section id="reviews" class="ls parallax page_testimonials section_padding_top_150 section_padding_bottom_130">
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1 text-center">
@@ -402,15 +395,13 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
                                         <!-- ho tro -->
     <section id="appointment" class="ds page_appointment parallax section_padding_top_150 section_padding_bottom_150">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 text-center to_animate animated fadeInUp" data-animation="fadeInUp">
                     <h2 class="section_header">Gửi yêu cầu</h2>
-
-                    <p class="fontsize_20">Read our recent blogs to always be updated with our news</p>
 
                     <form class="contact-form row columns_margin_bottom_20" method="post" action="http://webdesign-finder.com/html/fixit/">
 
@@ -421,7 +412,7 @@
                                     <span class="required">*</span>
                                 </label>
 
-                                <input type="text" aria-required="true" size="30" value="" name="name" id="appointment-name" class="form-control" placeholder="Full Name">
+                                <input type="text" aria-required="true" size="30" value="" name="name" id="appointment-name" class="form-control" placeholder="Họ tên">
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -430,7 +421,7 @@
                                     <span class="required">*</span>
                                 </label>
 
-                                <input type="text" aria-required="true" size="30" value="" name="appointment-phone" id="appointment-phone" class="form-control" placeholder="Phone Number">
+                                <input type="text" aria-required="true" size="30" value="" name="appointment-phone" id="appointment-phone" class="form-control" placeholder="Số điện thoại">
                             </div>
                         </div>
                         <div class="col-md-2">
@@ -480,15 +471,15 @@
                             <div class="form-group">
                                 <label for="appointment-message">Nội dung</label>
 
-                                <textarea aria-required="true" rows="3" cols="45" name="appointment-message" id="appointment-message" class="form-control" placeholder="Message"></textarea>
+                                <textarea aria-required="true" rows="3" cols="45" name="appointment-message" id="appointment-message" class="form-control" placeholder="Nội dung"></textarea>
                             </div>
                         </div>
 
                         <div class="col-sm-12 bottommargin_0">
 
                             <div class="contact-form-submit topmargin_30">
-                                <button type="submit" id="appointment-_submit" name="contact_submit" class="theme_button color1 inverse two_lines">Schedule free
-                                    <br> device drop in</button>
+                                <button type="submit" id="appointment-_submit" name="contact_submit" class="theme_button color1 inverse two_lines">Gửi
+                                    </button>
                             </div>
                         </div>
 
