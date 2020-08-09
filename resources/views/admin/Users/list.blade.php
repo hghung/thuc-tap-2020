@@ -62,7 +62,7 @@
 										<!-- <div class="form-group-wrap"> -->
 										<div class="form-group">
 											<label class="sr-only" for="widget-search">Search for:</label>
-											<input id="widget-search" type="text" value="" name="search" class="form-control" placeholder="Tìm kiếm">
+											<input  id="timkiem" type="text" value="" name="search" class="form-control" placeholder="Tìm kiếm">
 										</div>
 										<button type="submit" class="theme_button color1 no_bg_button">Search</button>
 										<!-- </div> -->
@@ -85,56 +85,8 @@
 									<th  width="10%">Thao tác</th>
 
 								</tr>
-								<tbody>
-									@foreach($user as $user1)
-									{{--  start  --}}
-									<tr class="item-editable">
-										{{--  1  --}}
-										<td>
-											{{ $user1->user->ma_user }}
-										</td>
-										{{--  2  --}}
-										<td class="media-middle">
-											{{ $user1->username }}
-
-										</td>
-										{{--  3  --}}
-										<td class="media-middle">
-											{{ $user1->user->ho_ten }}
-
-										</td>
-										{{--  4  --}}
-										<td class="media-middle">
-											@if($user1->id_vaitro == 1)
-												<span style="color:red">{{ $user1->vaitro->vt_ten }}</span>
-											@elseif($user1->id_vaitro == 2)
-												<span style="color:orange">{{ $user1->vaitro->vt_ten }}</span>
-											@elseif($user1->id_vaitro == 3)
-												<span style="color:rgb(32, 46, 248)">{{ $user1->vaitro->vt_ten }}</span>
-											@elseif($user1->id_vaitro == 4)
-												<span style="color:green">{{ $user1->vaitro->vt_ten }}</span>
-											@endif
-										</td>
-										{{--  5  --}}
-										<td class="media-middle" align="center">
-											@if($user1->trang_thai == 1)
-												<span style="color:green">
-													<i class="fa fa-unlock"></i>
-												</span>
-											@elseif($user1->trang_thai == 2)
-												<span style="color:red">
-													<i class="fa fa-lock"></i>
-												</span>
-											@endif
-										</td>
-										<td align="center">
-											<a href="#"> 
-												<i class="fa fa-cogs"></i>
-											</a>
-										</td>
-									</tr>
-									{{--  end  --}}
-									@endforeach
+								<tbody id="user">
+									
 								</tbody>
 
 								
@@ -147,9 +99,54 @@
 				</div>
 				<!-- .col-* -->
 			</div>
+
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="row">
+						<div class="col-md-6">
+							
+						</div>
+						<div style="margin-left: 6%; " class="col-md-5 text-md-right">
+							Hiện thị có <b style="color:blue" id="total_records"></b> user
+						</div>
+					</div>
+				</div>
+			</div>
 			
 			<!-- .row main columns -->
 		</div>
 		<!-- .container -->
 	</section>
+
+	<script src="{{asset('public/jquery2.0.3.min.js')}}" type="text/javascript"></script>
+
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+	
+		 fetch_customer_data();
+	
+		 function fetch_customer_data(query = '')
+		 {
+		  $.ajax({
+		   url:"{{ route('timkiem.user') }}",
+		   method:'GET',
+		   data:{query:query},
+		   dataType:'json',
+		   success:function(data)
+		   {
+			$('#user').html(data.banhbao);
+			$('#total_records').text(data.total_data);
+		   }
+		  })
+		 }
+	
+		 $(document).on('keyup', '#timkiem', function(){
+		  var query = $(this).val();
+		  fetch_customer_data(query);
+		 });
+		});
+	</script>
+
+
 @endsection

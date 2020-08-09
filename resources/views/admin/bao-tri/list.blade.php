@@ -9,7 +9,7 @@
 						<li>
 							<a href="#">Dashboard</a>
 						</li>
-						<li class="active">Products</li>
+						<li class="active">Bảo trì</li>
 					</ol>
 				</div>
 				<!-- .col-* -->
@@ -32,7 +32,7 @@
 
 			<div class="row">
 				<div class="col-md-12">
-					<h3>Products</h3>
+					<h3>Bảo trì</h3>
 				</div>
 				<!-- .col-* -->
 			</div>
@@ -62,7 +62,7 @@
 										<!-- <div class="form-group-wrap"> -->
 										<div class="form-group">
 											<label class="sr-only" for="widget-search">Search for:</label>
-											<input id="widget-search" type="text" value="" name="search" class="form-control" placeholder="Tìm kiếm">
+											<input id="timkiem" type="text" value="" name="search" class="form-control" placeholder="Tìm kiếm">
 										</div>
 										<button type="submit" class="theme_button color1 no_bg_button">Search</button>
 										<!-- </div> -->
@@ -86,45 +86,9 @@
 									<th>Thao tác</th>
 
 								</tr>
-								<tbody>
+								<tbody id="baotri">
 									{{-- start --}}
-									@foreach($baotri as $baotri2)
-									<tr class="item-editable">
-										<td>
-											{{ $baotri2->tieude }}
-										</td>
-										<td class="media-middle">
-											<span style="color:green">
-												{{ $baotri2->baotrikh->ho_ten }}
-											</span>
-										</td>
-										<td class="media-middle">
-											<span style="color:rgb(32, 46, 248)">
-												{{ $baotri2->baotrinv->ho_ten }}
-											</span>
-										</td>
-
-										<td class="media-middle">
-											{{date("d-m-Y  ",strtotime($baotri2->ngay)) }} 
-											-
-											{{date(" H:i A  ",strtotime($baotri2->gio)) }}
-										</td>
-
-
-										<td class="media-middle">
-											Duyệt
-										</td>
-										<td class="media-middle">
-											{{date("A H:i || d-m-Y  ",strtotime($baotri2->created_at)) }}
-										</td>
-										{{--  --}}
-										<td align="center">
-											<a href="#"> 
-												<i class="fa fa-cogs"></i>
-											</a>
-										</td>
-									</tr>
-									@endforeach
+									
 									{{-- end --}}
 								</tbody>
 
@@ -139,8 +103,51 @@
 				<!-- .col-* -->
 			</div>
 			<!-- .row -->
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="row">
+						<div class="col-md-6">
+							
+						</div>
+						<div style="margin-left: 5%;" class="col-md-5 text-md-right">
+							Hiện thị có <b style="color:blue" id="total_records"></b> bảo trì
+						</div>
+					</div>
+				</div>
+			</div>
 			<!-- .row main columns -->
 		</div>
 		<!-- .container -->
 	</section>
+
+	<script src="{{asset('public/jquery2.0.3.min.js')}}" type="text/javascript"></script>
+
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+	
+		 fetch_customer_data();
+	
+		 function fetch_customer_data(query = '')
+		 {
+		  $.ajax({
+		   url:"{{ route('timkiem.baotri') }}",
+		   method:'GET',
+		   data:{query:query},
+		   dataType:'json',
+		   success:function(data)
+		   {
+			$('#baotri').html(data.banhbao);
+			$('#total_records').text(data.total_data);
+		   }
+		  })
+		 }
+	
+		 $(document).on('keyup', '#timkiem', function(){
+		  var query = $(this).val();
+		  fetch_customer_data(query);
+		 });
+		});
+	</script>
+
 @endsection

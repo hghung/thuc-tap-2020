@@ -19,6 +19,10 @@ Route::get('/dang-nhap','LoginController@login')->name('get.login');
 Route::post('/dang-nhap','LoginController@post_login')->name('post.login');
 Route::get('/dang-xuat','LoginController@logout')->name('get.logout');
 
+// tìm kiếm ajax
+Route::get('/tim-kiem-bao-tri', 'TimkiemController@timkiem_baotri')->name('timkiem.baotri');
+Route::get('/tim-kiem-user', 'TimkiemController@timkiem_user')->name('timkiem.user');
+
 
 
 
