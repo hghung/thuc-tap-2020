@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="{{asset('public/css/fonts.css')}}">
 	<link rel="stylesheet" href="{{asset('public/css/main.css')}}"  class="color-switcher-link">
 	<script src="{{asset('public/js/modernizr-2.6.2.min.js')}}" ></script>
+	{{--  <script src="{{asset('public/js/html5shiv.min.js')}}"></script>
+	<script src="{{asset('public/js/respond.min.js')}}"></script>
+	<script src="{{asset('public/js/jquery-1.12.4.min.js')}}"></script>  --}}
 </head>
 
 <body>
@@ -26,7 +29,7 @@
 			</span>
 		</button>
 		<div class="widget widget_search">
-			<form method="get" class="searchform search-form form-inline" action="http://webdesign-finder.com/html/fixit/">
+			<form method="get" class="searchform search-form form-inline" action="#">
 				<div class="form-group">
 					<input type="text" value="" name="search" class="form-control" placeholder="Search keyword" id="modal-search-input">
 				</div>
@@ -67,10 +70,10 @@
 		<!-- eof #box_wrapper -->
 	</div>
 	<!-- eof #canvas -->
-
 	<script src="{{asset('public/js/compressed.js')}}" ></script>
 	<script src="{{asset('public/js/main.js')}}"></script>
 
+	
 </body>
 
 </html>

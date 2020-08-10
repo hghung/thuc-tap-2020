@@ -4,7 +4,7 @@
 			<div class="col-sm-12 display_table">
 				<div class="header_left_logo display_table_cell">
 					<a href="index.htm" class="logo top_logo text-left">
-						<img src="logo.png"alt="">
+						<img src="{{ asset('public/img/logo.png') }}"alt="">
 					</a>
 				</div>
 

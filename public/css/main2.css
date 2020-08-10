@@ -2584,7 +2584,7 @@ p > [class*="rt-icon"] + [class*="rt-icon"] {
 	top: 50%;
 	margin-left: -40px;
 	margin-top: -40px;
-	background: url("owl.video.play.png")/*tpa=http://webdesign-finder.com/html/fixit/img/owl.video.play.png*/ no-repeat;
+	background: url(../img/owl.video.play.png) no-repeat;
 	cursor: pointer;
 	z-index: 1;
 	-webkit-backface-visibility: hidden;
@@ -3800,7 +3800,7 @@ div.ppt {
 	margin-left: -30px;
 	margin-top: -30px;
 	background-color: #ffffff;
-	background-image: url(logo-icon.png)/*tpa=http://webdesign-finder.com/html/fixit/images/logo-icon.png*/;
+	background-image: url(../img/logo-icon.png);
 	background-position: center;
 	background-repeat: no-repeat;
 	border-radius: 50%;
@@ -3811,8 +3811,8 @@ div.ppt {
 }
 
 .twentytwenty-handle:hover {
-	background-color: #2196F3;
-	background-image: url(logo-icon-light.png)/*tpa=http://webdesign-finder.com/html/fixit/images/logo-icon-light.png*/;
+	background-color: #2196F3; 
+	background-image: url(../img/logo-icon-light.png)/*tpa=http://webdesign-finder.com/html/fixit/images/logo-icon-light.png*/;
 }
 
 .twentytwenty-left-arrow,
@@ -4587,7 +4587,7 @@ header [class*="col-"],
 	background-position: 50% 0;
 	background-repeat: no-repeat;
 	position: relative;
-	background-image: url(aside_bg.jpg)/*tpa=http://webdesign-finder.com/html/fixit/img/aside_bg.jpg*/;
+	background-image: url(../img/aside_bg.jpg);
 }
 
 .muted_section:before {
@@ -4734,7 +4734,7 @@ header [class*="col-"],
 
 .bg_image,
 .bg_image:after {
-	background-image: url(background_section.png)/*tpa=http://webdesign-finder.com/html/fixit/img/background_section.png*/;
+	background-image: url(../img/background_section.png);
 }
 
 /* Hero text in sections */
@@ -4858,7 +4858,7 @@ h4 + .section_header {
 	position: absolute;
 	left: 50%;
 	top: 50%;
-	background: url(preloader.gif);
+	background: url(preloader.gif)/*tpa=http://webdesign-finder.com/html/fixit/img/preloader.gif*/ no-repeat 50% 50% transparent;
 	margin: -50px 0 0 -50px;
 }
 
@@ -4900,47 +4900,45 @@ body.boxed {
 }
 
 .pattern1 {
-	background-image: url(pattern1.png)/*tpa=http://webdesign-finder.com/html/fixit/img/pattern1.png*/;
+	background-image: url(../img/pattern1.png)
 }
 
 .pattern2 {
-	background-image: url(pattern2.png)/*tpa=http://webdesign-finder.com/html/fixit/img/pattern2.png*/;
+	background-image: url(../img/pattern2.png)
 }
 
 .pattern3 {
-	background-image: url(pattern3.png)/*tpa=http://webdesign-finder.com/html/fixit/img/pattern3.png*/;
-}
+	background-image: url(../img/pattern3.png)
 
 .pattern4 {
-	background-image: url(pattern4.png)/*tpa=http://webdesign-finder.com/html/fixit/img/pattern4.png*/;
+	background-image: url(../img/pattern4.png)
 }
 
 .pattern5 {
-	background-image: url(pattern5.png)/*tpa=http://webdesign-finder.com/html/fixit/img/pattern5.png*/;
+	background-image: url(../img/pattern5.png)
 }
 
 .pattern6 {
-	background-image: url(pattern6.png)/*tpa=http://webdesign-finder.com/html/fixit/img/pattern6.png*/;
+	background-image: url(../img/pattern6.png)
 }
 
 .pattern7 {
-	background-image: url(pattern7.png)/*tpa=http://webdesign-finder.com/html/fixit/img/pattern7.png*/;
+	background-image: url(../img/pattern7.png)
 }
 
 .pattern8 {
-	background-image: url(pattern8.png)/*tpa=http://webdesign-finder.com/html/fixit/img/pattern8.png*/;
-}
+	background-image: url(../img/pattern8.png)
 
 .pattern9 {
-	background-image: url(pattern9.png)/*tpa=http://webdesign-finder.com/html/fixit/img/pattern9.png*/;
+	background-image: url(../img/pattern9.png)
 }
 
 .pattern10 {
-	background-image: url(pattern10.png)/*tpa=http://webdesign-finder.com/html/fixit/img/pattern10.png*/;
+	background-image: url(../img/pattern10.png)
 }
 
 .pattern11 {
-	background-image: url(pattern11.png)/*tpa=http://webdesign-finder.com/html/fixit/img/pattern11.png*/;
+	background-image: url(../img/pattern11.png)
 }
 
 .boxed .container,
@@ -9209,27 +9207,27 @@ section .cs .theme_button:hover {
 
 /* template parallax sections */
 .page_services.parallax {
-	background-image: url(texture.png)/*tpa=http://webdesign-finder.com/html/fixit/img/parallax/texture.png*/;
+	background-image: url(../img/texture.png)
 }
 
 .page_contact.parallax {
-	background-image: url(texture.png)/*tpa=http://webdesign-finder.com/html/fixit/img/parallax/texture.png*/;
+	background-image: url(../img/texture.png)
 }
 
 .page_contact.background_cover {
-	background-image: url(map.jpg)/*tpa=http://webdesign-finder.com/html/fixit/img/parallax/map.jpg*/;
+	background-image: url(../img/map.jpg)
 }
 
 .page_appointment.parallax {
-	background-image: url(texture.png)/*tpa=http://webdesign-finder.com/html/fixit/img/parallax/texture.png*/;
+	background-image: url(../img/texture.png)
 }
 
 .call_to_action.parallax {
-	background-image: url(features.jpg)/*tpa=http://webdesign-finder.com/html/fixit/img/parallax/features.jpg*/;
+	background-image: url(../img/features.jpg)
 }
 
 .section_subscribe.parallax {
-	background-image: url(bottom.jpg)/*tpa=http://webdesign-finder.com/html/fixit/img/parallax/bottom.jpg*/;
+	background-image: url(../img/bottom.jpg)
 }
 
 .section_subscribe .form-control {
@@ -9239,7 +9237,7 @@ section .cs .theme_button:hover {
 }
 
 .page_breadcrumbs.parallax {
-	background-image: url(breadcrumbs.jpg)/*tpa=http://webdesign-finder.com/html/fixit/img/parallax/breadcrumbs.jpg*/;
+	background-image: url(../img/breadcrumbs.jpg)
 }
 
 .page_breadcrumbs.parallax:after {
@@ -9248,7 +9246,7 @@ section .cs .theme_button:hover {
 
 .page_copyright.parallax,
 .page_footer.parallax {
-	background-image: url(texture.png)/*tpa=http://webdesign-finder.com/html/fixit/img/parallax/texture.png*/;
+	background-image: url(../img/texture.png)
 }
 
 @media (max-width: 991px) {
@@ -9267,7 +9265,7 @@ section .cs .theme_button:hover {
 
 @media (min-width: 992px) {
 	.section_404.background_cover {
-		background-image: url(404.jpg)/*tpa=http://webdesign-finder.com/html/fixit/img/parallax/404.jpg*/;
+		background-image: url(../img/404.jpg);
 	}
 }
 
@@ -12891,7 +12889,7 @@ widget_pages
 
 .contact-form.parallax {
 	padding: 50px 50px 35px;
-	background-image: url(map.jpg)/*tpa=http://webdesign-finder.com/html/fixit/img/parallax/map.jpg*/;
+	background-image: url(../img/map.jpg);
 }
 
 .contact-form-respond {
