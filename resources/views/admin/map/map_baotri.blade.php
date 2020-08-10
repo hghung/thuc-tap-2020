@@ -79,7 +79,7 @@
                                 </td>
                                 {{--  --}}
                                 <td>
-                                    Duyệt
+                                    {{ $ad->baotristatus->trangthai  }}
                                 </td>
                                 {{--  --}}
                                 <td>

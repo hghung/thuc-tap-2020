@@ -1,31 +1,7 @@
 @extends('admin.master')
 @section('tieude','Điểm bảo trì')
 @section('admin_content')
-    <section class="ls with_bottom_border">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6">
-                    <ol class="breadcrumb darklinks">
-                        <li>
-                            <a href="#">Homepage</a>
-                        </li>
-                        <li class="active">Dashboard</li>
-                    </ol>
-                </div>
-                <!-- .col-* -->
-                <div class="col-md-6 text-md-right">
-                    <span class="dashboard-daterangepicker">
-                        <i class="fa fa-calendar"></i>
-                        <span></span>
-                        <i class="caret"></i>
-                    </span>
-                </div>
-                <!-- .col-* -->
-            </div>
-            <!-- .row -->
-        </div>
-        <!-- .container -->
-    </section>
+    
     <!--  -->
     <section class="ls section_padding_top_5 section_padding_bottom_50 columns_padding_10">
         <div class="container-fluid">
@@ -50,10 +26,6 @@
                             height: 480px;
                         }
                     </style>
-                    <div class="with_border with_padding no_bottom_border">
-                        <div id="map"></div>
-                    </div>
-
                     <div class="with_border no_top_border table-responsive">
                         <table class="table-striped">
                             <thead>
@@ -81,16 +53,16 @@
                                 </td>
                                 {{--  --}}
                                 <td>
-                                    {{ $chitiet->baotrikh->sdt  }}
+                                    0{{ number_format($chitiet->baotrikh->sdt,0,',',' ') }}
 
                                 </td>
                                 {{--  --}}
-                                <td id="khoangcach">
-                                    
+                                <td>
+                                    <div style="margin-left: 15px"  id="khoangcach"></div>
                                 </td>
                                 {{--  --}}
-                                <td id="thoigian">
-
+                                <td >
+                                    <div style="margin-left: 15px" id="thoigian"></div>
                                 </td>
                                 {{--  --}}
 
@@ -102,6 +74,12 @@
 
                         </table>
                     </div>
+
+                    <div class="with_border with_padding no_bottom_border">
+                        <div id="map"></div>
+                    </div>
+
+                    
                 </div>
             </div>
             <!-- .row -->
@@ -132,7 +110,7 @@
             
             // gôm lat va long lại
             var coords = new google.maps.LatLng(myLat,myLong);
-            
+            var hi2 = new google.maps.LatLng(lat,lng);
             //khai báo
             var directionsDisplay = new google.maps.DirectionsRenderer(); 
             var directionsService = new google.maps.DirectionsService(); 
@@ -164,6 +142,10 @@
             };
             // hiện bản đồ
             map = new google.maps.Map(document.getElementById('map'),mapOptions);
+            // hai diem
+            addMarker1({banhbao: coords});
+            addMarker2({banhbao: hi2});
+            
             // hiện thị đường đi tới 2 điểm trong bản đồ
             directionsDisplay.setMap(map);
             // khai báo đường đi từ a -> b phương tiện xe
@@ -188,6 +170,26 @@
             // click vào nút button để chạy
             document.getElementById('get').onclick= function(){
                 calculateRoute();
+            }
+
+            function addMarker1(props)
+            {
+                var marker = new google.maps.Marker({
+                    position: props.banhbao,
+                    map:map,
+                    icon: '{{ asset('public/user.png') }}'
+                });
+                
+            }
+
+            function addMarker2(props)
+            {
+                var marker = new google.maps.Marker({
+                    position: props.banhbao,
+                    map:map,
+                    icon: '{{ asset('public/map.png') }}'
+                });
+                
             }
     
     

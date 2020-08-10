@@ -20,17 +20,15 @@ class AdLogin
        if(Auth::check())
         {
             $user = Auth::user();
-            if($user->id_vaitro == 1 )
+            if($user->id_vaitro == 1  || $user->id_vaitro == 2 || $user->id_vaitro == 3 )
                 return $next($request);
-            elseif($user->id_vaitro == 2 )
-                return redirect()->route('taikhoan.dashboard');
-            elseif($user->id_vaitro == 3 )
-                return redirect()->route('get.logout');
+            elseif($user->id_vaitro == 4 )
+                return redirect()->route('home1');
             
         }       
         else
         {
-            return redirect(''.Route('get.logout').'')->with('thongbao','Tài khoản và mật khẩu không chính xác');
+            return redirect(''.Route('home1').'')->with('thongbao','Tài khoản và mật khẩu không chính xác');
 
         }
                 

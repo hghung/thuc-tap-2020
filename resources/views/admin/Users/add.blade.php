@@ -78,6 +78,8 @@
                                         </div>
                                     </div>
 
+                                    
+
                                 </div>
                                 <!-- .with_border -->
 
@@ -99,6 +101,21 @@
 
                                         </div>
                                     </div>
+                                    @if(Auth::user()->id_vaitro == 1)
+                                    <div class="row form-group">
+                                        <label class="col-lg-3 control-label">Vai trò:</label>
+                                        <div class="col-lg-9">
+                                            <select class="form-control" name="vaitro" >
+                                                <option selected="">Chọn vai trò</option>
+                                                @foreach($vaitro as $vaitro2)
+                                                <option value="{{ $vaitro2->id }}">{{ $vaitro2->vt_ten }}</option>
+                                                @endforeach
+                                                
+                                            </select>
+                                        </div>
+                                    </div>
+                                    @endif
+
 
                                      {{--    --}}
                                      <div class="row form-group">
@@ -110,17 +127,12 @@
 
                                     
                                     <div class="row form-group">
-                                        <label class="col-lg-3 control-label">New password:</label>
+                                        <label class="col-lg-3 control-label">Mật khẩu:</label>
                                         <div class="col-lg-9">
                                             <input name="password" type="password" class="form-control">
                                         </div>
                                     </div>
-                                    <div class="row form-group">
-                                        <label class="col-lg-3 control-label">Repeat New password:</label>
-                                        <div class="col-lg-9">
-                                            <input type="password" class="form-control">
-                                        </div>
-                                    </div>
+                                   
 
 
                                 </div>

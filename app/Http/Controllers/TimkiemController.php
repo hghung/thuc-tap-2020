@@ -86,9 +86,19 @@ class TimkiemController extends Controller
                 </td>
 
 
-                <td class="media-middle">
-                    Duyệt
-                </td>
+                <td class="media-middle">';
+                    if($row->id_trangthai == 2){
+                        $output .= '<span style="color:rgb(44, 236, 76)">
+                            '.$row->baotristatus->trangthai.'
+                        </span>';
+                    }
+            
+                    elseif($row->id_trangthai == 1){
+                        $output .= '<span style="color:red">
+                            '.$row->baotristatus->trangthai.'
+                        </span>';
+                    }
+    $output .= '</td>
                 <td class="media-middle">
                     '.$ngaytao.' 
                 </td>

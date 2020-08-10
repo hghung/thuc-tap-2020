@@ -46,7 +46,7 @@
 								</a>
 							</li>
 							<li>
-								<a href="route('get.logout')" >
+								<a href="{{ route('get.logout') }}" >
 									<i class="fa fa-sign-out"></i>
 									Log Out
 								</a>
@@ -59,11 +59,11 @@
 
 			<!-- main side nav start -->
 			<nav class="mainmenu_side_wrapper">
-				<h3 class="dark_bg_color">Dashboard</h3>
+				<h3 class="dark_bg_color">Quản lí</h3>
 				<ul class="menu-click">
 					<li>
 						<a href="{{route('admin.dashboard')}}">
-							<i class="fa fa-th-large"></i>
+							<i class="rt-icon2-chart-line"></i>
 							Dashboard
 						</a>
 
@@ -72,22 +72,11 @@
 					<li>
 						<a href="{{route('admin.map')}}">
 							<i class="rt-icon2-map-pin " aria-hidden="true"></i>
-							Điểm bảo trì
+							Phân công
 						</a>
 
 					</li>
 
-					<li>
-						<a href="{{route('admin.lich')}}">
-							<i class="fa fa-calendar  " aria-hidden="true"></i>
-							Lịch công tác
-						</a>
-
-					</li>
-				</ul>
-
-				<h3 class="dark_bg_color">Quản lí</h3>
-				<ul class="menu-click">
 					<li>
 						<a href="{{route('baotri.list')}}">
 							<i class="rt-icon2-health"></i>
@@ -117,29 +106,29 @@
 							Backup
 						</a>
 					</li>
-
-					
-					
 				</ul>
-
-				<h3 class="dark_bg_color">Hỗ trợ</h3>
+				<h3 class="dark_bg_color">Quản lí</h3>
 				<ul class="menu-click">
+
 					<li>
-						<a href="admin_tables.html" >
-							<i class="fa fa-comment"></i>
-							FAQ
+						<a href="{{route('admin.map')}}">
+							<i class="rt-icon2-map-pin " aria-hidden="true"></i>
+							Phân công
 						</a>
+
 					</li>
 					
+					
+					<!--  -->
+					<li>
+						<a href="#">
+							<i class="rt-icon2-download2"></i>
+							Backup
+						</a>
+					</li>
 				</ul>
 			</nav>
 			<!-- eof main side nav -->
-
-			<div class="with_padding grey text-center">
-				10GB of
-				<strong>250GB</strong> Free
-			</div>
-
 		</div>
 	</div>
 </header>

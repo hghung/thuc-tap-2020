@@ -5,6 +5,8 @@ Use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\User;
 use App\Models\db_user;
+use App\Models\db_vaitro;
+
 use App\Models\db_quanhuyen;
 use App\Models\db_phuongxa;
 use App\Models\db_diachi;
@@ -26,6 +28,7 @@ class UsersController extends Controller
     {
         $db['quanhuyen'] = db_quanhuyen::all();
         $db['phuongxa'] = db_phuongxa::all();
+        $db['vaitro'] = db_vaitro::all();
 
         return view('admin.Users.add',$db);
         
@@ -118,12 +121,34 @@ class UsersController extends Controller
         $taikhoan = new User;
         $taikhoan->password =  bcrypt($users->password);
         $taikhoan->trang_thai = 1;
-        $taikhoan->id_vaitro = 4;
         $taikhoan->id_user  = $user->id;
-        $taikhoan->save();
-        $taikhoan->username = "db_user_0".$user->id;
-        $taikhoan->save();
 
+        if(Auth::user()->id_vaitro == 1)
+        {
+            $taikhoan->id_vaitro = $users->vaitro;
+            $taikhoan->save();
+            if($taikhoan->id_vaitro == 1){
+                $taikhoan->username = "ADMIN-000".$user->id;
+            }
+            elseif($taikhoan->id_vaitro == 2){
+                $taikhoan->username = "db_nv_0".$user->id;
+            }
+            elseif($taikhoan->id_vaitro == 3){
+                $taikhoan->username = "db_kt_0".$user->id;
+            }
+            elseif($taikhoan->id_vaitro == 4){
+                $taikhoan->username = "db_user_0".$user->id;
+            }
+            $taikhoan->save();
+        }
+        else{
+            $taikhoan->id_vaitro = 4;
+            $taikhoan->save();
+            $taikhoan->username = "db_user_0".$user->id;
+            $taikhoan->save();
+        }
+        
+        // ///////////////////////////
         $diachi = new db_diachi;
         $diachi->lat = $users->lat;
         $diachi->lng = $users->lng;
@@ -144,6 +169,13 @@ class UsersController extends Controller
 
 
         
+    }
+
+    public function update_mk($id)
+    {
+        $taikhoan = User::find($id);
+        $taikhoan->password =  bcrypt('123');
+        $taikhoan->save();
     }
 
     

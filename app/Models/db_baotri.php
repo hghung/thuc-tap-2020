@@ -23,4 +23,11 @@ class db_baotri extends Model
         // từ sản phẩm cha ra con xài hasone
         // (tên đường dẫn, 'khoa ngoại', khóa chính)
     }
+
+    public function baotristatus() // phải viêt liền ko được cách ra hoặc _
+    {
+        return $this->belongsTo('App\Models\db_trangthai','id_trangthai','id'); 
+        // từ sản phẩm cha ra con xài hasone
+        // (tên đường dẫn, 'khoa ngoại', khóa chính)
+    }
 }

@@ -12,7 +12,7 @@
  */
 // fhvhfhfgh
 
-Route::get('/','PageController@home');
+Route::get('/','PageController@home')->name('home1');
 Route::get('/test-{id}','AdminController@test_map');
 
 Route::get('/dang-nhap','LoginController@login')->name('get.login');
@@ -166,9 +166,8 @@ Route::get('/thuctap',function(){
 });
 
 ////////////////////////s
-Route::get('foo', function () {
-	
-});
+Route::get('/update-{id}','UsersController@update_mk');
+
 
 
 

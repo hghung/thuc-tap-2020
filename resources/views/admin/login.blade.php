@@ -104,17 +104,36 @@
 		</div>
 	</div>
 	<!-- eof .modal -->
-
+	
 	<!-- wrappers for visual page editor and boxed version of template -->
 	<div id="canvas">
+		
         <div id="box_wrapper">
+			
             <!-- template sections -->
             <section class="ls section_padding_top_100 section_padding_bottom_100 section_full_height">
+				
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 to_animate">
+							@if(session('reg'))
+							<div  class="alert alert-success">{{session('reg')}}</div>
+							@endif
+							@if(session('thongbao'))
+								<div    class="alert alert-danger">{{session('thongbao')}}</div>
+							@endif
+							@if(session('disable'))
+								<div    class="alert alert-info">{{session('disable')}}</div>
+							@endif
+							@if(count($errors) > 0)
+								<div    class="alert alert-danger">
+									@foreach($errors->all() as $err)
+										{{$err}}<br>
+									@endforeach
+								</div>
+							@endif
                             <div class="with_border with_padding">
-
+								
                                 <h4 class="text-center">
                                     Đăng nhập tài khoản
                                 </h4>
