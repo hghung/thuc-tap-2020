@@ -59,58 +59,6 @@
 	</div>
 	<!-- eof .modal -->
 
-	<!-- Unyson messages modal -->
-	<div class="modal fade" tabindex="-1" role="dialog" id="admin_contact_modal">
-		<!-- <div class="ls with_padding"> -->
-		<div class="modal-dialog modal-sm" role="document">
-			<div class="modal-content">
-				<form class="with_padding contact-form" method="post" action="http://webdesign-finder.com/html/fixit/">
-					<div class="row">
-						<div class="col-sm-12">
-							<h3>Liên hệ Nhân viên</h3>
-							<div class="contact-form-name">
-								<label for="name">Full Name
-									<span class="required">*</span>
-								</label>
-								<input type="text" aria-required="true" size="30" value="{{ Auth::user()->user->ho_ten }}" name="name" id="name" class="form-control" >
-							</div>
-						</div>
-						<div class="col-sm-12">
-							<div class="contact-form-subject">
-								<label for="subject">Tiêu đề
-									<span class="required">*</span>
-								</label>
-								<input type="text" aria-required="true" size="30" value="" name="subject" id="subject" class="form-control" placeholder="Tiêu đề">
-							</div>
-						</div>
-
-						<div class="col-sm-12">
-
-							<div class="contact-form-message">
-								<label for="message">Nội dung</label>
-								<textarea aria-required="true" rows="6" cols="45" name="message" id="message" class="form-control" placeholder="Nội dung"></textarea>
-							</div>
-						</div>
-
-						<div class="col-sm-12 text-center">
-							<div class="contact-form-submit">
-								<div class="row">
-									<div class="col-md-6">
-										<button type="submit" id="contact_form_submit" name="contact_submit" class="theme_button wide_button color1" style="padding-left: 30px; padding-right:30px;">Gửi</button>
-									</div>
-									<div class="col-md-6">
-										<button type="reset" id="contact_form_reset" name="contact_reset" class="theme_button wide_button">Làm mới</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	<!-- eof .modal -->
-
 	<!-- wrappers for visual page editor and boxed version of template -->
 	<div id="canvas">
 		<div id="box_wrapper">
@@ -122,90 +70,13 @@
 
 			@yield('admin_content')
 
+			@include('zalo')
+
 
 		</div>
 		<!-- eof #box_wrapper -->
 	</div>
 	<!-- eof #canvas -->
-
-
-	<!-- chat -->
-	<div class="side-dropdown side-chat dropdown">
-		<a class="side-button side-chat-button" id="chat-dropdown" data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-			<i class="fa fa-comments-o"></i>
-		</a>
-
-		<ul class="dropdown-menu list-unstyled" aria-labelledby="chat-dropdown">
-			<li class="dropdown-title darkgrey_bg_color">
-				<h4>
-					Small Chat
-					<span class="pull-right">14.03.2017</span>
-				</h4>
-			</li>
-			<li>
-
-				<ul class="list-unstyled">
-					<li class="side-chat-item item-secondary">
-						<h5>
-							Michael Anderson
-							<time class="pull-right small-chat-date" datetime="2017-03-13T08:50:40+00:00">
-								08:50
-							</time>
-						</h5>
-						<div class="danger_bg_color">
-							Duis autem veum iriure dolor in hendrerit
-						</div>
-					</li>
-					<li class="side-chat-item item-primary">
-						<h5>
-							Jane Walker
-							<time class="pull-right small-chat-date" datetime="2017-03-13T08:50:40+00:00">
-								08:52
-							</time>
-						</h5>
-						<div class="warning_bg_color">
-							Vulputate vese molestie consequatl illum
-						</div>
-					</li>
-					<li class="side-chat-item item-secondary">
-						<h5>
-							Michael Anderson
-							<time class="pull-right small-chat-date" datetime="2017-03-13T08:50:40+00:00">
-								08:50
-							</time>
-						</h5>
-						<div class="danger_bg_color">
-							Duis autem veum iriure dolor in hendrerit
-						</div>
-					</li>
-				</ul>
-			</li>
-
-
-			<li role="separator" class="divider"></li>
-
-			<li>
-				<div class="side-chat-answer">
-					<form class="form-inline button-on-input">
-						<div class="form-group">
-							<label for="side-chat-message" class="sr-only">Message</label>
-							<input type="text" class="form-control" id="side-chat-message" placeholder="Message">
-						</div>
-						<button type="submit" class="btn btn-danger">
-							<i class="fa fa-paper-plane-o"></i>
-						</button>
-					</form>
-				</div>
-			</li>
-		</ul>
-	</div>
-	<!-- .chat-dropdown -->
-
-
-	<a class="side-button side-contact-button" data-target="#admin_contact_modal" href="#admin_contact_modal" data-toggle="modal" role="button">
-		<i class="fa fa-envelope"></i>
-	</a>
-
 
 	<!-- template init -->
 	<script src="{{asset('public/js/compressed.js')}}" ></script>

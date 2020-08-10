@@ -54,63 +54,112 @@
                                 <th width="15%">Khách hàng</th>
                                 <th width="15%">Ngày - giờ hẹn</th>
                                 <th width="10%">Trạng thái</th>
+                                @if(Auth::user()->id_vaitro == 3)
+
+                                @else
                                 <th width="15%">Hỗ trợ</th>
+                                @endif
                                 <th width="10%">Điện thoại</th>
                                 <th width="25%">Địa chỉ</th>
-                                <th width="10%">Xem bản đồ</th>
+                                <th width="10%">Bản đồ</th>
 
 
                             </tr>
 
                             
+                            @if(Auth::user()->id_vaitro == 1)
+                                @foreach($map_ad as $ad)
+                                <tr>
+                                    <td>
+                                        <span style="color:green">
+                                            {{ $ad->baotrikh->ho_ten  }}
+                                        </span>
+                                    </td>
+                                    {{--  --}}
+                                    <td>
+                                        {{date("d-m-Y  ",strtotime($ad->ngay)) }} 
+                                        -
+                                        {{date(" H:i A  ",strtotime($ad->gio)) }}
+                                    </td>
+                                    {{--  --}}
+                                    <td>
+                                        {{ $ad->baotristatus->trangthai  }}
+                                    </td>
+                                    {{--  --}}
+                                    <td>
+                                        <span style="color:rgb(32, 46, 248)">
+                                            {{ $ad->baotrinv->ho_ten  }}
+                                        </span>
+                                    </td>
+                                    {{--  --}}
+                                    <td>
+                                        {{ $ad->baotrikh->sdt  }}
 
-                            @foreach($map_ad as $ad)
-                            <tr>
-                                <td>
-                                    <span style="color:green">
-                                        {{ $ad->baotrikh->ho_ten  }}
-                                    </span>
-                                </td>
-                                {{--  --}}
-                                <td>
-                                    {{date("d-m-Y  ",strtotime($ad->ngay)) }} 
-                                    -
-                                    {{date(" H:i A  ",strtotime($ad->gio)) }}
-                                </td>
-                                {{--  --}}
-                                <td>
-                                    {{ $ad->baotristatus->trangthai  }}
-                                </td>
-                                {{--  --}}
-                                <td>
-                                    <span style="color:rgb(32, 46, 248)">
-                                        {{ $ad->baotrinv->ho_ten  }}
-                                    </span>
-                                </td>
-                                {{--  --}}
-                                <td>
-                                    {{ $ad->baotrikh->sdt  }}
+
+                                    </td>
+                                    {{--  --}}
+
+                                    <td>
+                                        {{ $ad->baotrikh->diachi->dia_chi  }}
+                                    </td>
+                                    {{--  --}}
+                                    <td>
+                                        <a href="{{ route('baotri.get.edit',['id' =>$ad->id]) }}" style="margin-left: 10px;"> 
+                                            <i class="fa fa-cogs"></i>
+                                        </a>
+
+                                        <a href="{{ route('admin.ct.map',['id' => $ad->id]) }}" style="margin-left: 20px;"> 
+                                            <i class="rt-icon2-map2"></i>
+                                        </a>
+
+                                    </td>
+                                </tr>
+                                @endforeach
+                            @elseif(Auth::user()->id_vaitro == 3)
+                                @foreach($nhanvien as $ad)
+                                <tr>
+                                    <td>
+                                        <span style="color:green">
+                                            {{ $ad->baotrikh->ho_ten  }}
+                                        </span>
+                                    </td>
+                                    {{--  --}}
+                                    <td>
+                                        {{date("d-m-Y  ",strtotime($ad->ngay)) }} 
+                                        -
+                                        {{date(" H:i A  ",strtotime($ad->gio)) }}
+                                    </td>
+                                    {{--  --}}
+                                    <td>
+                                        {{ $ad->baotristatus->trangthai  }}
+                                    </td>
+                                    {{--  --}}
+                                    
+                                    {{--  --}}
+                                    <td>
+                                        {{ $ad->baotrikh->sdt  }}
 
 
-                                </td>
-                                {{--  --}}
+                                    </td>
+                                    {{--  --}}
 
-                                <td>
-                                    {{ $ad->baotrikh->diachi->dia_chi  }}
-                                </td>
-                                {{--  --}}
-                                <td>
-                                    <a href="#" style="margin-left: 10px;"> 
-                                        <i class="fa fa-cogs"></i>
-                                    </a>
+                                    <td>
+                                        {{ $ad->baotrikh->diachi->dia_chi  }}
+                                    </td>
+                                    {{--  --}}
+                                    <td>
+                                        <a href="{{ route('baotri.get.edit',['id' => $ad->id]) }}" style="margin-left: 10px;"> 
+                                            <i class="fa fa-cogs"></i>
+                                        </a>
 
-                                    <a href="{{ route('admin.ct.map',['id' => $ad->id]) }}" style="margin-left: 20px;"> 
-                                        <i class="fa fa-eye"></i>
-                                    </a>
+                                        <a href="{{ route('admin.ct.map',['id' => $ad->id]) }}" style="margin-left: 20px;"> 
+                                            <i class="rt-icon2-map2"></i>
+                                        </a>
 
-                                </td>
-                            </tr>
-                            @endforeach
+                                    </td>
+                                </tr>
+                                @endforeach
+                            @endif
 
                             {{-- end --}}
 
@@ -160,24 +209,44 @@
             //addMarker({banhbao: {lat: 10.0453833,lng: 105.7796137}});
             var y = $('#img').attr('data');
            
-            @php 
-            foreach($map_ad as $baotri)
+            @php
+            if(Auth::user()->id_vaitro == 1)
             {
-                $user = $baotri->baotrikh; // khach hang
-                $nhanvien = $baotri->baotrinv; // khach hang
+                foreach($map_ad as $baotri)
+                {
+                    $user = $baotri->baotrikh; // khach hang
+                    $nhanvien = $baotri->baotrinv; // khach hang
 
-                $diachi = $user->diachi; // đia chi khach hang
+                    $diachi = $user->diachi; // đia chi khach hang
+                    
                 
-               
-               
-               echo'addMarker({banhbao: {lat: '.$diachi->lat.',lng: '.$diachi->lng.'},';
-               echo "content: '<div style=width:200px><div class=row><div class=col-md-4 ><img style=width:80px;height:80px;border-radius:50%; src=../public/upload/avatar/$user->avatar ></div><div class=col-md-8 ><div style=margin-left:15px;>Khách hàng: <a style=color:green;margin-left:16px;><b>$user->ho_ten</b></a></div></br><div style=margin-left:15px;>Số điện thoại: <a style=margin-left:16px;><b>$user->sdt</b></a></div></div></div><div style=margin-top:5px;margin-bottom:5px;>Tiêu đề: <a href=# style=color:red> $baotri->tieude </a></div><div>Địa chỉ: $diachi->dia_chi</div> </div> '});";
-               //muốn viêt dc model trong day phải khai bảng ở ngoài trước không nó sẽ lỗi
-               // style phải viet xác nhau mới nhận được
-                // viet lòng php không cần mở dây nhây kep nó tự hiệu
-                // muốn nhận đươc dấu nhây đơn '' tài phải echo dấu nhây kép ""
+                
+                echo'addMarker({banhbao: {lat: '.$diachi->lat.',lng: '.$diachi->lng.'},';
+                echo "content: '<div style=width:200px><div class=row><div class=col-md-4 ><img style=width:80px;height:80px;border-radius:50%; src=../public/upload/avatar/$user->avatar ></div><div class=col-md-8 ><div style=margin-left:15px;>Khách hàng: <a style=color:green;margin-left:16px;><b>$user->ho_ten</b></a></div></br><div style=margin-left:15px;>Số điện thoại: <a style=margin-left:16px;><b>$user->sdt</b></a></div></div></div><div style=margin-top:5px;margin-bottom:5px;>Tiêu đề: <a href=# style=color:red> $baotri->tieude </a></div><div>Địa chỉ: $diachi->dia_chi</div> </div> '});";
+                //muốn viêt dc model trong day phải khai bảng ở ngoài trước không nó sẽ lỗi
+                // style phải viet xác nhau mới nhận được
+                    // viet lòng php không cần mở dây nhây kep nó tự hiệu
+                    // muốn nhận đươc dấu nhây đơn '' tài phải echo dấu nhây kép ""
+                }
             }
-         
+            elseif(Auth::user()->id_vaitro == 3){
+                foreach($nhanvien as $baotri)
+                {
+                    $user = $baotri->baotrikh; // khach hang
+                    $nhanvien = $baotri->baotrinv; // khach hang
+
+                    $diachi = $user->diachi; // đia chi khach hang
+                    
+                
+                
+                echo'addMarker({banhbao: {lat: '.$diachi->lat.',lng: '.$diachi->lng.'},';
+                echo "content: '<div style=width:200px><div class=row><div class=col-md-4 ><img style=width:80px;height:80px;border-radius:50%; src=../public/upload/avatar/$user->avatar ></div><div class=col-md-8 ><div style=margin-left:15px;>Khách hàng: <a style=color:green;margin-left:16px;><b>$user->ho_ten</b></a></div></br><div style=margin-left:15px;>Số điện thoại: <a style=margin-left:16px;><b>$user->sdt</b></a></div></div></div><div style=margin-top:5px;margin-bottom:5px;>Tiêu đề: <a href=# style=color:red> $baotri->tieude </a></div><div>Địa chỉ: $diachi->dia_chi</div> </div> '});";
+                //muốn viêt dc model trong day phải khai bảng ở ngoài trước không nó sẽ lỗi
+                // style phải viet xác nhau mới nhận được
+                    // viet lòng php không cần mở dây nhây kep nó tự hiệu
+                    // muốn nhận đươc dấu nhây đơn '' tài phải echo dấu nhây kép ""
+                }
+            }
             
             @endphp
             

@@ -1,4 +1,5 @@
-<header class="page_header header_darkgrey">
+<header class="page_header header_darkgrey" style="background-image: linear-gradient(45deg, #ee9ca7 0%, #ffdde1 100%);">
+
 	<div class="widget widget_search">
 		<form method="get" class="searchform form-inline" action="http://webdesign-finder.com/html/fixit/">
 			<div class="form-group">

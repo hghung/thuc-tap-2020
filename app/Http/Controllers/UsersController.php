@@ -187,6 +187,17 @@ class UsersController extends Controller
         
     }
 
+    // //////////////////////////
+    public function edit($id)
+    {   
+        $edit = User::find($id);
+        $taikhoan->password =  bcrypt('123');
+        return view('admin.Users.edit',$db);
+    }
+
+
+
+    // ///////////////////////////////
     public function update_mk($id)
     {
         $taikhoan = User::find($id);

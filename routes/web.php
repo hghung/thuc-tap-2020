@@ -38,7 +38,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>'Ad_login'],function(){
 	Route::get('/','AdminController@home')->name('admin.dashboard');
 
 
-	Route::get('/lich-bao-tri','AdminController@lich_baotri')->name('admin.lich');
+	Route::get('/lich-bao-tri','AdminController@work')->name('admin.lich');
 
 
 
@@ -60,6 +60,8 @@ Route::group(['prefix'=>'admin', 'middleware'=>'Ad_login'],function(){
 
 	Route::group(['prefix'=>'users'],function(){
 		Route::get('/profile','UsersController@profile')->name('users.profile');
+		Route::get('/cap-nhat','UsersController@edit')->name('users.get.edit');
+
 
 
 		Route::get('/','UsersController@list')->name('users.list');
@@ -77,6 +79,9 @@ Route::group(['prefix'=>'admin', 'middleware'=>'Ad_login'],function(){
 		Route::get('/','BaotriController@list')->name('baotri.list');
 		Route::get('/add','BaotriController@get_add')->name('baotri.get.add');
 		Route::post('/add','BaotriController@post_add')->name('baotri.post.add');
+
+		Route::get('/eidt-{id}','BaotriController@get_edit')->name('baotri.get.edit');
+
 
 
 

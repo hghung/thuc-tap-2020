@@ -44,6 +44,24 @@ class BaotriController extends Controller
         return redirect()->route('baotri.list');
     }
 
+    public function get_edit($id)
+    {
+        $user['trangthai']= db_baotri::find($id);
+        $user['khachhang']= User::where('id_vaitro','=',4)->get();
+        $user['nhanvien']= User::where('id_vaitro','=',3)->get();
+        $user['trangthai']= db_trangthai::all();
+
+        return view('admin.bao-tri.add',$user);
+        
+    }
+    public function post_edit($id)
+    {
+        $user['trangthai']= db_trangthai::find($id);
+        return view('admin.bao-tri.add',$user);
+        
+    }
+
+
     
 
    

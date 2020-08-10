@@ -29,7 +29,7 @@ class ChartController extends Controller
             'report_type' => 'group_by_date',
             'chart_type' => 'bar',
 
-            'model' => 'App\Models\bangtin',
+            'model' => 'App\Models\db_baotri',
             'group_by_field' => 'created_at',
             'group_by_period' => 'day',
         ];

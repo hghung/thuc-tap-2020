@@ -2,7 +2,6 @@
 	<div class="container">
 		<div class="row">
 
-			
 
 			<div class="col-md-7 col-sm-2 col-md-pull-1 ">
 				<div class="widget topmargin_25">

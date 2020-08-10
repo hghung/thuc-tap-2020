@@ -1,12 +1,13 @@
-<header class="page_header_side page_header_side_sticked active-slide-side-header ds">
-	<div class="side_header_logo ds ms">
+<header class="page_header_side page_header_side_sticked active-slide-side-header ds" style="background-image: linear-gradient(45deg, #ee9ca7 0%, #ffdde1 100%);">
+	<div class="side_header_logo ds ms" style="background-image: linear-gradient(45deg, #ee9ca7 0%, #ffdde1 100%);">
+ 
 		<a href="admin_index.html" >
 			<span class="logo_text margin_0">
 				Fixit
 			</span>
 		</a>
 	</div>
-	<span class="toggle_menu_side toggler_light header-slide">
+	<span class="toggle_menu_side toggler_light header-slide" style="background-image: linear-gradient(45deg, #ee9ca7 0%, #ffdde1 100%);">
 		<span></span>
 	</span>
 	<div class="scrollbar-macosx">
@@ -21,7 +22,7 @@
 									<img src="{{asset('public/upload/avatar')}}/{{ Auth::user()->user->avatar }}"  alt="">
 								</div>
 								<div class="media-body media-middle">
-									{{Auth::user()->user->ho_ten}}
+									<span style="color: #2196F3; font-size: 20px;">{{Auth::user()->user->ho_ten}}</span>
 									<br>
 									<br>
 									@if(Auth::user()->id_vaitro == 1)
@@ -62,15 +63,9 @@
 								</a>
 							</li>
 							<li>
-								<a href="admin_inbox.html" >
-									<i class="fa fa-envelope-o"></i>
-									Inbox
-								</a>
-							</li>
-							<li>
 								<a href="{{ route('get.logout') }}" >
 									<i class="fa fa-sign-out"></i>
-									Log Out
+									Đăng xuất
 								</a>
 							</li>
 						</ul>
@@ -81,7 +76,10 @@
 
 			<!-- main side nav start -->
 			<nav class="mainmenu_side_wrapper">
-				<h3 class="dark_bg_color">Quản lí</h3>
+				<h3 class="dark_bg_color"
+				style="background-image: linear-gradient(to top, #feada6 0%, #f5efef 100%); color: #2196F3">
+					Điều khiển
+				</h3>
 				<ul class="menu-click">
 					<li>
 						<a href="{{route('admin.dashboard')}}">
@@ -94,10 +92,28 @@
 					<li>
 						<a href="{{route('admin.map')}}">
 							<i class="rt-icon2-map-pin " aria-hidden="true"></i>
-							Phân công
+							Điểm bảo trì
 						</a>
 
 					</li>
+
+					<li>
+						<a href="{{route('admin.lich')}}">
+							<i class="fa fa-calendar" aria-hidden="true"></i>
+							Lịch làm việc
+						</a>
+
+					</li>
+
+					
+					
+					
+				</ul>
+				@if(Auth::user()->id_vaitro == 3)
+
+				@else
+				<h3 class="dark_bg_color" style="background-image: linear-gradient(to top, #feada6 0%, #f5efef 100%); color: #2196F3">Quản lí</h3>
+				<ul class="menu-click">
 
 					<li>
 						<a href="{{route('baotri.list')}}">
@@ -113,32 +129,14 @@
 						</a>
 					</li>
 					<!--  -->
-					
-					<!--  -->
-					<li>
-						<a href="#">
-							<i class="rt-icon2-chart-line"></i>
-							Thống kê
-						</a>
-					</li>
-					<!--  -->
-					<li>
-						<a href="#">
-							<i class="rt-icon2-download2"></i>
-							Backup
-						</a>
-					</li>
-				</ul>
-				<h3 class="dark_bg_color">Quản lí</h3>
-				<ul class="menu-click">
 
 					<li>
-						<a href="{{route('admin.map')}}">
-							<i class="rt-icon2-map-pin " aria-hidden="true"></i>
-							Phân công
+						<a href="{{route('users.list')}}">
+							<i class="rt-icon2-pictures"></i>
+							Banner lớn
 						</a>
-
 					</li>
+
 					
 					
 					<!--  -->
@@ -149,6 +147,7 @@
 						</a>
 					</li>
 				</ul>
+				@endif
 			</nav>
 			<!-- eof main side nav -->
 		</div>

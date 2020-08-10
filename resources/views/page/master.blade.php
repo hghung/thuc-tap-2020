@@ -64,6 +64,7 @@
             
 			@include('page.footer')
 
+			@include('zalo')
 			
 
 		</div>
