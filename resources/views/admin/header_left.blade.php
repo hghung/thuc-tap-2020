@@ -18,17 +18,39 @@
 						<a href="#">
 							<div class="media">
 								<div class="media-left media-middle">
-									<img src="{{asset('public/img/01-2.jpg')}}"  alt="">
+									<img src="{{asset('public/upload/avatar')}}/{{ Auth::user()->user->avatar }}"  alt="">
 								</div>
 								<div class="media-body media-middle">
-									<h4></h4>
-									{{Auth::user()->vaitro->vt_ten}}
+									{{Auth::user()->user->ho_ten}}
+									<br>
+									<br>
+									@if(Auth::user()->id_vaitro == 1)
+										<span style="color:rgb(240, 63, 63)">
+											<i class="rt-icon2-diamond3" aria-hidden="true" style="color: #e7a413"></i>
+											{{Auth::user()->vaitro->vt_ten}}
+										</span>
+									@elseif(Auth::user()->id_vaitro == 2)
+										<span style="color:rgb(111, 233, 54)">
+											<i class="fa fa-laptop" aria-hidden="true" style="color: #e7a413"></i>
+											{{Auth::user()->vaitro->vt_ten}}
+										</span>
+
+									@elseif(Auth::user()->id_vaitro == 3)
+										<span style="color:rgb(37, 80, 223)">
+											<i class="rt-icon2-spanner-outline" aria-hidden="true" style="color: #e7a413"></i>
+											{{Auth::user()->vaitro->vt_ten}}
+										</span>
+									@elseif(Auth::user()->id_vaitro == 4)
+										<span style="color:rgb(221, 240, 54)">
+											{{Auth::user()->vaitro->vt_ten}}
+										</span>
+									@endif
 								</div>
 							</div>
 						</a>
 						<ul>
 							<li>
-								<a href="admin_profile.html" >
+								<a href="{{ route('users.profile') }}" >
 									<i class="fa fa-user"></i>
 									Profile
 								</a>

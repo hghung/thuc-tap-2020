@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Models\db_user;
 use App\Models\db_vaitro;
+use App\Models\db_baotri;
+
 
 use App\Models\db_quanhuyen;
 use App\Models\db_phuongxa;
@@ -17,6 +19,20 @@ use Toastr;
 use Artisan;
 class UsersController extends Controller
 {
+    public function profile()
+    {
+        // phải khai bao như này nếu không nhân viên bấm vào 
+        // kiêm tra hồ sơ sẽ thông tin của nhân viên chứ ko phải user này
+        $id = Auth::user()->id;
+        $user['profile'] = User::find($id);
+        $user['baotri'] = db_baotri::where('id_khachhang','=',$id)
+                            ->orwhere('id_trangthai','=',6)
+                            ->count();
+        // echo $baotri;die;
+        return view('admin.Users.profile',$user);
+        
+    }
+
     public function list()
     {
         $user['user'] = User::all();

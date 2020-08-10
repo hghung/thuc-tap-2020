@@ -59,6 +59,9 @@ Route::group(['prefix'=>'admin', 'middleware'=>'Ad_login'],function(){
 
 
 	Route::group(['prefix'=>'users'],function(){
+		Route::get('/profile','UsersController@profile')->name('users.profile');
+
+
 		Route::get('/','UsersController@list')->name('users.list');
 		Route::get('/add','UsersController@get_add')->name('users.get.add');
 		// ajax
