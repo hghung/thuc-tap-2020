@@ -26,8 +26,7 @@
 
             <div class="row">
                 <div class="col-sm-12">
-                    <h3>User
-                        <small>profile</small>
+                    <h3>Profile
                     </h3>
                 </div>
             </div>
@@ -156,7 +155,7 @@
                                                 <strong class="grey">
                                                     CMND / Căn Cước:
                                                 </strong>
-                                                {{ date("d-m-Y",strtotime($profile->user->cmnd)) }}
+                                                {{ number_format($profile->user->cmnd,0,',',' ')  }}
 
                                             </div>
                                         </div>

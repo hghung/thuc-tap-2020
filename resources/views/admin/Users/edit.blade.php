@@ -208,9 +208,9 @@
                                     </div>
 
                                     {{-- lat --}}
-                                    <input type="hidden" class="form-control" name="lat" id="lat">
+                                    <input type="hidden" class="form-control" name="lat" id="lat" value="{{ $edit->user->diachi->lat }}">
                                     {{-- lng --}}
-                                    <input type="hidden" class="form-control" name="lng" id="lng">
+                                    <input type="hidden" class="form-control" name="lng" id="lng" value="{{ $edit->user->diachi->lng }}">
 
                                     <style>
                                         #map

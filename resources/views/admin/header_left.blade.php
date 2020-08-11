@@ -57,7 +57,7 @@
 								</a>
 							</li>
 							<li>
-								<a href="admin_profile_edit.html" >
+								<a href="{{ route('users.get.edit',['id' => Auth::user()->id]) }}" >
 									<i class="fa fa-edit"></i>
 									Edit Profile
 								</a>
