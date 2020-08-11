@@ -143,27 +143,27 @@
                         <div class="row columns_padding_25">
                             <div class="col-lg-6 col-md-7">
                                 <!-- <div class="inline-block"> -->
-                                <div id="container1" class="twentytwenty-container">
+                                <div id="container1">
                                     <!-- The after image is first -->
                                     <img src="{{ asset('public/img/after.jpg')}}" alt="" />
-                                    <!-- The before image is last -->
-                                    <img src="{{ asset('public/img/before.jpg')}}" alt="" />
+                                   
                                 </div>
                                 <!-- </div> -->
                             </div>
                             <div class="col-lg-5 col-md-5">
                                 <h4 class="fontsize_28 thin bottommargin_0">
-                                    Giới thiệu !
+                                   Về chúng tôi !
                                 </h4>
-                                <h3 class="section_header" style="margin-bottom: 10px !important;">
-                                    Về chúng tôi
-                                </h3>
                                 <p>
-                                    Đội ngũ kỹ thuật viên được đào tạo chuyên sâu có nhiều năm kinh nghiệm với tất cả các lĩnh vực sửa chữa laptop, notebook, macbook, máy tính để bàn. Công ty chúng tôi tự hào về sự trung thực và các mối quan hệ tốt được hình thành thông qua sự hài lòng của khách hàng. Chúng tôi phục vụ tất cả các dòng máy tính xách tay MAC, Imac, máy tính xách tay PC, máy tính xách tay và hầu hết các máy tính để bàn: Dell, Sony, IBM, HP, Acer, Apple,...
+                                    Trung tâm Công nghệ thông tin và Truyền thông là đơn vị sự nghiệp trực thuộc Sở Thông tin và Truyền thông, có chức năng giúp Giám đốc Sở thực hiện các nhiệm vụ sự nghiệp phục vụ cho công tác quản lý nhà nước về công nghệ thông tin và truyền thông trên địa bàn thành phố; trực tiếp quản lý, vận hành trung tâm dữ liệu, hạ tầng kỹ thuật công nghệ thông tin các ứng dụng và cơ sở dữ liệu dùng chung của Ủy ban nhân dân thành phố thành phố phục vụ cho việc xây dựng Chính quyền điện tử thành phố và phát triển đô thị thông minh; thực hiện các nhiệm vụ về đảm bảo an toàn và an ninh thông tin mạng, ứng cứu sự cố máy tính trong các cơ quan nhà nước; tổ chức nghiên cứu, thiết kế, xây dựng chương trình, đề án, dự án và ứng dụng các tiến bộ khoa học, kỹ thuật, công nghệ về lĩnh vực thông tin, truyền thông, xuất bản và báo chí theo đúng mục tiêu, nhiệm vụ, tiến độ đã được cơ quan thẩm quyền phê duyệt; tổ chức đào tạo, bồi dưỡng kiến thức, kỹ năng về lĩnh vực công nghệ thông tin và truyền thông; cung cấp các dịch vụ trong lĩnh vực thông tin và truyền thông cho các tổ chức, cá nhân có nhu cầu.
+
+                                    Trung tâm Công nghệ thông tin và Truyền thông (sau đây gọi tắt là Trung tâm) là đơn vị sự nghiệp có thu, được ngân sách đảm bảo một phần chi phí hoạt động thường xuyên, có tư cách pháp nhân, được phép sử dụng con dấu và tài khoản riêng.
+                                    
+                                    Tên giao dịch: Trung tâm Công nghệ thông tin và Truyền thông Cần Thơ
                                 </p>
-                                <p class="topmargin_30">
-                                    <a href="#"  class="theme_button color1 wide_button">Trang giới thiệu</a>
-                                </p>
+                                <p>  -Tên giao dịch quốc tế: Cantho Information and Communication Technology Center.</p>
+                                <p> -Tên viết tắt: CTICT.</p>
+                            
                             </div>
                         </div>
                     </div>
@@ -283,49 +283,26 @@
                             </div>
                             <div class="col-lg-5 col-md-5">
                                 <h3  style="font-size: 30px !important" class="section_header ">
-                                    Tại sao nên chọn chúng tôi ?
+                                    Lĩnh vực hoạt động
                                 </h3>
-                                <p class="fontsize_20 grey">
-                                    No sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr:
-                                </p>
+                    
+                                <h4> Các hoạt động dịch vụ sự nghiệp: </h4>
+                                 
+                                <p> - Tư vấn, thiết kế, giám sát và thi công các dự án CNTT-TT </p>
+                                    
+                                <p> - Thiết kế phần mềm, website, quản trị Website </p>
+                                    
+                                <p> - Bảo trì, nâng cấp hệ thống CNTT-TT </p>
+                                    
+                                <p> - Tư vấn, thi công, vận hành hệ thống hội nghị truyền hình </p>
+                                    
+                                <p> - Đào tạo, liên kết đào tạo nguồn nhân lực CNTT-TT cho CBCC,VC thành phố </p>
+                                    
+                                <p> - Tổ chức các sự kiện thông tin truyền thông </p>
+                                    
+                                <p> - Hợp tác quốc tế, trong nước trong lĩnh vực ứng dụng và phát triển CNTT - TT </p>
+                               
                             
-                                <div class="panel-group" id="accordion1">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion1" href="#collapse1">
-                                                    Kinh nghiệm 
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div id="collapse1" class="panel-collapse collapse in">
-                                            <div class="panel-body">
-                                                Các kỹ thuật viên được đào tạo chuyên sâu có nhiều năm kinh nghiệm với tất cả các lĩnh vực sửa chữa máy tính xách tay, máy tính xách tay, máy tính để bàn
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion1" href="#collapse2" class="collapsed">
-                                                    Chất lượng
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div id="collapse2" class="panel-collapse collapse">
-                                            <div class="panel-body">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem facere doloremque ut dolores laudantium nihil at, repudiandae est numquam fuga tempora totam sequi quidem saepe officiis sint beatae, magni fugit.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion1" href="#collapse3" class="collapsed">
-                                                    Đảm bảo
-                                                </a>
-                                            </h4>
-                                        </div>
                                         <div id="collapse3" class="panel-collapse collapse">
                                             <div class="panel-body">
                                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. At nobis omnis delectus, asperiores quo obcaecati et iste corporis necessitatibus tempora aspernatur doloribus. Ut deleniti commodi dicta distinctio sit enim quidem!
