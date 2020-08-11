@@ -12,11 +12,7 @@
  */
 // fhvhfhfgh
 
-<<<<<<< HEAD
 Route::get('/','PageController@home')->name('home1');
-=======
-Route::get('/','PageController@home');
->>>>>>> 9dd692991ce6242c00d7a5b51a28a80d38855ede
 Route::get('/test-{id}','AdminController@test_map');
 
 Route::get('/dang-nhap','LoginController@login')->name('get.login');
@@ -47,6 +43,9 @@ Route::group(['prefix'=>'quan-ly', 'middleware'=>'Ad_login'],function(){
 
 	Route::get('/thong-ke','ChartController@chart')->name('admin.chart');
 
+	Route::get('/yeu-cau-bao-tri','BaotriController@get_add')->name('khachhang.yc');
+
+
 	Route::group(['prefix'=>'ban-do'],function(){
 		Route::get('/','AdminController@map_baotri')->name('admin.map');
 		Route::get('/map-bao-tri-{id}','AdminController@ct_map')->name('admin.ct.map');
@@ -56,9 +55,6 @@ Route::group(['prefix'=>'quan-ly', 'middleware'=>'Ad_login'],function(){
 
 	Route::group(['prefix'=>'users'],function(){
 		Route::get('/profile','UsersController@profile')->name('users.profile');
-		Route::get('/cap-nhat','UsersController@edit')->name('users.get.edit');
-
-
 
 		Route::get('/','UsersController@list')->name('users.list');
 		Route::get('/add','UsersController@get_add')->name('users.get.add');

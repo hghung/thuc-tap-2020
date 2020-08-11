@@ -13,25 +13,15 @@
                                 <div class="slide_description_wrapper">
                                     <div class="slide_description">
                                         <div class="intro-layer" data-animation="fadeInUp">
-<<<<<<< HEAD
                                             <h3>
                                                 Any Computer Problems?
                                             </h3>
                                             <h2>
                                                 We Will Help
-=======
-                                            <h2>
-                                             Bảo Hành Máy Tính
->>>>>>> 9dd692991ce6242c00d7a5b51a28a80d38855ede
                                             </h2>
-                                           
                                         </div>
                                         <div class="intro-layer" data-animation="fadeInUp">
-<<<<<<< HEAD
                                             <a href="about.html"  class="theme_button color1 inverse">All Services</a>
-=======
-                                            <a href="about.html" tppabs="http://webdesign-finder.com/html/fixit/about.html" class="theme_button color1 inverse"> Tất cả dịch vụ </a>
->>>>>>> 9dd692991ce6242c00d7a5b51a28a80d38855ede
                                         </div>
                                     </div>
                                     <!-- eof .slide_description -->
@@ -48,23 +38,20 @@
                 <li>
                     <img src="{{ asset('public/img/slide02.jpg')}}"  alt="">
                     <div class="container">
-                       
                         <div class="row">
                             <div class="col-sm-12 text-center">
                                 <div class="slide_description_wrapper">
                                     <div class="slide_description">
                                         <div class="intro-layer" data-animation="fadeInUp">
+                                            <h3>
+                                                The Same Day
+                                            </h3>
                                             <h2>
-                                                CHO THUÊ HOSTING
+                                                Phone Repair
                                             </h2>
-                                            
                                         </div>
                                         <div class="intro-layer" data-animation="fadeInUp">
-<<<<<<< HEAD
                                             <a href="about.html" class="theme_button color1 inverse">Advantages</a>
-=======
-                                            <a href="about.html" tppabs="http://webdesign-finder.com/html/fixit/about.html" class="theme_button color1 inverse">DỊCH VỤ</a>
->>>>>>> 9dd692991ce6242c00d7a5b51a28a80d38855ede
                                         </div>
                                     </div>
                                     <!-- eof .slide_description -->
@@ -86,12 +73,15 @@
                                 <div class="slide_description_wrapper">
                                     <div class="slide_description">
                                         <div class="intro-layer" data-animation="fadeInUp">
+                                            <h3>
+                                                Multi-Brand
+                                            </h3>
                                             <h2>
-                                               THIẾT KẾ, QUẢN TRỊ WEBSITE
+                                                Device Service
                                             </h2>
                                         </div>
                                         <div class="intro-layer" data-animation="fadeInUp">
-                                            <a href="about.html" class="theme_button color1 inverse">DỊCH VỤ</a>
+                                            <a href="about.html" class="theme_button color1 inverse">About us</a>
                                         </div>
                                     </div>
                                     <!-- eof .slide_description -->
@@ -119,22 +109,15 @@
                         <i class="rt-icon2-phone4" aria-hidden="true"></i>
                         Liên hệ 24 / 7
                     </h5>
-<<<<<<< HEAD
                     <p class="fontsize_28 thin grey">
                         (0292) 3 690 888
                     </p>
-=======
-                    <p class="fontsize_30 thin grey">
-            (0292) 3 690 888
-        </p>
->>>>>>> 9dd692991ce6242c00d7a5b51a28a80d38855ede
                 </div>
                 <div class="col-md-4 col-sm-6 text-center">
                     <h5 class="text-uppercase bottommargin_5" style="color:rgb(62, 233, 77)">
                         <i class="rt-icon2-mail" aria-hidden="true"></i>
                         Email Address
                     </h5>
-<<<<<<< HEAD
                     <p class="fontsize_28 thin grey">
                         ctict@cantho.gov.vn
                     </p>
@@ -147,24 +130,10 @@
                     <p class="fontsize_28 thin grey">
                         080 72123
                     </p>
-=======
-                    <p class="fontsize_30 thin grey">
-                        ctict@cantho.gov.vn
-        </p>
-                </div>
-                <div class="col-md-4 col-sm-6 col-sm-offset-3 col-md-offset-0 text-center">
-                    <h5 class="text-uppercase bottommargin_5">
-                        Fax
-                    </h5>
-                    <p class="fontsize_30 thin grey">
-                        080 72123
-        </p>
->>>>>>> 9dd692991ce6242c00d7a5b51a28a80d38855ede
                 </div>
             </div>
         </div>
     </section>
-<<<<<<< HEAD
 
     <section id="about" class="ls  section_padding_bottom_150 columns_margin_bottom_30 table_section table_section_md" style="padding-top: 50px !important;">
         <div class="container-fluid">
@@ -195,21 +164,6 @@
                                 <p class="topmargin_30">
                                     <a href="#"  class="theme_button color1 wide_button">Trang giới thiệu</a>
                                 </p>
-=======
-                <!-- gioi thieu -->
-    <section id="about" class="ls section_padding_top_150 section_padding_bottom_150 columns_margin_bottom_30 table_section table_section_md">
-                      
-                            <div class="col-lg-5 col-md-5">
-                                <span style="color: blue"> TRUNG TÂM CÔNG NGHỆ THÔNG TIN VÀ TRUYỀN THÔNG THÀNH PHỐ CẦN THƠ</span>
-                               
-                                <h3 style="font-size: 15px">ĐIỆN THOẠI TỪNG BỘ PHẬN</h3>
-                                <p> 1. Ban Giám đốc: 02923 690 699</p>
-                                <p> 2. Phòng Hành chính - Tổng hợp: 02923 690 888</p>
-                                <p> 3. Phòng Hạ tầng kỹ thuật: 08 07 12 14</p>
-                                <p> 4. Phòng Ứng dụng CNTT: 02923 690 887</p>
-                                <p> 5. Phòng Biên tập Cổng thông tin: 02923 690 090</p>
-                                <p> 6. Phòng Đào tạo và dịch vụ: 02923 690 888</p>
->>>>>>> 9dd692991ce6242c00d7a5b51a28a80d38855ede
                             </div>
                         </div>
                     </div>
@@ -217,13 +171,8 @@
             </div>
         </div>
     </section>
-<<<<<<< HEAD
 
     <section id="services" class="ds parallax page_services  section_padding_bottom_100 columns_padding_25" style="padding-top: 50px !important;">
-=======
-                                        <!-- dich vu -->
-   <!-- <section id="services" class="ds parallax page_services section_padding_top_150 section_padding_bottom_100 columns_padding_25">
->>>>>>> 9dd692991ce6242c00d7a5b51a28a80d38855ede
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 text-center">
@@ -317,7 +266,6 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
     </section>
    
 
@@ -477,21 +425,12 @@
 
      {{-- tin tức --}}
      <section id="blog" class="ls  section_padding_bottom_130" style="padding-top: 50px !important;">
-=======
-    </section> -->
-                                        <!-- blog -->
-    <section id="blog" class="ls section_padding_top_150 section_padding_bottom_130">
->>>>>>> 9dd692991ce6242c00d7a5b51a28a80d38855ede
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 text-center bottommargin_0">
                     <h2 class="section_header">Tin tức</h2>
-<<<<<<< HEAD
                     <p class="fontsize_20 grey">Đọc tin tức gần đây của chúng tôi để luôn được cập nhật tin tức của chúng tôi 
                     </p>
-=======
-                    <p class="fontsize_20 grey">Đăng ký nhận tin của chúng tôi để luôn cập nhật thông tin mới nhất</p>
->>>>>>> 9dd692991ce6242c00d7a5b51a28a80d38855ede
                 </div>
             </div>
             <div class="row columns_margin_bottom_20">
@@ -619,148 +558,8 @@
             </div>
         </div>
     </section>
-<<<<<<< HEAD
 
     {{--  <section id="faq" class="ls  section_padding_bottom_150" style="padding-top: 50px !important;">
-=======
-                                        <!-- gioi thieu thanh vien -->
- <!--   <section id="reviews" class="ls parallax page_testimonials section_padding_top_150 section_padding_bottom_130">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1 text-center">
-
-                    <div class="owl-carousel testimonials-owl-carousel" data-responsive-lg="1" data-responsive-md="1" data-responsive-sm="1" data-dots="true" data-nav="false">
-
-                        <blockquote class="with_single_quote text-center">
-                            <img src="{{asset('public/img/01-1.jpg')}}" alt="">
-                            <div class="item-meta topmargin_25">
-                                <h3 class="bottommargin_0">Karl Greaves</h3>
-                                <p class="small-text grey">Client</p>
-                            </div>
-                            Randy came out to my house. He was on time, extremely pleasant, and got the job done. My dog liked him too…… I would definitely hire this company again. Price was fair, service was great, and tech – well I could adopt him!
-                        </blockquote>
-
-                        <blockquote class="with_single_quote text-center">
-                            <img src="{{asset('public/img/02-1.jpg')}}"  alt="">
-                            <div class="item-meta topmargin_25">
-                                <h3 class="bottommargin_0">Scott Maxwell</h3>
-                                <p class="small-text grey">Client</p>
-                            </div>
-                            FixIt was super helpful in addressing all our office needs when we upgraded our company server. They also assisted us is finding new equipment that fit our office best. We did not have to wait around for services.
-                        </blockquote>
-
-                        <blockquote class="with_single_quote text-center">
-                            <img src="{{asset('public/img/03-1.jpg')}}"  alt="">
-                            <div class="item-meta topmargin_25">
-                                <h3 class="bottommargin_0">Deanna Stewart</h3>
-                                <p class="small-text grey">Client</p>
-                            </div>
-                            Super friendly and helpful. Even though I was arriving right at closing time they stayed open for me. They were able to instantly replace my hard drive while I waited and for a reasonable price.
-                        </blockquote>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section> -->
-                                        <!-- ho tro -->
-    <section id="appointment" class="ds page_appointment parallax section_padding_top_150 section_padding_bottom_150">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 text-center to_animate animated fadeInUp" data-animation="fadeInUp">
-                    <h2 class="section_header">Gửi yêu cầu</h2>
-
-                    <form class="contact-form row columns_margin_bottom_20" method="post" action="http://webdesign-finder.com/html/fixit/">
-
-
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="appointment-name">Họ tên
-                                    <span class="required">*</span>
-                                </label>
-
-                                <input type="text" aria-required="true" size="30" value="" name="name" id="appointment-name" class="form-control" placeholder="Họ tên">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="appointment-phone">Số điện thoại
-                                    <span class="required">*</span>
-                                </label>
-
-                                <input type="text" aria-required="true" size="30" value="" name="appointment-phone" id="appointment-phone" class="form-control" placeholder="Số điện thoại">
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="form-group select-group">
-                                <label for="appointment-date">Ngày
-                                    <span class="required">*</span>
-                                </label>
-
-                                <select aria-required="true" id="appointment-date" name="appointment-date" class="choice empty form-control">
-                                    <option value="" disabled="" selected="" data-default="">Ngày</option>
-                                    <option value="1306">13.06</option>
-                                    <option value="1406">14.06</option>
-                                    <option value="1506">15.06</option>
-                                    <option value="1606">16.06</option>
-                                    <option value="1706">17.06</option>
-                                    <option value="1806">18.06</option>
-                                    <option value="1906">19.06</option>
-                                    <option value="2006">20.06</option>
-                                </select>
-                                <i class="fa fa-angle-down theme_button" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="form-group select-group">
-                                <label for="appointment-time">Thời gian
-                                    <span class="required">*</span>
-                                </label>
-
-                                <select aria-required="true" id="appointment-time" name="appointment-time" class="choice empty form-control">
-                                    <option value="" disabled="" selected="" data-default="">Thời gian</option>
-                                    <option value="08am">8:00 AM</option>
-                                    <option value="09am">9:00 AM</option>
-                                    <option value="10am">10:00 AM</option>
-                                    <option value="11am">11:00 AM</option>
-                                    <option value="12am">12:00 PM</option>
-                                    <option value="13pm">13:00 PM</option>
-                                    <option value="14pm">14:00 PM</option>
-                                    <option value="15pm">15:00 PM</option>
-                                    <option value="16pm">16:00 PM</option>
-                                    <option value="17pm">17:00 PM</option>
-                                </select>
-                                <i class="fa fa-angle-down theme_button" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                        <div class="col-sm-12">
-
-                            <div class="form-group">
-                                <label for="appointment-message">Nội dung</label>
-
-                                <textarea aria-required="true" rows="3" cols="45" name="appointment-message" id="appointment-message" class="form-control" placeholder="Nội dung"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-12 bottommargin_0">
-
-                            <div class="contact-form-submit topmargin_30">
-                                <button type="submit" id="appointment-_submit" name="contact_submit" class="theme_button color1 inverse two_lines">Gửi
-                                    </button>
-                            </div>
-                        </div>
-
-
-                    </form>
-
-                </div>
-            </div>
-        </div>
-    </section>
-                                        <!-- cau hoi -->
-    <section id="faq" class="ls section_padding_top_150 section_padding_bottom_150">
->>>>>>> 9dd692991ce6242c00d7a5b51a28a80d38855ede
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 text-center">
