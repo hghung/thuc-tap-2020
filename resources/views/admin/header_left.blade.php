@@ -42,7 +42,8 @@
 											{{Auth::user()->vaitro->vt_ten}}
 										</span>
 									@elseif(Auth::user()->id_vaitro == 4)
-										<span style="color:rgb(221, 240, 54)">
+										<span style="color:rgb(209, 23, 110)">
+											<i class="rt-icon2-group-outline" style="color: #e7a413"></i>
 											{{Auth::user()->vaitro->vt_ten}}
 										</span>
 									@endif
@@ -78,7 +79,7 @@
 			<nav class="mainmenu_side_wrapper">
 				@if(Auth::user()->id_vaitro == 2)
 				{{-- ko hiện --}}
-				@else
+				@elseif(Auth::user()->id_vaitro == 1 || Auth::user()->id_vaitro == 3)
 				<h3 class="dark_bg_color"
 				style="background-image: linear-gradient(to top, #feada6 0%, #f5efef 100%); color: #2196F3">
 					Điều khiển
@@ -108,11 +109,36 @@
 
 					</li>
 				</ul>
+
+				@elseif(Auth::user()->id_vaitro == 4)
+				<h3 class="dark_bg_color"
+				style="background-image: linear-gradient(to top, #feada6 0%, #f5efef 100%); color: #2196F3">
+					Điều khiển
+				</h3>
+				<ul class="menu-click">
+					<li>
+						<a href="{{route('admin.dashboard')}}">
+							<i class="rt-icon2-chart-line"></i>
+							Dashboard
+						</a>
+
+					</li>
+
+					<li>
+						<a href="{{route('khachhang.yc')}}">
+							<i class="rt-icon2-health " aria-hidden="true"></i>
+							Gửi y/c bảo trì
+						</a>
+
+					</li>
+
+				</ul>
+
 				@endif
 
 				@if(Auth::user()->id_vaitro == 3)
 
-				@else
+				@elseif(Auth::user()->id_vaitro == 1 || Auth::user()->id_vaitro == 2)
 				<h3 class="dark_bg_color" style="background-image: linear-gradient(to top, #feada6 0%, #f5efef 100%); color: #2196F3">Quản lí</h3>
 				<ul class="menu-click">
 					@if(Auth::user()->id_vaitro == 2)

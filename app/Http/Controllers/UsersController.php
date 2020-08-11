@@ -190,14 +190,18 @@ class UsersController extends Controller
     {   
         if(Auth::user()->id_vaitro == 4)
         {
-            $this->validate($users,[
-                'password' => 'required',
-                'confirmpassword' => 'required|same:password',
-            ],[
-                'password.required' => 'Bạn chưa nhập mật khẩu !',
-                'confirmpassword.required' => 'Bạn chưa nhập lại mật khẩu !',
-                'confirmpassword.same' => 'Nhập lại mật khẩu không trùng khớp !'
-            ]);
+            if($users->password)
+            {
+                $this->validate($users,[
+                    'password' => 'required',
+                    'confirmpassword' => 'required|same:password',
+                ],[
+                    'password.required' => 'Bạn chưa nhập mật khẩu !',
+                    'confirmpassword.required' => 'Bạn chưa nhập lại mật khẩu !',
+                    'confirmpassword.same' => 'Nhập lại mật khẩu không trùng khớp !'
+                ]);
+            }
+            
         }
         
         $user =  db_user::find($id);

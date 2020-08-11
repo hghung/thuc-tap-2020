@@ -18,6 +18,14 @@ class AdminController extends Controller
         $index['staff'] = User::where('id_vaitro','=',2)->count();
         $index['technical'] = User::where('id_vaitro','=',3)->count();
         $index['baotri'] = db_baotri::where('id_trangthai','=',3)->count();
+        // khach hang
+        $index['khachhang2'] = db_baotri::where('id_khachhang','=',Auth::user()->id)
+                                        ->orderBy('id', 'desc')
+                                        ->get();
+        $index['baotrikh'] = db_baotri::where('id_trangthai','=',3)
+                                        ->where('id_khachhang','=',Auth::user()->id)
+                                        ->count();
+
         // thong ke
         $chart_options = [
             'chart_title' => 'Thông kê khách hàng tham gia theo ngày', // tiêu đề
@@ -75,19 +83,17 @@ class AdminController extends Controller
         $chitiet = db_baotri::find($id);
         return view('admin.map.detail_map',['chitiet' => $chitiet]);
     }
-<<<<<<< HEAD
     public function work()
     {
         $id = Auth::user()->id;
         // echo $id;die;
         $work['work'] = db_baotri::where('id_nhanvien','=',$id)
+                                    ->orderBy('id', 'desc')
                                     ->get();
 
                                     // dd($work);
         return view('admin.bao-tri.work',$work);
     }
-=======
->>>>>>> 9dd692991ce6242c00d7a5b51a28a80d38855ede
     // test /////////////////////////////////
     public function test_map($id)
     {
