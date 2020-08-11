@@ -59,8 +59,8 @@
                                     
 
 								</tr>
-								@foreach($work as $work2)
 								<tbody >
+                                    @foreach($work as $work2)
                                     <td>
                                         {{ $work2->baotrikh->ho_ten }}
                                     </td>
@@ -92,8 +92,9 @@
                                             </b>
                                         </a>
                                     </td>
+                                    @endforeach
 								</tbody>
-								@endforeach
+
 								
 
 							</table>

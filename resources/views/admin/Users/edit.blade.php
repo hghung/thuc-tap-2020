@@ -21,7 +21,7 @@
 
     <section class="ls section_padding_top_50 section_padding_bottom_50 columns_padding_10">
         <div class="container-fluid">
-            @include('erorr')
+
             <div class="row">
                 <div class="col-xs-12">
 

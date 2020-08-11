@@ -7,7 +7,6 @@ use App\Models\db_baotri;
 use App\Models\db_user;
 use DB;
 
-Use Illuminate\Support\Facades\Auth;
 
 
 class TimkiemController extends Controller
@@ -50,14 +49,14 @@ class TimkiemController extends Controller
                 // dd($user2);
             }
             $data = db_baotri::where('tieude', 'like', '%'.$query.'%')
-                            ->orderBy('id', 'desc')
+                            ->orderBy('id', 'asc')
                             ->get();
                 
                 // dd($data);
         }
         else
         {
-          $data =db_baotri::orderBy('id', 'desc')->get();
+          $data =db_baotri::orderBy('id', 'asc')->get();
            
         }
         $total_row = $data->count();
@@ -80,20 +79,11 @@ class TimkiemController extends Controller
                         '.$row->baotrikh->ho_ten.'
                     </span>
                 </td>
-                <td class="media-middle">';
-                    if($row->id_nhanvien)
-                    {
-                        $output .='<span style="color:rgb(32, 46, 248)">
-                                    '.$row->baotrinv->ho_ten.'
-                                    </span>';
-                    }
-                    else
-                    {
-                        $output .= ' Chưa cập nhật';
-                    }
-
-                    
-    $output .= '</td>
+                <td class="media-middle">
+                    <span style="color:rgb(32, 46, 248)">
+                        '.$row->baotrinv->ho_ten.'
+                    </span>
+                </td>
 
                 <td class="media-middle">
                     '.$ngay.' 
@@ -231,29 +221,11 @@ class TimkiemController extends Controller
                     }
             
     $output .='   </td>
-                <td align="center">';
-                    if(Auth::user()->id_vaitro == 2)
-                    {
-                        if($row->id == 1)
-                        {
-                            $output .='Của admin';
-                        }
-                        else
-                        {
-                            $output .='<a href="'.route('users.get.edit',['id' => $row->id]).'"> 
-                                <i class="fa fa-cogs"></i>
-                            </a>';
-                        }
-                    }
-                    elseif(Auth::user()->id_vaitro == 1)
-                    {
-                        $output .='<a href="'.route('users.get.edit',['id' => $row->id]).'"> 
-                            <i class="fa fa-cogs"></i>
-                        </a>';
-                    }
-
-                    
-$output .='    </td>
+                <td align="center">
+                    <a href="'.route('users.get.edit',['id' => $row->id]).'"> 
+                        <i class="fa fa-cogs"></i>
+                    </a>
+                </td>
             </tr>
             ';
           }
