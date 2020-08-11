@@ -18,14 +18,6 @@ class AdminController extends Controller
         $index['staff'] = User::where('id_vaitro','=',2)->count();
         $index['technical'] = User::where('id_vaitro','=',3)->count();
         $index['baotri'] = db_baotri::where('id_trangthai','=',3)->count();
-        // khach hang
-        $index['khachhang2'] = db_baotri::where('id_khachhang','=',Auth::user()->id)
-                                        ->orderBy('id', 'desc')
-                                        ->get();
-        $index['baotrikh'] = db_baotri::where('id_trangthai','=',3)
-                                        ->where('id_khachhang','=',Auth::user()->id)
-                                        ->count();
-
         // thong ke
         $chart_options = [
             'chart_title' => 'Thông kê khách hàng tham gia theo ngày', // tiêu đề
@@ -89,7 +81,6 @@ class AdminController extends Controller
         $id = Auth::user()->id;
         // echo $id;die;
         $work['work'] = db_baotri::where('id_nhanvien','=',$id)
-                                    ->orderBy('id', 'desc')
                                     ->get();
 
                                     // dd($work);

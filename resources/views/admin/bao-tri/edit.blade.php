@@ -43,7 +43,6 @@
                                 <label class="col-lg-3 control-label">Khách hàng: </label>
                                 <div class="col-lg-9">
                                     <select class="selectpicker form-control" name="khachhang" data-show-subtext="true" data-live-search="true">
-                                        
                                         <option>-----Chọn nhân viên-----</option>
                                         @foreach($khachhang as $khachhang1)
                                         <option 
@@ -52,8 +51,7 @@
                                             @endif
                                             value="{{$khachhang1->id}}">{{ $khachhang1->username }} - {{ $khachhang1->user->ho_ten }}
                                         </option>
-                                        @endforeach
-                                      
+                                       @endforeach
 
                                       
                                    </select>
@@ -100,22 +98,15 @@
                                 <label class="col-lg-3 control-label" style="padding-left: 0px !important;">Nhân viên: </label>
                                 <div class="col-lg-9">
                                     <select name="nhanvien" class="selectpicker form-control" name="khachhang" data-show-subtext="true" data-live-search="true">
-
                                         <option>-----Chọn nhân viên-----</option>
-                                       @if($baotri->id_nhanvien)
-                                            @foreach($nhanvien as $nhanvien2)
-                                                <option 
-                                                    @if($baotri->baotrinv->id == $nhanvien2->id)
-                                                    {{"selected"}}
-                                                    @endif
-                                                    value="{{$nhanvien2->id}}">{{ $nhanvien2->username }} - {{ $nhanvien2->user->ho_ten }}
-                                                </option>
-                                            @endforeach
-                                        @else
-                                            @foreach($nhanvien as $nhanvien2)
-                                                <option  value="{{ $nhanvien2->id }}">{{ $nhanvien2->username }} - {{ $nhanvien2->user->ho_ten }}</option>
-                                            @endforeach
-                                        @endif
+                                       @foreach($nhanvien as $nhanvien2)
+                                        <option 
+                                            @if($baotri->baotrinv->id == $nhanvien2->id)
+                                            {{"selected"}}
+                                            @endif
+                                            value="{{$nhanvien2->id}}">{{ $nhanvien2->username }} - {{ $nhanvien2->user->ho_ten }}
+                                        </option>
+                                       @endforeach
 
                                    </select>
                                 </div>

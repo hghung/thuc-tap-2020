@@ -47,9 +47,6 @@ Route::group(['prefix'=>'quan-ly', 'middleware'=>'Ad_login'],function(){
 
 	Route::get('/thong-ke','ChartController@chart')->name('admin.chart');
 
-	Route::get('/yeu-cau-bao-tri','BaotriController@get_add')->name('khachhang.yc');
-
-
 	Route::group(['prefix'=>'ban-do'],function(){
 		Route::get('/','AdminController@map_baotri')->name('admin.map');
 		Route::get('/map-bao-tri-{id}','AdminController@ct_map')->name('admin.ct.map');
