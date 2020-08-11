@@ -79,7 +79,58 @@
                         <div id="map"></div>
                     </div>
 
+<<<<<<< HEAD
                     
+=======
+                    <div class="with_border no_top_border table-responsive">
+                        <table class="table-striped">
+                            <thead>
+                            <tr>
+                                <th width="20%">Khách hàng</th>
+                                <th width="15%">Ngày - giờ hẹn</th>
+                                <th width="15%">Điện thoại</th>
+                                <th width="15%">Khoảng cách</th>
+                                <th width="15%">Khoảng thời gian</th>
+                            </tr>
+
+                            
+
+                            <tr>
+                                <td>
+                                    <span style="color:green">
+                                        {{ $chitiet->baotrikh->ho_ten  }}
+                                    </span>
+                                </td>
+                                {{--  --}}
+                                <td>
+                                    {{date("d-m-Y  ",strtotime($chitiet->ngay)) }} 
+                                    -
+                                    {{date(" H:i A  ",strtotime($chitiet->gio)) }}
+                                </td>
+                                {{--  --}}
+                                <td>
+                                    {{ $chitiet->baotrikh->sdt  }}
+
+                                </td>
+                                {{--  --}}
+                                <td id="khoangcach">
+                                    
+                                </td>
+                                {{--  --}}
+                                <td id="thoigian">
+
+                                </td>
+                                {{--  --}}
+
+                                
+                                
+                            </tr>
+
+                            {{-- end --}}
+
+                        </table>
+                    </div>
+>>>>>>> 9dd692991ce6242c00d7a5b51a28a80d38855ede
                 </div>
             </div>
             <!-- .row -->
@@ -89,11 +140,19 @@
     </section>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<<<<<<< HEAD
 
         <script async defer 
         src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&libraries=places&callback=initialize">
     </script>
 
+=======
+
+        <script async defer 
+        src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&libraries=places&callback=initialize">
+    </script>
+
+>>>>>>> 9dd692991ce6242c00d7a5b51a28a80d38855ede
     <script>
         var lat = {{ $chitiet->baotrikh->diachi->lat }};
         var lng = {{ $chitiet->baotrikh->diachi->lng }};
@@ -110,7 +169,11 @@
             
             // gôm lat va long lại
             var coords = new google.maps.LatLng(myLat,myLong);
+<<<<<<< HEAD
             var hi2 = new google.maps.LatLng(lat,lng);
+=======
+            
+>>>>>>> 9dd692991ce6242c00d7a5b51a28a80d38855ede
             //khai báo
             var directionsDisplay = new google.maps.DirectionsRenderer(); 
             var directionsService = new google.maps.DirectionsService(); 
@@ -142,10 +205,13 @@
             };
             // hiện bản đồ
             map = new google.maps.Map(document.getElementById('map'),mapOptions);
+<<<<<<< HEAD
             // hai diem
             addMarker1({banhbao: coords});
             addMarker2({banhbao: hi2});
             
+=======
+>>>>>>> 9dd692991ce6242c00d7a5b51a28a80d38855ede
             // hiện thị đường đi tới 2 điểm trong bản đồ
             directionsDisplay.setMap(map);
             // khai báo đường đi từ a -> b phương tiện xe
@@ -165,6 +231,7 @@
                         // hiện thị kết quả trên bảng đồ 2 điểm và khoang cách & time
                         directionsDisplay.setDirections(result);
                     }
+<<<<<<< HEAD
                 });
             }
             // click vào nút button để chạy
@@ -202,6 +269,25 @@
     
         
     
+=======
+                });
+            }
+            // click vào nút button để chạy
+            document.getElementById('get').onclick= function(){
+                calculateRoute();
+            }
+    
+    
+        }
+        function failure()
+        {
+    
+        }
+        
+    
+        
+    
+>>>>>>> 9dd692991ce6242c00d7a5b51a28a80d38855ede
     </script>
    
 @endsection

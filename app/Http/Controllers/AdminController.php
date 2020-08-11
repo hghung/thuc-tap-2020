@@ -75,6 +75,7 @@ class AdminController extends Controller
         $chitiet = db_baotri::find($id);
         return view('admin.map.detail_map',['chitiet' => $chitiet]);
     }
+<<<<<<< HEAD
     public function work()
     {
         $id = Auth::user()->id;
@@ -85,6 +86,8 @@ class AdminController extends Controller
                                     // dd($work);
         return view('admin.bao-tri.work',$work);
     }
+=======
+>>>>>>> 9dd692991ce6242c00d7a5b51a28a80d38855ede
     // test /////////////////////////////////
     public function test_map($id)
     {
