@@ -17,13 +17,7 @@
                     </ol>
                 </div>
                 <!-- .col-* -->
-                <div class="col-md-6 text-md-right">
-                    <span class="dashboard-daterangepicker">
-                        <i class="fa fa-calendar"></i>
-                        <span></span>
-                        <i class="caret"></i>
-                    </span>
-                </div>
+                
                 <!-- .col-* -->
             </div>
             <!-- .row -->
@@ -31,6 +25,65 @@
         <!-- .container -->
     </section>
 
+    @if(Auth::user()->id_vaitro == 4)
+    <section class="ls section_padding_top_50 section_padding_bottom_50 columns_padding_10">
+        <div class="container-fluid">
+            <form class="form-horizontal" action="{{ route('baotri.post.add') }}" method="POST"> {{ csrf_field() }}
+
+                <div class="col-md-12">
+                    <div class="with_border with_padding">
+                        <h4>
+                            <b>Form bảo trì</b>
+                        </h4>
+                        <hr>
+                        
+
+                        <div class="row form-group">
+                            <label class="col-lg-3 control-label">Tiêu đề: </label>
+                            <div class="col-lg-9">
+                                <input name="tieude" type="text" class="form-control">
+                            </div>
+                        </div>
+                            <div class="row form-group">
+                                <div class="row">
+                                    <div class="col-md-4" style="margin-left: 17%">
+                                        <label class="col-lg-3 control-label">Ngày: </label>
+                                        <div class="col-lg-9">
+                                            <input name="ngay" type="date" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="col-lg-3 control-label">Giờ: </label>
+                                        <div class="col-lg-9">
+                                            <input name="gio" type="time" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        <div class="row form-group">
+                            <label class="col-lg-3 control-label">Nội dung: </label>
+                            <div class="col-lg-9">
+                                <textarea name="noidung" rows="8" class="form-control"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 text-right">
+                                <button type="submit" class="theme_button " style="background-color: #2196F3; border: 0px !important">Lưu</button>
+                                <a href="{{ route('baotri.list') }}"  class="theme_button inverse wide_button">Quay lại</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    
+            </form>
+        </div>
+        <!-- .container -->
+    </section>
+    @else
     <section class="ls section_padding_top_50 section_padding_bottom_50 columns_padding_10">
         <div class="container-fluid">
             <form class="form-horizontal" action="{{ route('baotri.post.add') }}" method="POST"> {{ csrf_field() }}
@@ -169,7 +222,7 @@
         </div>
         <!-- .container -->
     </section>
-
+    @endif
 
 
 
