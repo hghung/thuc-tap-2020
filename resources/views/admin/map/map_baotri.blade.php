@@ -51,9 +51,9 @@
                         <table class="table-striped">
                             <thead>
                             <tr>
-                                <th width="15%">Khách hàng</th>
+                                <th width="13%">Khách hàng</th>
                                 <th width="15%">Ngày - giờ hẹn</th>
-                                <th width="10%">Trạng thái</th>
+                                <th width="12%">Trạng thái</th>
                                 @if(Auth::user()->id_vaitro == 3)
 
                                 @else
@@ -130,11 +130,28 @@
                                         {{date(" H:i A  ",strtotime($ad->gio)) }}
                                     </td>
                                     {{--  --}}
-                                    <td>
-                                        {{ $ad->baotristatus->trangthai  }}
-                                    </td>
-                                    {{--  --}}
                                     
+                                    <td>
+                                        <div class="dropdown" >
+                                            
+                                            <a data-toggle="dropdown" href="#" style="top: auto !important; bottom: 100% !important; color: rgb(245, 188, 30)">
+                                                {{ $ad->baotristatus->trangthai }}
+                                                <span class="caret"></span>
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="{{ route('baotri.success',['id' => $ad->id]) }}">
+                                                    Hoàn thành
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('baotri.cancel',['id' => $ad->id]) }}">
+                                                        Hủy
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        
                                     {{--  --}}
                                     <td>
                                         {{ $ad->baotrikh->sdt  }}
@@ -148,10 +165,6 @@
                                     </td>
                                     {{--  --}}
                                     <td>
-                                        <a href="{{ route('baotri.get.edit',['id' => $ad->id]) }}" style="margin-left: 10px;"> 
-                                            <i class="fa fa-cogs"></i>
-                                        </a>
-
                                         <a href="{{ route('admin.ct.map',['id' => $ad->id]) }}" style="margin-left: 20px;"> 
                                             <i class="rt-icon2-map2"></i>
                                         </a>

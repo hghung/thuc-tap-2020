@@ -65,7 +65,19 @@
                                         {{ $work2->baotrikh->ho_ten }}
                                     </td>
                                     <td>
-                                        {{ $work2->baotristatus->trangthai }}
+										@if($work2->id_trangthai == 2)
+										<span style="color: rgb(245, 188, 30)">
+											{{ $work2->baotristatus->trangthai }}
+										</span>
+										@elseif($work2->id_trangthai == 3)
+										<span style="color: rgb(23, 226, 23)">
+											{{ $work2->baotristatus->trangthai }}
+										</span>
+										@elseif($work2->id_trangthai == 4)
+										<span style="color: rgb(223, 28, 21)">
+											{{ $work2->baotristatus->trangthai }}
+										</span>
+										@endif
                                     </td>
                                     <td>
                                         {{ $work2->ngay }}

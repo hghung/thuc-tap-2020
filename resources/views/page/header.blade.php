@@ -26,13 +26,16 @@
 							</li>
 
 							<li>
+								<a href="#faq">Liên hệ</a>
+							</li>
+							
+
+							<li>
 								<a href="#blog">Tin tức</a>
 							</li>
 
 
-							<li>
-								<a href="#faq">Câu hỏi</a>
-							</li>
+							
 
 						</ul>
 					</nav>

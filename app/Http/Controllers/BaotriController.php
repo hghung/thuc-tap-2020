@@ -46,20 +46,45 @@ class BaotriController extends Controller
 
     public function get_edit($id)
     {
-        $user['trangthai']= db_baotri::find($id);
+        $user['baotri']= db_baotri::find($id);
         $user['khachhang']= User::where('id_vaitro','=',4)->get();
         $user['nhanvien']= User::where('id_vaitro','=',3)->get();
         $user['trangthai']= db_trangthai::all();
 
-        return view('admin.bao-tri.add',$user);
+        return view('admin.bao-tri.edit',$user);
         
     }
-    public function post_edit($id)
+    public function post_edit($id, Request $post)
     {
-        $user['trangthai']= db_trangthai::find($id);
-        return view('admin.bao-tri.add',$user);
+        $user['baotri']= db_trangthai::find($id);
         
     }
+
+
+
+
+
+    public function success($id)
+    {
+       // tac_gia::where('id',$id)->update(['phe_duyet'=>1]);
+       //  return redirect('/Ntkd@@/danh-sach-tac-gia');
+        $data = db_baotri::where('id',$id)->update(['id_trangthai'=>3]);
+        //var_dump($data);die;
+        // Session::put('msg','')
+        Toastr::success('Hoàn thành', 'Thông báo', ["positionClass" => "toast-top-right"]);
+        return redirect()->back();
+    }
+    public function cancel($id)
+    {
+       // tac_gia::where('id',$id)->update(['phe_duyet'=>1]);
+       //  return redirect('/Ntkd@@/danh-sach-tac-gia');
+        $data = db_baotri::where('id',$id)->update(['id_trangthai'=>4]);
+        //var_dump($data);die;
+        // Session::put('msg','')
+        Toastr::error('Đã hủy', 'Thông báo', ["positionClass" => "toast-top-right"]);
+        return redirect()->route('admin.lich');
+    }
+
 
 
     

@@ -81,7 +81,11 @@ Route::group(['prefix'=>'admin', 'middleware'=>'Ad_login'],function(){
 		Route::post('/add','BaotriController@post_add')->name('baotri.post.add');
 
 		Route::get('/eidt-{id}','BaotriController@get_edit')->name('baotri.get.edit');
+		Route::post('/eidt-{id}','BaotriController@post_edit')->name('baotri.post.edit');
 
+		// cap nhat trang thai
+		Route::get('/success-{id}','BaotriController@success')->name('baotri.success');
+		Route::get('/cancel-{id}','BaotriController@cancel')->name('baotri.cancel');
 
 
 

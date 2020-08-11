@@ -76,6 +76,9 @@
 
 			<!-- main side nav start -->
 			<nav class="mainmenu_side_wrapper">
+				@if(Auth::user()->id_vaitro == 2)
+				{{-- ko hiện --}}
+				@else
 				<h3 class="dark_bg_color"
 				style="background-image: linear-gradient(to top, #feada6 0%, #f5efef 100%); color: #2196F3">
 					Điều khiển
@@ -104,16 +107,23 @@
 						</a>
 
 					</li>
-
-					
-					
-					
 				</ul>
+				@endif
+
 				@if(Auth::user()->id_vaitro == 3)
 
 				@else
 				<h3 class="dark_bg_color" style="background-image: linear-gradient(to top, #feada6 0%, #f5efef 100%); color: #2196F3">Quản lí</h3>
 				<ul class="menu-click">
+					@if(Auth::user()->id_vaitro == 2)
+						<li>
+							<a href="{{route('admin.dashboard')}}">
+								<i class="rt-icon2-chart-line"></i>
+								Dashboard
+							</a>
+
+						</li>
+					@endif
 
 					<li>
 						<a href="{{route('baotri.list')}}">
@@ -137,15 +147,22 @@
 						</a>
 					</li>
 
-					
+					<li>
+						<a href="#">
+							<i class="rt-icon2-pencil"></i>
+							Blog
+						</a>
+					</li>
 					
 					<!--  -->
+					@if(Auth::user()->id_vaitro == 1)
 					<li>
 						<a href="#">
 							<i class="rt-icon2-download2"></i>
 							Backup
 						</a>
 					</li>
+					@endif
 				</ul>
 				@endif
 			</nav>

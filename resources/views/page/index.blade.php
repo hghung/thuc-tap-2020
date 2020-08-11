@@ -101,7 +101,7 @@
 
     </section>
 
-    <section class="ls section_padding_25 columns_margin_top_30 columns_margin_bottom_30 with_bottom_border" style="padding-top: 0px !important;">
+    <section  id="about" class="ls section_padding_25 columns_margin_top_30 columns_margin_bottom_30 with_bottom_border" style="padding-top: 0px !important;">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-sm-6 text-center">
@@ -342,9 +342,7 @@
         </div>
     </section>
 
-
-
-    <section id="appointment" class="ds page_appointment parallax  section_padding_bottom_150" style="padding-top: 50px !important;">
+    <section id="faq" class="ds page_appointment parallax  section_padding_bottom_150" style="padding-top: 50px !important;">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 text-center to_animate animated fadeInUp" data-animation="fadeInUp">

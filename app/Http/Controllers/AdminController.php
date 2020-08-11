@@ -17,7 +17,7 @@ class AdminController extends Controller
         $index['customer'] = User::where('id_vaitro','=',4)->count();
         $index['staff'] = User::where('id_vaitro','=',2)->count();
         $index['technical'] = User::where('id_vaitro','=',3)->count();
-        $index['baotri'] = db_baotri::where('id_trangthai','=',6)->count();
+        $index['baotri'] = db_baotri::where('id_trangthai','=',3)->count();
         // thong ke
         $chart_options = [
             'chart_title' => 'Thông kê khách hàng tham gia', // tiêu đề

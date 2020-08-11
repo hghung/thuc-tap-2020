@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\db_baotri;
 use App\Models\db_user;
 
-
+use DB;
 
 
 class TimkiemController extends Controller
@@ -43,7 +43,8 @@ class TimkiemController extends Controller
         $query = $request->get('query');
         if($query != '')
         {
-          $data = db_baotri::where('tieude', 'like', '%'.$query.'%')
+          $data = DB::table('db_baotri')
+                            ->where('tieude', 'like', '%'.$query.'%')
                             ->orwhere('id_khachhang', 'like', '%'.$query.'%')
                             ->orderBy('id', 'asc')
                             ->get();
