@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\db_baotri;
 use App\Models\db_user;
+use App\Models\db_tintuc;
+
 use DB;
 
 Use Illuminate\Support\Facades\Auth;
@@ -38,106 +40,106 @@ class TimkiemController extends Controller
 
     public function timkiem_baotri(Request $request)
     {
-      if($request->ajax())
-      {
-        $output = '';
-        $query = $request->get('query');
-        if($query != '')
+        if($request->ajax())
         {
-            $user1 = db_user::all();
-            foreach($user1 as $user2);
+            $output = '';
+            $query = $request->get('query');
+            if($query != '')
             {
-                // dd($user2);
-            }
-            $data = db_baotri::where('tieude', 'like', '%'.$query.'%')
-                            ->orderBy('id', 'desc')
-                            ->get();
-                
-                // dd($data);
-        }
-        else
-        {
-          $data =db_baotri::orderBy('id', 'desc')->get();
-           
-        }
-        $total_row = $data->count();
-        if($total_row > 0)
-        {
-          foreach($data as $row)
-          {
-            
-            $ngay = date("d-m-Y  ",strtotime($row->ngay));
-            $gio = date(" H:i A  ",strtotime($row->gio));
-            $ngaytao = date("A H:i || d-m-Y  ",strtotime($row->created_at));
-
-            $output .= '
-            <tr class="item-editable">
-                <td>
-                   '.$row->tieude.'
-                </td>
-                <td class="media-middle">
-                    <span style="color:green">
-                        '.$row->baotrikh->ho_ten.'
-                    </span>
-                </td>
-                <td class="media-middle">';
-                    if($row->id_nhanvien)
-                    {
-                        $output .='<span style="color:rgb(32, 46, 248)">
-                                    '.$row->baotrinv->ho_ten.'
-                                    </span>';
-                    }
-                    else
-                    {
-                        $output .= ' Chưa cập nhật';
-                    }
-
+                $user1 = db_user::all();
+                foreach($user1 as $user2);
+                {
+                    // dd($user2);
+                }
+                $data = db_baotri::where('tieude', 'like', '%'.$query.'%')
+                                ->orderBy('id', 'desc')
+                                ->get();
                     
-    $output .= '</td>
-
-                <td class="media-middle">
-                    '.$ngay.' 
-                    -
-                    '.$gio.' 
-                </td>
-
-
-                <td class="media-middle">';
-                    if($row->id_trangthai == 2){
-                        $output .= '<span style="color:blue">
-                            '.$row->baotristatus->trangthai.'
-                        </span>';
-                    }
+                    // dd($data);
+            }
+            else
+            {
+            $data =db_baotri::orderBy('id', 'desc')->get();
             
-                    elseif($row->id_trangthai == 1){
-                        $output .= '<span style="color:#f3aa21">
-                            '.$row->baotristatus->trangthai.'
-                        </span>';
-                    }
+            }
+            $total_row = $data->count();
+            if($total_row > 0)
+            {
+            foreach($data as $row)
+            {
+                
+                $ngay = date("d-m-Y  ",strtotime($row->ngay));
+                $gio = date(" H:i A  ",strtotime($row->gio));
+                $ngaytao = date("A H:i || d-m-Y  ",strtotime($row->created_at));
 
-                    elseif($row->id_trangthai == 3){
-                        $output .= '<span style="color:rgb(44, 236, 76)">
-                            '.$row->baotristatus->trangthai.'
-                        </span>';
-                    }
+                $output .= '
+                <tr class="item-editable">
+                    <td>
+                    '.$row->tieude.'
+                    </td>
+                    <td class="media-middle">
+                        <span style="color:green">
+                            '.$row->baotrikh->ho_ten.'
+                        </span>
+                    </td>
+                    <td class="media-middle">';
+                        if($row->id_nhanvien)
+                        {
+                            $output .='<span style="color:rgb(32, 46, 248)">
+                                        '.$row->baotrinv->ho_ten.'
+                                        </span>';
+                        }
+                        else
+                        {
+                            $output .= ' Chưa cập nhật';
+                        }
 
-                    elseif($row->id_trangthai == 4){
-                        $output .= '<span style="color:red">
-                            '.$row->baotristatus->trangthai.'
-                        </span>';
-                    }
-    $output .= '</td>
-                <td class="media-middle">
-                    '.$ngaytao.' 
-                </td>
-                --  --
-                <td align="center">
-                    <a href="'.route('baotri.get.edit',['id' => $row->id]).'"> 
-                        <i class="fa fa-cogs"></i>
-                    </a>
-                </td>
-            </tr>
-            ';
+                        
+                $output .= '</td>
+
+                    <td class="media-middle">
+                        '.$ngay.' 
+                        -
+                        '.$gio.' 
+                    </td>
+
+
+                    <td class="media-middle">';
+                        if($row->id_trangthai == 2){
+                            $output .= '<span style="color:blue">
+                                '.$row->baotristatus->trangthai.'
+                            </span>';
+                        }
+                
+                        elseif($row->id_trangthai == 1){
+                            $output .= '<span style="color:#f3aa21">
+                                '.$row->baotristatus->trangthai.'
+                            </span>';
+                        }
+
+                        elseif($row->id_trangthai == 3){
+                            $output .= '<span style="color:rgb(44, 236, 76)">
+                                '.$row->baotristatus->trangthai.'
+                            </span>';
+                        }
+
+                        elseif($row->id_trangthai == 4){
+                            $output .= '<span style="color:red">
+                                '.$row->baotristatus->trangthai.'
+                            </span>';
+                        }
+            $output .= '</td>
+                    <td class="media-middle">
+                        '.$ngaytao.' 
+                    </td>
+                    --  --
+                    <td align="center">
+                        <a href="'.route('baotri.get.edit',['id' => $row->id]).'"> 
+                            <i class="fa fa-cogs"></i>
+                        </a>
+                    </td>
+                </tr>
+                ';
           }
         }
         else
@@ -215,7 +217,7 @@ class TimkiemController extends Controller
 
                     }
                     
-    $output .= '</td>
+            $output .= '</td>
                
                 <td class="media-middle" align="center">';
                     if($row->user2->trang_thai == 1){
@@ -230,7 +232,7 @@ class TimkiemController extends Controller
                         </span>';
                     }
             
-    $output .='   </td>
+            $output .='   </td>
                 <td align="center">';
                     if(Auth::user()->id_vaitro == 2)
                     {
@@ -253,9 +255,97 @@ class TimkiemController extends Controller
                     }
 
                     
-$output .='    </td>
+            $output .='    </td>
             </tr>
             ';
+          }
+        }
+        else
+        {
+          $output = '
+          <div>
+          Không có dữ liệu !
+          </div>
+          ';
+        }
+        $data = array(
+          'banhbao'  => $output,
+          'total_data'  => $total_row
+        );
+
+        echo json_encode($data);
+      }
+    }
+
+    public function timkiem_tintuc(Request $request)
+    {
+        if($request->ajax())
+        {
+            $output = '';
+            $query = $request->get('query');
+            if($query != '')
+            {
+                $user1 = db_user::all();
+                foreach($user1 as $user2);
+                {
+                    // dd($user2);
+                }
+                $data = db_tintuc::where('tieude', 'like', '%'.$query.'%')
+                                ->orderBy('id', 'desc')
+                                ->get();
+                    
+                    // dd($data);
+            }
+            else
+            {
+            $data =db_tintuc::orderBy('id', 'desc')->get();
+            
+            }
+            $total_row = $data->count();
+            if($total_row > 0)
+            {
+            foreach($data as $row)
+            {
+                
+                $ngaytao = date("A H:i || d-m-Y  ",strtotime($row->created_at));
+
+                $output .= '
+                <tr class="item-editable">
+                    <td>
+                        '.$row->tieude.'
+                    </td>
+                    <td class="media-middle">
+                        <span style="color:green">
+                            '.$row->tintucuser->ho_ten.'
+                        </span>
+                    </td>
+
+                    <td class="media-middle">';
+                        if($row->id_trangthai == 2){
+                            $output .= '<span style="color:blue">
+                                '.$row->tintucstatus->trangthai.'
+                            </span>';
+                        }
+                
+                        elseif($row->id_trangthai == 1){
+                            $output .= '<span style="color:#f3aa21">
+                                '.$row->tintucstatus->trangthai.'
+                            </span>';
+                        }
+
+                    $output .=' 
+                    </td>
+                    <td class="media-middle">
+                        '.$ngaytao.' 
+                    </td>
+                    --  --
+                    <td align="center">
+                        <a href="'.route('tintuc.get.edit',['id' => $row->id]).'"> 
+                            <i class="fa fa-cogs"></i>
+                        </a>
+                    </td>
+                </tr>
+                ';
           }
         }
         else

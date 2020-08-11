@@ -434,6 +434,7 @@
                 </div>
             </div>
             <div class="row columns_margin_bottom_20">
+                @foreach($blog as $tintuc)
                 <div class="col-md-4 col-sm-6">
                     <article class="vertical-item content-padding big-padding with_border text-center">
                         <div class="item-media">
@@ -474,86 +475,9 @@
                         </footer>
                     </article>
                 </div>
-                <div class="col-md-4 col-sm-6">
-                    <article class="vertical-item content-padding big-padding with_border text-center">
-                        <div class="item-media">
-                            <img src="{{asset('public/img/02.jpg')}}"  alt="">
-
-                            <div class="media-links">
-                                <a href="blog-single-left.html"  class="abs-link"></a>
-                            </div>
-
-                        </div>
-                        <div class="item-content">
-                            <h4 class="entry-title">
-                                <a href="blog-single-left.html" >Protect yourself from the WannaCrypt</a>
-                            </h4>
-                            <p>Our professional team of movers is trained to provide you with awesome services.</p>
-                        </div>
-                        <footer class="entry-meta">
-                            <div>
-                                <div>
-                                    <i class="fa fa-user highlight" aria-hidden="true"></i>
-                                    <span class="small-text grey">Admin</span>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <i class="fa fa-calendar highlight" aria-hidden="true"></i>
-                                    <time class="entry-date small-text grey" datetime="2017-03-13T08:50:40+00:00">
-                                        June 11
-                                    </time>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <i class="fa fa-tag highlight" aria-hidden="true"></i>
-                                    <span class="small-text grey">Admin</span>
-                                </div>
-                            </div>
-                        </footer>
-                    </article>
-                </div>
-                <div class="col-md-4 col-sm-6 col-sm-offset-3 col-md-offset-0">
-                    <article class="vertical-item content-padding big-padding with_border text-center">
-                        <div class="item-media">
-                            <img src="{{asset('public/img/03.jpg')}}"  alt="">
-
-                            <div class="media-links">
-                                <a href="blog-single-left.html"  class="abs-link"></a>
-                            </div>
-
-                        </div>
-                        <div class="item-content">
-                            <h4 class="entry-title">
-                                <a href="blog-single-left.html" >Google Takeout!…And possibly photos</a>
-                            </h4>
-                            <p>Often when the price is less, the quality goes down, but that’s not the case with us.</p>
-                        </div>
-                        <footer class="entry-meta">
-                            <div>
-                                <div>
-                                    <i class="fa fa-user highlight" aria-hidden="true"></i>
-                                    <span class="small-text grey">Admin</span>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <i class="fa fa-calendar highlight" aria-hidden="true"></i>
-                                    <time class="entry-date small-text grey" datetime="2017-03-13T08:50:40+00:00">
-                                        June 8
-                                    </time>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <i class="fa fa-tag highlight" aria-hidden="true"></i>
-                                    <span class="small-text grey">Admin</span>
-                                </div>
-                            </div>
-                        </footer>
-                    </article>
-                </div>
+                @endforeach
+                
+                <a href="{{ route('get.login') }}"  style="margin-left: 45%" class="theme_button color1 two_lines bottommargin_0">Xem nhiều</a>
 
             </div>
         </div>

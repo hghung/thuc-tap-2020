@@ -22,27 +22,24 @@ Route::get('/dang-xuat','LoginController@logout')->name('get.logout');
 // tìm kiếm ajax
 Route::get('/tim-kiem-bao-tri', 'TimkiemController@timkiem_baotri')->name('timkiem.baotri');
 Route::get('/tim-kiem-user', 'TimkiemController@timkiem_user')->name('timkiem.user');
+Route::get('/tim-kiem-tin-tuc', 'TimkiemController@timkiem_tintuc')->name('timkiem.tintuc');
 
 
 
 
 
-// Taikhoan ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-Route::group(['prefix'=>'tai-khoan','middleware'=>'Page_login'],function(){
 
-});
 
 
 // admin ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 Route::group(['prefix'=>'quan-ly', 'middleware'=>'Ad_login'],function(){
 	Route::get('/','AdminController@home')->name('admin.dashboard');
 
-	Route::get('/lich-bao-tri','AdminController@work')->name('admin.lich');
+	//nhan vien ky thuat
+	Route::get('/lich-lam-viec','AdminController@work')->name('admin.lich');
 
-	Route::get('/master','AdminController@master')->name('admin.layout');
 
-	Route::get('/thong-ke','ChartController@chart')->name('admin.chart');
-
+	// khach hang
 	Route::get('/yeu-cau-bao-tri','BaotriController@get_add')->name('khachhang.yc');
 
 
@@ -65,11 +62,6 @@ Route::group(['prefix'=>'quan-ly', 'middleware'=>'Ad_login'],function(){
 
 		Route::get('/edit-{id}','UsersController@get_edit')->name('users.get.edit');
 		Route::post('/edit-{id}','UsersController@post_edit')->name('users.post.edit');
-
-
-
-
-
 	});
 
 	Route::group(['prefix'=>'bao-tri'],function(){
@@ -84,7 +76,17 @@ Route::group(['prefix'=>'quan-ly', 'middleware'=>'Ad_login'],function(){
 		Route::get('/success-{id}','BaotriController@success')->name('baotri.success');
 		Route::get('/cancel-{id}','BaotriController@cancel')->name('baotri.cancel');
 
+	});
 
+	Route::group(['prefix'=>'tin-tuc'],function(){
+		Route::get('/','TintucController@list')->name('tintuc.list');
+		Route::get('/add','TintucController@get_add')->name('tintuc.get.add');
+		Route::post('/add','TintucController@post_add')->name('tintuc.post.add');
+
+		Route::get('/eidt-{id}','TintucController@get_edit')->name('tintuc.get.edit');
+		Route::post('/eidt-{id}','TintucController@post_edit')->name('tintuc.post.edit');
+
+		
 
 	});
 

@@ -249,7 +249,6 @@ class UsersController extends Controller
             }
             // echo $name; die; 
             $file->move('public/upload/avatar',$hinh_anh);
-
             if($user->avatar){
                 unlink('public/upload/avatar/'.$user->avatar);
                 $user->avatar = $hinh_anh;

@@ -1,7 +1,7 @@
 <header class="page_header_side page_header_side_sticked active-slide-side-header ds" style="background-image: linear-gradient(45deg, #ee9ca7 0%, #ffdde1 100%);">
 	<div class="side_header_logo ds ms" style="background-image: linear-gradient(45deg, #ee9ca7 0%, #ffdde1 100%);">
  
-		<a href="admin_index.html" >
+		<a href="{{ route('home1') }}" >
 			<span class="logo_text margin_0">
 				Fixit
 			</span>
@@ -174,7 +174,7 @@
 					</li>
 
 					<li>
-						<a href="#">
+						<a href="{{ route('tintuc.list') }}">
 							<i class="rt-icon2-pencil"></i>
 							Tin tức
 						</a>
