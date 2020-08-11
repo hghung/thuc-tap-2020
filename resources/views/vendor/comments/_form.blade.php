@@ -1,7 +1,4 @@
-<br>
-<h4> Viết đánh giá </h4>
-<br>
-
+<h4> Viết bình luận </h4>
 <div class="card">
     <div class="card-body">
         @if($errors->has('commentable_type'))
@@ -24,7 +21,6 @@
             {{-- Guest commenting --}}
             @if(isset($guest_commenting) and $guest_commenting == true)
                 <div class="form-group">
-                    <label for="message">Nhập tên của bạn:</label>
                     <input type="text" class="form-control @if($errors->has('guest_name')) is-invalid @endif" name="guest_name" />
                     @error('guest_name')
                         <div class="invalid-feedback">
@@ -33,7 +29,6 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="message">Nhập email của bạn:</label>
                     <input type="email" class="form-control @if($errors->has('guest_email')) is-invalid @endif" name="guest_email" />
                     @error('guest_email')
                         <div class="invalid-feedback">
@@ -44,14 +39,13 @@
             @endif
 
             <div class="form-group">
-                <label for="message">Nhập đánh giá vào đây:</label>
                 <textarea class="form-control @if($errors->has('message')) is-invalid @endif" name="message" rows="3"></textarea>
                 <div class="invalid-feedback">
-                    Your message is required.
+                    Tin nhắn của bạn là bắt buộc..
                 </div>
                 
             </div>
-            <button type="submit" style="background-color:#00aeef" class="btn btn-success text-uppercase">Gửi</button>
+            <button type="submit" style="background-color:#00aeef; padding-bottom: 12px !important;padding-top: 12px !important;" class="btn btn-success text-uppercase">Bình luận</button>
         </form>
     </div>
 </div>

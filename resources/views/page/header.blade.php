@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-sm-12 display_table">
 				<div class="header_left_logo display_table_cell">
-					<a href="index.htm" class="logo top_logo text-left">
+					<a href="{{ route('home1') }}" class="logo top_logo text-left">
 						<img src="{{ asset('public/img/logo.png') }}"alt="">
 					</a>
 				</div>
@@ -31,7 +31,7 @@
 							
 
 							<li>
-								<a href="#blog">Tin tức</a>
+								<a href="{{ route('blog') }}">Tin tức</a>
 							</li>
 
 

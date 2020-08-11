@@ -23,11 +23,27 @@ Route::get('/dang-xuat','LoginController@logout')->name('get.logout');
 Route::get('/tim-kiem-bao-tri', 'TimkiemController@timkiem_baotri')->name('timkiem.baotri');
 Route::get('/tim-kiem-user', 'TimkiemController@timkiem_user')->name('timkiem.user');
 Route::get('/tim-kiem-tin-tuc', 'TimkiemController@timkiem_tintuc')->name('timkiem.tintuc');
+Route::get('/tim-kiem-tin-tuc-khoi-phuc', 'TimkiemController@timkiem_tintuc_kp')->name('timkiem.tintuc.kp');
+Route::get('/tim-kiem-bao-tri-khoi-phuc', 'TimkiemController@timkiem_baotri_kp')->name('timkiem.baotri.kp');
 
 
 
+// tin tuc
+Route::get('/tin-tuc', 'PageController@blog')->name('blog');
+Route::get('/tin-tuc-{id}', 'PageController@detail_blog')->name('blog.detail');
+
+// backup
+Route::group(['prefix'=>'backup'],function(){
+	Route::get('/','BackupController@backup')->name('backup');
+	
+	Route::get('/run','BackupController@run_backup')->name('backup.run');
+
+	Route::get('/delete','BackupController@delete_backup')->name('delete.run');
+
+	// Route::get('/add','LoainhaController@post_add')->name('backup.add');
 
 
+});
 
 
 
@@ -72,6 +88,11 @@ Route::group(['prefix'=>'quan-ly', 'middleware'=>'Ad_login'],function(){
 		Route::get('/eidt-{id}','BaotriController@get_edit')->name('baotri.get.edit');
 		Route::post('/eidt-{id}','BaotriController@post_edit')->name('baotri.post.edit');
 
+		Route::get('/delete-{id}','BaotriController@delete')->name('baotri.delete');
+		Route::get('/khoi-phuc','BaotriController@list_restore')->name('baotri.kp');
+		Route::get('/khoi-phuc-{id}','BaotriController@restore')->name('baotri.post.kp');
+
+
 		// cap nhat trang thai
 		Route::get('/success-{id}','BaotriController@success')->name('baotri.success');
 		Route::get('/cancel-{id}','BaotriController@cancel')->name('baotri.cancel');
@@ -85,6 +106,13 @@ Route::group(['prefix'=>'quan-ly', 'middleware'=>'Ad_login'],function(){
 
 		Route::get('/eidt-{id}','TintucController@get_edit')->name('tintuc.get.edit');
 		Route::post('/eidt-{id}','TintucController@post_edit')->name('tintuc.post.edit');
+		Route::get('/delete-{id}','TintucController@delete')->name('tintuc.delete');
+
+		//khoi phuc
+		Route::get('/khoi-phuc','TintucController@list_restore')->name('tintuc.kp');
+		Route::get('/khoi-phuc-{id}','TintucController@restore')->name('tintuc.post.kp');
+
+
 
 		
 

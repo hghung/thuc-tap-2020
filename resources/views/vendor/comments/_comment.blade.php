@@ -6,14 +6,31 @@
 @else
   <li id="comment-{{ $comment->getKey() }}" class="media">
 @endif
-    @if(!$comment->commenter->member->kh_avatar)
-    <img style="width:10%;" class="mr-3" src="https://www.gravatar.com/avatar/{{ md5($comment->commenter->email ?? $comment->guest_email) }}.jpg?s=64" alt="{{ $comment->commenter->name ?? $comment->guest_name }} Avatar">
-    @else
-    <img style="width:10%;" class="mr-3" src="{{ asset('public/upload/avatar') }}/{{ $comment->commenter->member->kh_avatar }}" alt="{{ $comment->commenter->name ?? $comment->guest_name }} Avatar">
-    @endif
-    <div class="media-body">
-        <h5 class="mt-0 mb-1">{{ $comment->commenter->member->kh_ten ?? $comment->guest_name }} <small class="text-muted">- {{ $comment->created_at->diffForHumans() }}</small></h5>
-        <div style="white-space: pre-wrap;">{!! $markdown->line($comment->comment) !!}</div>
+
+    <article class="comment-body media">
+        <div class="media-left">
+            <img class="media-object" alt="" src="{{ asset('public/upload/avatar') }}/{{ $comment->commenter->user->avatar }}" alt="{{ $comment->commenter->name ?? $comment->guest_name }} Avatar">
+        </div>
+        <div class="media-body">
+            <span class="reply greylinks">
+                <a href="#respond">
+                    <i class="fa fa-reply"></i>
+                </a>
+            </span>
+            <div class="comment-meta darklinks">
+                <a class="author_url" rel="external nofollow" href="#">{{ $comment->commenter->user->ho_ten ?? $comment->guest_name }}</a>
+                <span class="comment-date">
+                    <i class="fa fa-calendar highlight rightpadding_5" aria-hidden="true"></i>
+                    <time class="entry-date small-text grey" datetime="2017-03-13T08:50:40+00:00">
+                        {{ $comment->created_at->diffForHumans() }}
+                    </time>
+                </span>
+            </div>
+            <p>{!! $markdown->line($comment->comment) !!}</p>
+        </div>
+    </article>
+
+    
 
         <div>
             @can('reply-to-comment', $comment)
@@ -39,16 +56,14 @@
                             @method('PUT')
                             @csrf
                             <div class="modal-header">
-                                <h5 class="modal-title">Edit Comment</h5>
+                                <h5 class="modal-title">Chỉnh sữa bình luận</h5>
                                 <button type="button" class="close" data-dismiss="modal">
                                 <span>&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
                                 <div class="form-group">
-                                    <label for="message">Update your message here:</label>
                                     <textarea required class="form-control" name="message" rows="3">{{ $comment->comment }}</textarea>
-                                    <small class="form-text text-muted"><a target="_blank" href="https://help.github.com/articles/basic-writing-and-formatting-syntax">Markdown</a> cheatsheet.</small>
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -68,21 +83,20 @@
                         <form method="POST" action="{{ route('comments.reply', $comment->getKey()) }}">
                             @csrf
                             <div class="modal-header">
-                                <h5 class="modal-title">Reply to Comment</h5>
+                                <h5 class="modal-title">Trả lời bình luận</h5>
                                 <button type="button" class="close" data-dismiss="modal">
                                 <span>&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
                                 <div class="form-group">
-                                    <label for="message">Enter your message here:</label>
                                     <textarea required class="form-control" name="message" rows="3"></textarea>
                                     <small class="form-text text-muted"><a target="_blank" href="https://help.github.com/articles/basic-writing-and-formatting-syntax">Markdown</a> cheatsheet.</small>
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-sm btn-outline-secondary text-uppercase" data-dismiss="modal">Cancel</button>
-                                <button type="submit" class="btn btn-sm btn-outline-success text-uppercase">Reply</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary text-uppercase" data-dismiss="modal">Đóng</button>
+                                <button type="submit" class="btn btn-sm btn-outline-success text-uppercase">Trả lời</button>
                             </div>
                         </form>
                     </div>

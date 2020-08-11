@@ -48,6 +48,9 @@
 								<form action="#" class="form-inline filters-form">
 									<span>
 										<a class="btn btn-primary" style="color:#fff; border-radius:15px; font-size:12px;" href="{{route('tintuc.get.add')}}">Thêm tin tức</a>
+										@if(Auth::user()->id_vaitro == 1)
+										<a class="btn btn-primary" style="color:#fff; border-radius:15px; font-size:12px; background-color: rgb(255, 174, 0)" href="{{route('tintuc.kp')}}">Khôi phục</a>
+										@endif
 										
 									</span>
 
@@ -117,6 +120,13 @@
 		</div>
 		<!-- .container -->
 	</section>
+
+
+	<script src="{{asset('public/toastr/jquery.min.js')}}"></script>
+
+    <script src="{{asset('public/toastr/toastr.min.js')}}" ></script>
+       
+    {!! Toastr::message() !!}
 
 	<script src="{{asset('public/jquery2.0.3.min.js')}}" type="text/javascript"></script>
 

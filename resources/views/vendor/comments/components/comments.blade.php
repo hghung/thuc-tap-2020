@@ -25,13 +25,13 @@
 @endauth
 
 @if($comments->count() < 1)
-    <div class="alert alert-warning">Không có đánh giá.</div>
+    <div class="alert alert-info">Không có bình luận.</div>
 @endif
 
 
 <ul class="list-unstyled">
     @if($comments->count() > 1)
-    <h4 class="inner-title mb-5">Có <span style="color:#00aeef">{{ $comments->count()  }}</span> Đánh giá</h4>
+    <h4 class="inner-title mb-5">Có <span style="color:#00aeef">{{ $comments->count()  }}</span> Bình luận</h4>
     @endif
 
     @php

@@ -8,6 +8,8 @@ use App\Models\db_baotri;
 use App\Models\db_trangthai;
 use Toastr;
 use Artisan;
+
+
 class BaotriController extends Controller
 {
     public function list()
@@ -86,6 +88,37 @@ class BaotriController extends Controller
         return redirect()->route('baotri.list');
         
     }
+
+    public function delete($id){
+        $baotri = db_baotri::find($id);
+
+        $delete = $baotri->delete();
+
+        Toastr::warning('Đã xóa danh mục', 'Thông báo', ["positionClass" => "toast-top-right"]);
+
+        return redirect()->back();
+    }
+
+    public function list_restore()
+    {   
+        // lấy ra nhưng soft đã bị xóa
+        $baotri2 = db_baotri::onlyTrashed()->get();
+
+
+        return view('admin.bao-tri.khoi-phuc',['baotri2' =>$baotri2]);
+        
+    }
+
+    public function restore($id)
+    {   
+        //withTrashed mới hiêu dc hàng trong delete_at bị xóa và khôi phục
+        $baotri = db_baotri::withTrashed()->find($id);
+
+        $restore = $baotri->restore();
+        Toastr::success('Khôi phục thành công', 'Thông báo', ["positionClass" => "toast-top-right"]);
+    	return  redirect()->route('baotri.list');
+    }
+
 
 
 

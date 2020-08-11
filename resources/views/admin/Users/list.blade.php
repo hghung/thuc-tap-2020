@@ -118,6 +118,12 @@
 		<!-- .container -->
 	</section>
 
+	<script src="{{asset('public/toastr/jquery.min.js')}}"></script>
+
+    <script src="{{asset('public/toastr/toastr.min.js')}}" ></script>
+       
+	{!! Toastr::message() !!}
+	
 	<script src="{{asset('public/jquery2.0.3.min.js')}}" type="text/javascript"></script>
 
 	<script type="text/javascript">

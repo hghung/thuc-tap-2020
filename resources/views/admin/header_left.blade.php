@@ -183,7 +183,7 @@
 					<!--  -->
 					@if(Auth::user()->id_vaitro == 1)
 					<li>
-						<a href="#">
+						<a href="{{ route('backup') }}">
 							<i class="rt-icon2-download2"></i>
 							Backup
 						</a>

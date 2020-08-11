@@ -134,8 +134,12 @@ class TimkiemController extends Controller
                     </td>
                     --  --
                     <td align="center">
-                        <a href="'.route('baotri.get.edit',['id' => $row->id]).'"> 
-                            <i class="fa fa-cogs"></i>
+                        
+                        <a href="'.route('baotri.get.edit',['id' => $row->id]).'" > 
+                            <i class="fa fa-cogs" style="margin-right:20px;"></i>
+                        </a>
+                        <a href="'.route('baotri.delete',['id' => $row->id]).'" > 
+                            <i class="rt-icon2-trash" style="color:red"></i>
                         </a>
                     </td>
                 </tr>
@@ -158,6 +162,129 @@ class TimkiemController extends Controller
         echo json_encode($data);
       }
     }
+
+    public function timkiem_baotri_kp(Request $request)
+    {
+        if($request->ajax())
+        {
+            $output = '';
+            $query = $request->get('query');
+            if($query != '')
+            {
+                $user1 = db_user::all();
+                foreach($user1 as $user2);
+                {
+                    // dd($user2);
+                }
+                $data = db_baotri::onlyTrashed()
+                                ->where('tieude', 'like', '%'.$query.'%')
+                                ->orderBy('id', 'desc')
+                                ->get();
+                    
+            }
+            else
+            {
+            $data =db_baotri::onlyTrashed()
+                            ->orderBy('id', 'desc')
+                            ->get();
+            
+            }
+            $total_row = $data->count();
+            if($total_row > 0)
+            {
+            foreach($data as $row)
+            {
+                $ngay = date("d-m-Y  ",strtotime($row->ngay));
+                $gio = date(" H:i A  ",strtotime($row->gio));
+                $ngaytao = date("A H:i || d-m-Y  ",strtotime($row->created_at));
+
+                $output .= '
+                <tr class="item-editable">
+                    <td>
+                    '.$row->tieude.'
+                    </td>
+                    <td class="media-middle">
+                        <span style="color:green">
+                            '.$row->baotrikh->ho_ten.'
+                        </span>
+                    </td>
+                    <td class="media-middle">';
+                        if($row->id_nhanvien)
+                        {
+                            $output .='<span style="color:rgb(32, 46, 248)">
+                                        '.$row->baotrinv->ho_ten.'
+                                        </span>';
+                        }
+                        else
+                        {
+                            $output .= ' Chưa cập nhật';
+                        }
+
+                        
+                $output .= '</td>
+
+                    <td class="media-middle">
+                        '.$ngay.' 
+                        -
+                        '.$gio.' 
+                    </td>
+
+
+                    <td class="media-middle">';
+                        if($row->id_trangthai == 2){
+                            $output .= '<span style="color:blue">
+                                '.$row->baotristatus->trangthai.'
+                            </span>';
+                        }
+                
+                        elseif($row->id_trangthai == 1){
+                            $output .= '<span style="color:#f3aa21">
+                                '.$row->baotristatus->trangthai.'
+                            </span>';
+                        }
+
+                        elseif($row->id_trangthai == 3){
+                            $output .= '<span style="color:rgb(44, 236, 76)">
+                                '.$row->baotristatus->trangthai.'
+                            </span>';
+                        }
+
+                        elseif($row->id_trangthai == 4){
+                            $output .= '<span style="color:red">
+                                '.$row->baotristatus->trangthai.'
+                            </span>';
+                        }
+            $output .= '</td>
+                    <td class="media-middle">
+                        '.$ngaytao.' 
+                    </td>
+                    --  --
+                    <td align="center">
+                        <a href="'.route('baotri.post.kp',['id' => $row->id]).'" > 
+                            <i class="rt-icon2-tools-2"></i>
+                        </a>
+                    </td>
+                </tr>
+                ';
+          }
+        }
+        else
+        {
+          $output = '
+          <div>
+          Không có dữ liệu !
+          </div>
+          ';
+        }
+        $data = array(
+          'banhbao'  => $output,
+          'total_data'  => $total_row
+        );
+
+        echo json_encode($data);
+      }
+    }
+
 
     public function timkiem_user(Request $request)
     {
@@ -340,8 +467,102 @@ class TimkiemController extends Controller
                     </td>
                     --  --
                     <td align="center">
-                        <a href="'.route('tintuc.get.edit',['id' => $row->id]).'"> 
-                            <i class="fa fa-cogs"></i>
+                        <a href="'.route('tintuc.get.edit',['id' => $row->id]).'" > 
+                            <i class="fa fa-cogs" style="margin-right:20px;"></i>
+                        </a>
+                        <a href="'.route('tintuc.delete',['id' => $row->id]).'" > 
+                            <i class="rt-icon2-trash" style="color:red"></i>
+                        </a>
+                        
+                    </td>
+                </tr>
+                ';
+          }
+        }
+        else
+        {
+          $output = '
+          <div>
+          Không có dữ liệu !
+          </div>
+          ';
+        }
+        $data = array(
+          'banhbao'  => $output,
+          'total_data'  => $total_row
+        );
+
+        echo json_encode($data);
+      }
+    }
+
+    public function timkiem_tintuc_kp(Request $request)
+    {
+        if($request->ajax())
+        {
+            $output = '';
+            $query = $request->get('query');
+            if($query != '')
+            {
+                $user1 = db_user::all();
+                foreach($user1 as $user2);
+                {
+                    // dd($user2);
+                }
+                $data = db_tintuc::onlyTrashed()
+                                ->where('tieude', 'like', '%'.$query.'%')
+                                ->orderBy('id', 'desc')
+                                ->get();
+                    
+            }
+            else
+            {
+            $data =db_tintuc::onlyTrashed()
+                            ->orderBy('id', 'desc')
+                            ->get();
+            
+            }
+            $total_row = $data->count();
+            if($total_row > 0)
+            {
+            foreach($data as $row)
+            {
+                
+                $ngaytao = date("A H:i || d-m-Y  ",strtotime($row->created_at));
+
+                $output .= '
+                <tr class="item-editable">
+                    <td>
+                        '.$row->tieude.'
+                    </td>
+                    <td class="media-middle">
+                        <span style="color:green">
+                            '.$row->tintucuser->ho_ten.'
+                        </span>
+                    </td>
+
+                    <td class="media-middle">';
+                        if($row->id_trangthai == 2){
+                            $output .= '<span style="color:blue">
+                                '.$row->tintucstatus->trangthai.'
+                            </span>';
+                        }
+                
+                        elseif($row->id_trangthai == 1){
+                            $output .= '<span style="color:#f3aa21">
+                                '.$row->tintucstatus->trangthai.'
+                            </span>';
+                        }
+
+                    $output .=' 
+                    </td>
+                    <td class="media-middle">
+                        '.$ngaytao.' 
+                    </td>
+                    --  --
+                    <td align="center">
+                        <a href="'.route('tintuc.post.kp',['id' => $row->id]).'" > 
+                            <i class="rt-icon2-tools-2"></i>
                         </a>
                     </td>
                 </tr>
@@ -364,6 +585,8 @@ class TimkiemController extends Controller
         echo json_encode($data);
       }
     }
+
+    
 
    
 }

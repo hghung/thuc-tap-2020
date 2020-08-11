@@ -17,6 +17,8 @@ class DbTintuc extends Migration
             $table->increments('id');
             $table->string('tieude');
             $table->text('noidung');
+            $table->integer('views');
+
             $table->string('hinhanh');
 
 

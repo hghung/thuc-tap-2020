@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('tieude','DS bảo trì')
+@section('tieude','Khôi phục')
 @section('admin_content')
 	<section class="ls with_bottom_border">
 		<div class="container-fluid">
@@ -9,7 +9,7 @@
 						<li>
 							<a href="#">Dashboard</a>
 						</li>
-						<li class="active">Bảo trì</li>
+						<li class="active">Khôi phục</li>
 					</ol>
 				</div>
 				<!-- .col-* -->
@@ -32,7 +32,7 @@
 
 			<div class="row">
 				<div class="col-md-12">
-					<h3>Bảo trì</h3>
+					<h3>Khôi phục</h3>
 				</div>
 				<!-- .col-* -->
 			</div>
@@ -45,12 +45,11 @@
 						<div class="row admin-table-filters">
 							<div class="col-lg-9">
 
-								<form action="http://webdesign-finder.com/html/fixit/" class="form-inline filters-form">
+								<form action="#" class="form-inline filters-form">
 									<span>
-										<a class="btn btn-primary" style="color:#fff; border-radius:15px; font-size:12px;" href="{{route('baotri.get.add')}}">Thêm lịch bảo trì</a>
-										@if(Auth::user()->id_vaitro == 1)
-										<a class="btn btn-primary" style="color:#fff; border-radius:15px; font-size:12px; background-color: rgb(255, 174, 0)" href="{{route('baotri.kp')}}">Khôi phục</a>
-										@endif
+										<a class="btn btn-primary" style="color:#fff; border-radius:15px; font-size:12px;" href="{{route('tintuc.list')}}">Quay lại</a>
+										
+										
 									</span>
 
 								</form>
@@ -60,7 +59,7 @@
 							<div class="col-lg-3 text-lg-right">
 								<div class="widget widget_search">
 
-									<form method="get" class="searchform" action="http://webdesign-finder.com/html/fixit/">
+									<form method="get" class="searchform" action="#">
 										<!-- <div class="form-group-wrap"> -->
 										<div class="form-group">
 											<label class="sr-only" for="widget-search">Search for:</label>
@@ -89,9 +88,9 @@
 
 								</tr>
 								<tbody id="baotri">
-									{{-- start --}}
 									
-									{{-- end --}}
+
+
 								</tbody>
 
 								
@@ -112,7 +111,7 @@
 							
 						</div>
 						<div style="margin-left: 5%;" class="col-md-5 text-md-right">
-							Hiện thị có <b style="color:blue" id="total_records"></b> bảo trì
+							Hiện thị có <b style="color:blue" id="total_records"></b> tin tức
 						</div>
 					</div>
 				</div>
@@ -122,12 +121,12 @@
 		<!-- .container -->
 	</section>
 
+
 	<script src="{{asset('public/toastr/jquery.min.js')}}"></script>
 
     <script src="{{asset('public/toastr/toastr.min.js')}}" ></script>
        
-	{!! Toastr::message() !!}
-	
+    {!! Toastr::message() !!}
 
 	<script src="{{asset('public/jquery2.0.3.min.js')}}" type="text/javascript"></script>
 
@@ -140,7 +139,7 @@
 		 function fetch_customer_data(query = '')
 		 {
 		  $.ajax({
-		   url:"{{ route('timkiem.baotri') }}",
+		   url:"{{ route('timkiem.baotri.kp') }}",
 		   method:'GET',
 		   data:{query:query},
 		   dataType:'json',

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\db_tintuc;
 use Illuminate\Http\Request;
 Use Illuminate\Support\Facades\Auth;
+use Toastr;
 
 class TintucController extends Controller
 {
@@ -150,6 +151,36 @@ class TintucController extends Controller
         return redirect()->route('tintuc.list');
 
 
+    }
+
+    public function delete($id){
+        $tintuc = db_tintuc::find($id);
+
+        $delete = $tintuc->delete();
+
+        Toastr::warning('Đã xóa danh mục', 'Thông báo', ["positionClass" => "toast-top-right"]);
+
+        return redirect()->back();
+    }
+
+    public function list_restore()
+    {   
+        // lấy ra nhưng soft đã bị xóa
+        $tintuc2 = db_tintuc::onlyTrashed()->get();
+
+
+        return view('admin.tin-tuc.khoi-phuc',['tintuc2' =>$tintuc2]);
+        
+    }
+
+    public function restore($id)
+    {   
+        //withTrashed mới hiêu dc hàng trong delete_at bị xóa và khôi phục
+        $tintuc = db_tintuc::withTrashed()->find($id);
+
+        $restore = $tintuc->restore();
+        Toastr::success('Khôi phục thành công', 'Thông báo', ["positionClass" => "toast-top-right"]);
+    	return  redirect()->route('tintuc.list');
     }
 
 }

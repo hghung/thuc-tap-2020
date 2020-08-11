@@ -1,5 +1,5 @@
 @extends('page.master')
-@section('tieude','Admin')
+@section('tieude','Trang chủ')
 @section('content')  
     <section class="intro_section page_mainslider ds">
         <div class="flexslider" data-nav="false">
@@ -14,15 +14,14 @@
                                     <div class="slide_description">
                                         <div class="intro-layer" data-animation="fadeInUp">
                                             <h3>
-                                                Any Computer Problems?
+                                                Bất kỳ vấn đề máy tính ?
                                             </h3>
+                                            <br>
                                             <h2>
-                                                We Will Help
+                                                CHÚNG TÔI SẼ GIÚP
                                             </h2>
                                         </div>
-                                        <div class="intro-layer" data-animation="fadeInUp">
-                                            <a href="about.html"  class="theme_button color1 inverse">All Services</a>
-                                        </div>
+                                        
                                     </div>
                                     <!-- eof .slide_description -->
                                 </div>
@@ -44,15 +43,14 @@
                                     <div class="slide_description">
                                         <div class="intro-layer" data-animation="fadeInUp">
                                             <h3>
-                                                The Same Day
+                                                Trong ngày 
                                             </h3>
+                                            <br>
                                             <h2>
-                                                Phone Repair
+                                                SỬA CHỮA ĐIỆN THOẠI 
                                             </h2>
                                         </div>
-                                        <div class="intro-layer" data-animation="fadeInUp">
-                                            <a href="about.html" class="theme_button color1 inverse">Advantages</a>
-                                        </div>
+                                        
                                     </div>
                                     <!-- eof .slide_description -->
                                 </div>
@@ -74,15 +72,13 @@
                                     <div class="slide_description">
                                         <div class="intro-layer" data-animation="fadeInUp">
                                             <h3>
-                                                Multi-Brand
+                                                Nhiều thương hiệu
                                             </h3>
                                             <h2>
-                                                Device Service
+                                                Dịch vụ thiết bị
                                             </h2>
                                         </div>
-                                        <div class="intro-layer" data-animation="fadeInUp">
-                                            <a href="about.html" class="theme_button color1 inverse">About us</a>
-                                        </div>
+                                        
                                     </div>
                                     <!-- eof .slide_description -->
                                 </div>
@@ -146,7 +142,6 @@
                                 <div id="container1">
                                     <!-- The after image is first -->
                                     <img src="{{ asset('public/img/after.jpg')}}" alt="" />
-                                   
                                 </div>
                                 <!-- </div> -->
                             </div>
@@ -415,7 +410,7 @@
                 <div class="col-md-4 col-sm-6">
                     <article class="vertical-item content-padding big-padding with_border text-center">
                         <div class="item-media">
-                            <img src="{{asset('public/img/01.jpg')}}"  alt="">
+                            <img <img src="{{ asset('public/upload/tin-tuc') }}/{{ $tintuc->hinhanh }}"  alt="" style="width:360px; height: 240px;">
 
                             <div class="media-links">
                                 <a href="blog-single-left.html"  class="abs-link"></a>
@@ -424,29 +419,29 @@
                         </div>
                         <div class="item-content">
                             <h4 class="entry-title">
-                                <a href="blog-single-left.html" >A Note About Windows 10 Upgrades</a>
+                                <a href="{{ route('blog.detail',['id' => $tintuc->id]) }}" >{{ $tintuc->tieude }}</>
                             </h4>
-                            <p>You would find our team super-fast and active, who put work first, to deliver to you on time.</p>
+                            
                         </div>
                         <footer class="entry-meta">
                             <div>
                                 <div>
                                     <i class="fa fa-user highlight" aria-hidden="true"></i>
-                                    <span class="small-text grey">Admin</span>
+                                    <span class="small-text grey">{{ $tintuc->tintucuser->ho_ten }}</span>
                                 </div>
                             </div>
                             <div>
                                 <div>
                                     <i class="fa fa-calendar highlight" aria-hidden="true"></i>
                                     <time class="entry-date small-text grey" datetime="2017-03-13T08:50:40+00:00">
-                                        June 1
+                                        {{ date("d-m-Y",strtotime($tintuc->created_at)) }}
                                     </time>
                                 </div>
                             </div>
                             <div>
                                 <div>
-                                    <i class="fa fa-tag highlight" aria-hidden="true"></i>
-                                    <span class="small-text grey">Admin</span>
+                                    <i class="rt-icon2-eye" aria-hidden="true" style="color:#2196F3"></i>
+                                    <span class="small-text grey">{{ $tintuc->views }}</span>
                                 </div>
                             </div>
                         </footer>
@@ -454,7 +449,7 @@
                 </div>
                 @endforeach
                 
-                <a href="{{ route('get.login') }}"  style="margin-left: 45%" class="theme_button color1 two_lines bottommargin_0">Xem nhiều</a>
+                <a href="{{ route('blog') }}"  style="margin-left: 45%" class="theme_button color1 two_lines bottommargin_0">Xem nhiều</a>
 
             </div>
         </div>
