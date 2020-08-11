@@ -13,17 +13,10 @@
                         <li>
                             <a href="#">Dashboard</a>
                         </li>
-                        <li class="active">Bảo trì</li>
+                        <li class="active">Cập nhật bảo trì</li>
                     </ol>
                 </div>
                 <!-- .col-* -->
-                <div class="col-md-6 text-md-right">
-                    <span class="dashboard-daterangepicker">
-                        <i class="fa fa-calendar"></i>
-                        <span></span>
-                        <i class="caret"></i>
-                    </span>
-                </div>
                 <!-- .col-* -->
             </div>
             <!-- .row -->

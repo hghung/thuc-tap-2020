@@ -38,13 +38,10 @@ Route::group(['prefix'=>'tai-khoan','middleware'=>'Page_login'],function(){
 
 
 // admin ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-Route::group(['prefix'=>'admin', 'middleware'=>'Ad_login'],function(){
+Route::group(['prefix'=>'quan-ly', 'middleware'=>'Ad_login'],function(){
 	Route::get('/','AdminController@home')->name('admin.dashboard');
 
-
 	Route::get('/lich-bao-tri','AdminController@work')->name('admin.lich');
-
-
 
 	Route::get('/master','AdminController@master')->name('admin.layout');
 
@@ -53,11 +50,6 @@ Route::group(['prefix'=>'admin', 'middleware'=>'Ad_login'],function(){
 	Route::group(['prefix'=>'ban-do'],function(){
 		Route::get('/','AdminController@map_baotri')->name('admin.map');
 		Route::get('/map-bao-tri-{id}','AdminController@ct_map')->name('admin.ct.map');
-
-
-		
-
-
 
 	});
 
@@ -74,6 +66,11 @@ Route::group(['prefix'=>'admin', 'middleware'=>'Ad_login'],function(){
 		Route::get('/phuong-xa/{id_ward}','UsersController@ajax_ward')->name('phuongxa');
 
 		Route::post('/add','UsersController@post_add')->name('users.post.add');
+
+		Route::get('/edit-{id}','UsersController@get_edit')->name('users.get.edit');
+		Route::post('/edit-{id}','UsersController@post_edit')->name('users.post.edit');
+
+
 
 
 
@@ -137,23 +134,11 @@ Route::get('/thuctap',function(){
 	$trangthai->save();
 
 	$trangthai = new db_trangthai;
-	$trangthai->trangthai = 'Đang chuẩn bị';
-	$trangthai->save();
-
-	$trangthai = new db_trangthai;
-	$trangthai->trangthai = 'Đã sẵn sàn';
-	$trangthai->save();
-
-	$trangthai = new db_trangthai;
-	$trangthai->trangthai = 'Đang đến';
-	$trangthai->save();
-
-	$trangthai = new db_trangthai;
 	$trangthai->trangthai = 'Hoàn thành';
 	$trangthai->save();
 
 	$trangthai = new db_trangthai;
-	$trangthai->trangthai = 'Hoãn lại';
+	$trangthai->trangthai = 'Hủy';
 	$trangthai->save();
 
 	

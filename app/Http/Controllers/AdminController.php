@@ -20,7 +20,7 @@ class AdminController extends Controller
         $index['baotri'] = db_baotri::where('id_trangthai','=',3)->count();
         // thong ke
         $chart_options = [
-            'chart_title' => 'Thông kê khách hàng tham gia', // tiêu đề
+            'chart_title' => 'Thông kê khách hàng tham gia theo ngày', // tiêu đề
             'report_type' => 'group_by_date', //
             'chart_type' => 'line', // dạng biểu đồ
             'group_by_period' => 'day', // lấy ra theo ngay theo tháng

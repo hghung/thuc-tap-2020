@@ -2,7 +2,7 @@
 <html class="no-js">
 
 <head>
-	<title>Admin || @yield('tieude')</title>
+	<title>Quản lý || @yield('tieude')</title>
 	<meta charset="utf-8">
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
