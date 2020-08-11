@@ -30,6 +30,8 @@ class User extends Authenticatable
         // (tên đường dẫn, 'khoa ngoại', khóa chính)
     }
 
+  
+
     public function user_likes(){
         return $this->hasMany('App\Models\like','id_user','id');
     }

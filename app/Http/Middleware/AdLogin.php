@@ -19,12 +19,7 @@ class AdLogin
     {
        if(Auth::check())
         {
-            $user = Auth::user();
-            if($user->id_vaitro == 1  || $user->id_vaitro == 2 || $user->id_vaitro == 3 )
-                return $next($request);
-            elseif($user->id_vaitro == 4 )
-                return redirect()->route('home1');
-            
+            return $next($request);
         }       
         else
         {

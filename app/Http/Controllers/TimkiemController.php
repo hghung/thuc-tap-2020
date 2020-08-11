@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\db_baotri;
 use App\Models\db_user;
-
 use DB;
+
+Use Illuminate\Support\Facades\Auth;
 
 
 class TimkiemController extends Controller
@@ -43,18 +44,20 @@ class TimkiemController extends Controller
         $query = $request->get('query');
         if($query != '')
         {
-          $data = DB::table('db_baotri')
-                            ->join('db_user', 'db_user.id', '=', 'db_baotri.id_khachhang')
-                            ->join('db_user', 'db_user.id', '=', 'db_baotri.id_nhanvien')
-                            ->where('tieude', 'like', '%'.$query.'%')
-                            ->orwhere('ho_ten', 'like', '%'.$query.'%')
-                            ->orderBy('id', 'asc')
+            $user1 = db_user::all();
+            foreach($user1 as $user2);
+            {
+                // dd($user2);
+            }
+            $data = db_baotri::where('tieude', 'like', '%'.$query.'%')
+                            ->orderBy('id', 'desc')
                             ->get();
-            dd($data);
+                
+                // dd($data);
         }
         else
         {
-          $data =db_baotri::orderBy('id', 'asc')->get();
+          $data =db_baotri::orderBy('id', 'desc')->get();
            
         }
         $total_row = $data->count();
@@ -77,11 +80,20 @@ class TimkiemController extends Controller
                         '.$row->baotrikh->ho_ten.'
                     </span>
                 </td>
-                <td class="media-middle">
-                    <span style="color:rgb(32, 46, 248)">
-                        '.$row->baotrinv->ho_ten.'
-                    </span>
-                </td>
+                <td class="media-middle">';
+                    if($row->id_nhanvien)
+                    {
+                        $output .='<span style="color:rgb(32, 46, 248)">
+                                    '.$row->baotrinv->ho_ten.'
+                                    </span>';
+                    }
+                    else
+                    {
+                        $output .= ' Chưa cập nhật';
+                    }
+
+                    
+    $output .= '</td>
 
                 <td class="media-middle">
                     '.$ngay.' 
@@ -92,12 +104,24 @@ class TimkiemController extends Controller
 
                 <td class="media-middle">';
                     if($row->id_trangthai == 2){
-                        $output .= '<span style="color:rgb(44, 236, 76)">
+                        $output .= '<span style="color:blue">
                             '.$row->baotristatus->trangthai.'
                         </span>';
                     }
             
                     elseif($row->id_trangthai == 1){
+                        $output .= '<span style="color:#f3aa21">
+                            '.$row->baotristatus->trangthai.'
+                        </span>';
+                    }
+
+                    elseif($row->id_trangthai == 3){
+                        $output .= '<span style="color:rgb(44, 236, 76)">
+                            '.$row->baotristatus->trangthai.'
+                        </span>';
+                    }
+
+                    elseif($row->id_trangthai == 4){
                         $output .= '<span style="color:red">
                             '.$row->baotristatus->trangthai.'
                         </span>';
@@ -108,7 +132,7 @@ class TimkiemController extends Controller
                 </td>
                 --  --
                 <td align="center">
-                    <a href="#"> 
+                    <a href="'.route('baotri.get.edit',['id' => $row->id]).'"> 
                         <i class="fa fa-cogs"></i>
                     </a>
                 </td>
@@ -207,11 +231,29 @@ class TimkiemController extends Controller
                     }
             
     $output .='   </td>
-                <td align="center">
-                    <a href="#"> 
-                        <i class="fa fa-cogs"></i>
-                    </a>
-                </td>
+                <td align="center">';
+                    if(Auth::user()->id_vaitro == 2)
+                    {
+                        if($row->id == 1)
+                        {
+                            $output .='Của admin';
+                        }
+                        else
+                        {
+                            $output .='<a href="'.route('users.get.edit',['id' => $row->id]).'"> 
+                                <i class="fa fa-cogs"></i>
+                            </a>';
+                        }
+                    }
+                    elseif(Auth::user()->id_vaitro == 1)
+                    {
+                        $output .='<a href="'.route('users.get.edit',['id' => $row->id]).'"> 
+                            <i class="fa fa-cogs"></i>
+                        </a>';
+                    }
+
+                    
+$output .='    </td>
             </tr>
             ';
           }
