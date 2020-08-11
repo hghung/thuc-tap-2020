@@ -135,7 +135,7 @@
 					<li>
 						<a href="{{route('users.list')}}">
 							<i class="fa fa-users"></i>
-							Users
+							Người dùng
 						</a>
 					</li>
 					<!--  -->
@@ -150,7 +150,7 @@
 					<li>
 						<a href="#">
 							<i class="rt-icon2-pencil"></i>
-							Blog
+							Tin tức
 						</a>
 					</li>
 					

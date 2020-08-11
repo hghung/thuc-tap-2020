@@ -56,7 +56,17 @@ class BaotriController extends Controller
     }
     public function post_edit($id, Request $post)
     {
-        $user['baotri']= db_trangthai::find($id);
+        $baotri= db_baotri::find($id);
+        $baotri->tieude = $post->tieude;
+        $baotri->noidung = $post->noidung;
+        $baotri->ngay = $post->ngay;
+        $baotri->gio = $post->gio;
+        $baotri->id_trangthai = $post->trangthai;
+        $baotri->id_khachhang  = $post->khachhang;
+        $baotri->id_nhanvien  = $post->nhanvien;
+        $baotri->save();
+
+        return redirect()->route('baotri.list');
         
     }
 
