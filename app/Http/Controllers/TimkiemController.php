@@ -44,10 +44,13 @@ class TimkiemController extends Controller
         if($query != '')
         {
           $data = DB::table('db_baotri')
+                            ->join('db_user', 'db_user.id', '=', 'db_baotri.id_khachhang')
+                            ->join('db_user', 'db_user.id', '=', 'db_baotri.id_nhanvien')
                             ->where('tieude', 'like', '%'.$query.'%')
-                            ->orwhere('id_khachhang', 'like', '%'.$query.'%')
+                            ->orwhere('ho_ten', 'like', '%'.$query.'%')
                             ->orderBy('id', 'asc')
                             ->get();
+            dd($data);
         }
         else
         {
