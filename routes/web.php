@@ -12,7 +12,11 @@
  */
 // fhvhfhfgh
 
+<<<<<<< HEAD
 Route::get('/','PageController@home')->name('home1');
+=======
+Route::get('/','PageController@home');
+>>>>>>> 9dd692991ce6242c00d7a5b51a28a80d38855ede
 Route::get('/test-{id}','AdminController@test_map');
 
 Route::get('/dang-nhap','LoginController@login')->name('get.login');
