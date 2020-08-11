@@ -21,7 +21,7 @@
 
     <section class="ls section_padding_top_50 section_padding_bottom_50 columns_padding_10">
         <div class="container-fluid">
-
+            @include('erorr')
             <div class="row">
                 <div class="col-xs-12">
 
@@ -208,9 +208,9 @@
                                     </div>
 
                                     {{-- lat --}}
-                                    <input type="hidden" class="form-control" name="lat" id="lat">
+                                    <input type="hidden" class="form-control" name="lat" id="lat" value="{{ $edit->user->diachi->lat }}">
                                     {{-- lng --}}
-                                    <input type="hidden" class="form-control" name="lng" id="lng">
+                                    <input type="hidden" class="form-control" name="lng" id="lng" value="{{ $edit->user->diachi->lng }}">
 
                                     <style>
                                         #map

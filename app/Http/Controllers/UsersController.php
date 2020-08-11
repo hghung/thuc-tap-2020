@@ -188,15 +188,22 @@ class UsersController extends Controller
 
     public function post_edit(Request $users, $id)
     {   
-        $this->validate($users,[
-            'password' => 'required',
-            'confirmpassword' => 'required|same:password',
-
-        ],[
-            'confirmpassword.required' => 'Bạn chưa nhập lại mật khẩu !',
-            'confirmpassword.same' => 'Nhập lại mật khẩu không trùng khớp !'
-        ]);
-
+        if(Auth::user()->id_vaitro == 4)
+        {
+            if($users->password)
+            {
+                $this->validate($users,[
+                    'password' => 'required',
+                    'confirmpassword' => 'required|same:password',
+                ],[
+                    'password.required' => 'Bạn chưa nhập mật khẩu !',
+                    'confirmpassword.required' => 'Bạn chưa nhập lại mật khẩu !',
+                    'confirmpassword.same' => 'Nhập lại mật khẩu không trùng khớp !'
+                ]);
+            }
+            
+        }
+        
         $user =  db_user::find($id);
         $user->ho_ten = $users->name;
         $user->sdt = $users->phone;
@@ -244,7 +251,7 @@ class UsersController extends Controller
             $file->move('public/upload/avatar',$hinh_anh);
 
             if($user->avatar){
-                unlink('public/upload/products/'.$user->avatar);
+                unlink('public/upload/avatar/'.$user->avatar);
                 $user->avatar = $hinh_anh;
 
 
@@ -259,13 +266,13 @@ class UsersController extends Controller
             
         }
         // end avatar
-        // dd($user);
         $user->save();
-        $bb = $user->user2->id;
-        echo $bb;die;
 
         $taikhoan = User::find($user->user2->id);
-        $taikhoan->password =  bcrypt($users->password);
+        if($users->password)
+        {
+            $taikhoan->password =  bcrypt($users->password);
+        }
         $taikhoan->trang_thai = 1;
         $taikhoan->id_user  = $user->id;
 
@@ -287,12 +294,13 @@ class UsersController extends Controller
             }
             $taikhoan->save();
         }
-        else{
-            $taikhoan->id_vaitro = 4;
-            $taikhoan->save();
-            $taikhoan->username = "db_user_0".$user->id;
-            $taikhoan->save();
-        }
+        // cập nhật thì ko cần else
+        // else{
+        //     $taikhoan->id_vaitro = 4;
+        //     $taikhoan->save();
+        //     $taikhoan->username = "db_user_0".$user->id;
+        //     $taikhoan->save();
+        // }
         
         // ///////////////////////////
         $diachi = db_diachi::find($user->diachi->id);
@@ -304,6 +312,14 @@ class UsersController extends Controller
         $diachi->id_user   = $user->id;
         // dd($diachi);
         $diachi->save();
+        if(Auth::user()->id_vaitro == 3 || Auth::user()->id_vaitro == 4)
+        {
+            return redirect()->route('users.profile');
+        }
+        else
+        {
+            return redirect()->route('users.list');
+        }
 
     }
 

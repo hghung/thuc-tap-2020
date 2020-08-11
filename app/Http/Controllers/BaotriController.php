@@ -35,13 +35,30 @@ class BaotriController extends Controller
         $baotri->noidung = $baotri2->noidung;
         $baotri->ngay = $baotri2->ngay;
         $baotri->gio = $baotri2->gio;
-        $baotri->id_trangthai = $baotri2->trangthai;
-        $baotri->id_khachhang  = $baotri2->khachhang;
-        $baotri->id_nhanvien  = $baotri2->nhanvien;
+        if(Auth::user()->id_vaitro == 4)
+        {
+            $baotri->id_khachhang  = Auth::user()->user->id;
+            $baotri->id_trangthai = 1;
+
+        }
+        else
+        {
+            $baotri->id_trangthai = $baotri2->trangthai;
+            $baotri->id_khachhang  = $baotri2->khachhang;
+            $baotri->id_nhanvien  = $baotri2->nhanvien;
+        }
+        
 
         $baotri->save();
+        if(Auth::user()->id_vaitro == 4)
+        {
+            return redirect()->route('admin.dashboard');
 
-        return redirect()->route('baotri.list');
+        }
+        else
+        {
+            return redirect()->route('baotri.list');
+        }
     }
 
     public function get_edit($id)
