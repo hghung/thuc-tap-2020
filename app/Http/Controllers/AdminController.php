@@ -90,7 +90,8 @@ class AdminController extends Controller
         $work['work'] = db_baotri::where('id_nhanvien','=',$id)
                                     ->orderBy('id', 'desc')
                                     ->get();
-
+        
+        
                                     // dd($work);
         return view('admin.bao-tri.work',$work);
     }

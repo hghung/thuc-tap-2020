@@ -101,6 +101,7 @@
 
 					</li>
 
+					@if(Auth::user()->id_vaitro == 3)
 					<li>
 						<a href="{{route('admin.lich')}}">
 							<i class="fa fa-calendar" aria-hidden="true"></i>
@@ -108,6 +109,7 @@
 						</a>
 
 					</li>
+					@endif
 				</ul>
 
 				@elseif(Auth::user()->id_vaitro == 4)
@@ -166,12 +168,7 @@
 					</li>
 					<!--  -->
 
-					<li>
-						<a href="{{route('users.list')}}">
-							<i class="rt-icon2-pictures"></i>
-							Banner lớn
-						</a>
-					</li>
+				
 
 					<li>
 						<a href="{{ route('tintuc.list') }}">
