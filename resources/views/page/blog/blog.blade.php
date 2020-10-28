@@ -32,7 +32,7 @@
 
                             <article class="vertical-item content-padding big-padding with_border text-center">
                                 <div class="item-media">
-                                    <img src="{{ asset('public/upload/tin-tuc') }}/{{ $tintuc->hinhanh }}"  alt="" style="width:360px; height: 240px;">
+                                    <img src="{{ $tintuc->path }}"  alt="" style="width:360px; height: 240px;">
 
                                     <div class="media-links">
                                         <a href="blog-single-left.html"  class="abs-link"></a>

@@ -66,6 +66,9 @@ class TintucController extends Controller
             // echo $name; die; 
             $file->move('public/upload/tin-tuc',$hinh_anh);
             $blog->hinhanh = $hinh_anh;
+            //moi
+            $blog->path = 'public/upload/tin-tuc/'.$hinh_anh;
+
 
             // if($user->kh_avatar){
             //     unlink('public/upload/avatar/'.$user->kh_avatar);
@@ -138,6 +141,8 @@ class TintucController extends Controller
             if($blog->hinhanh){
                 unlink('public/upload/tin-tuc'.$blog->hinhanh);
                 $blog->hinhanh = $hinh_anh;
+                $blog->path = 'public/upload/tin-tuc/'.$hinh_anh;
+
 
             }
             else

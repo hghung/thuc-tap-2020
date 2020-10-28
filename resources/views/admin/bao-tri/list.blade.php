@@ -60,7 +60,7 @@
 							<div class="col-lg-3 text-lg-right">
 								<div class="widget widget_search">
 
-									<form method="get" class="searchform" action="http://webdesign-finder.com/html/fixit/">
+									<form method="get" class="searchform" action="#">
 										<!-- <div class="form-group-wrap"> -->
 										<div class="form-group">
 											<label class="sr-only" for="widget-search">Search for:</label>
